@@ -1,103 +1,143 @@
+"use client";
+
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { inventoryList } from "@/data/InventoryData";
+import { BaseItem } from "@/types/_BaseItem";
+import { CheckedState } from "@radix-ui/react-checkbox";
+import { useState } from "react";
 import Image from "next/image";
-
+import Ducats from "../public/images/Ducats.png";
+import Credits from "../public/images/Credits.png";
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [selected, setSelected] = useState<BaseItem[]>([]);
+  const [ducats, setDucats] = useState<number>(0);
+  const [credits, setCredits] = useState<number>(0);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const updateSelected = (checked: CheckedState, id: string) => {
+    if (checked === true) {
+      const updatedSelected = selected;
+      const item = inventoryList.filter((item) => item.id === id)[0];
+      setDucats(ducats + item.ducats);
+      setCredits(credits + item.credits);
+
+      updatedSelected.push(item);
+      setSelected(updatedSelected);
+    } else {
+      const item = inventoryList.filter((item) => item.id === id)[0];
+      setDucats(ducats - item.ducats);
+      setCredits(credits - item.credits);
+
+      setSelected(selected.filter((item) => item.id !== id));
+    }
+  };
+
+  const selectAll = (checked: CheckedState) => {
+    if (checked === true) {
+      setSelected(inventoryList);
+      setDucats(
+        inventoryList
+          .map((item) => item.ducats)
+          .reduce((partialSum, a) => partialSum + a, 0)
+      );
+      setCredits(
+        inventoryList
+          .map((item) => item.credits)
+          .reduce((partialSum, a) => partialSum + a, 0)
+      );
+    } else {
+      setSelected([]);
+      setDucats(0);
+      setCredits(0);
+    }
+  };
+
+  return (
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          Void Trader
+        </h1>
+        <div className="container mx-auto py-10">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>
+                  <Checkbox
+                    disabled
+                    onCheckedChange={(checked) => selectAll(checked)}
+                  ></Checkbox>
+                </TableHead>
+                <TableHead>Name</TableHead>
+                <TableHead className="text-right">Ducats</TableHead>
+                <TableHead className="text-right">Credits</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {inventoryList.map((item, index) => (
+                <TableRow key={`${item.name}-${index}`}>
+                  <TableCell>
+                    <Checkbox
+                      onCheckedChange={(checked) =>
+                        updateSelected(checked, item.id)
+                      }
+                    ></Checkbox>
+                  </TableCell>
+                  <TableCell>{item.name}</TableCell>
+                  <TableCell className="text-right">{item.ducats}</TableCell>
+                  <TableCell className="text-right">{item.credits}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell>Total</TableCell>
+                <TableCell className="text-right">
+                  <div className="flex flex-row justify-end">
+                    <Image
+                      src={Ducats}
+                      alt={"Ducats"}
+                      width={20}
+                      height={20}
+                      priority={true}
+                    />
+                    <p>
+                      {ducats === 0 ? ducats : ducats.toLocaleString(undefined)}
+                    </p>
+                  </div>
+                </TableCell>
+                <TableCell className="text-right">
+                  <div className="flex flex-row justify-end">
+                    <Image
+                      src={Credits}
+                      alt={"Credits"}
+                      width={20}
+                      height={20}
+                      priority={true}
+                    />
+                    <p>
+                      {credits === 0
+                        ? credits
+                        : credits.toLocaleString(undefined)}
+                    </p>
+                  </div>
+                </TableCell>
+              </TableRow>
+            </TableFooter>
+            <TableCaption>My Shopping List For Baro</TableCaption>
+          </Table>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
