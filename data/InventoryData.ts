@@ -1,5 +1,5 @@
 import { BaseItem } from "@/types/_BaseItem";
-import { Cosmetic } from "@/types/Cosmetic/_Cosmetic";
+import { Cosmetic, CosmeticType } from "@/types/Cosmetic/_Cosmetic";
 import { Equipment, EquipmentType } from "@/types/Equipment/_Equipment";
 import { Sentinel, SentinelType } from "@/types/Equipment/Sentinel";
 import { Weapon, WeaponType } from "@/types/Equipment/Weapon";
@@ -408,7 +408,9 @@ const somachordList: Other[] = [ {
   otherType: OtherType.Somachord,
 } ]
 
-const otherList: Other[] = [ ...boosterList, ...capturaSceneList, ...colourPalletList, ...consumableList, ...missionLocatorList, ...questList, ...relicList, ...somachordList ];
+const otherList: Other[] = [ ...boosterList, ...capturaSceneList, ...colourPalletList,
+                             ...consumableList, ...missionLocatorList, ...questList,
+                             ...relicList, ...somachordList ];
 
 const warframeModList: Mod[] = [ {
   name: 'Primed Continuity',
@@ -944,10 +946,48 @@ const companionModList: Mod[] = [ {
   modSubType: ModSubType.Prime
 } ];
 
-const modList: Mod[] = [ ...warframeModList, ...rifleModList, ...pistolModList, ...shotgunMods, ...meleeModList, ...stancesModList, ...archwingModList, ...archgunModList, ...companionModList ];
+const modList: Mod[] = [ ...warframeModList, ...rifleModList, ...pistolModList,
+                         ...shotgunMods, ...meleeModList, ...stancesModList,
+                         ...archwingModList, ...archgunModList, ...companionModList ];
 
 const warframeCosmeticList: Cosmetic[] = [];
 
-const cosmeticsList: Cosmetic[] = [ ...warframeCosmeticList ];
+const armourCosmeticList: Cosmetic[] = [];
 
-export const inventoryList: BaseItem[] = [ ...equipmentList, ...otherList, ...modList, ...cosmeticsList ];
+const syandanaCosmeticList: Cosmetic[] = [];
+
+const ephemeraCosmeticList: Cosmetic[] = [];
+
+const weaponCosmeticList: Cosmetic[] = [];
+
+const sugatraCosmeticList: Cosmetic[] = [];
+
+const operatorCosmeticList: Cosmetic[] = [];
+
+const companionCosmeticList: Cosmetic[] = [];
+
+const archwingCosmeticList: Cosmetic[] = [];
+
+const kdriveCosmeticList: Cosmetic[] = [];
+
+const landingcraftCosmeticList: Cosmetic[] = [];
+
+const orbiterCosmeticList: Cosmetic[] = [];
+
+const decorationsCosmeticList: Cosmetic[] = [];
+
+const emblemsCosmeticList: Cosmetic[] = [];
+
+const sigilsCosmeticList: Cosmetic[] = [];
+
+const glyphsCosmeticList: Cosmetic[] = [];
+
+const cosmeticsList: Cosmetic[] = [ ...warframeCosmeticList, ...armourCosmeticList, ...syandanaCosmeticList,
+                                    ...ephemeraCosmeticList, ...weaponCosmeticList, ...sugatraCosmeticList,
+                                    ...operatorCosmeticList, ...companionCosmeticList, ...archwingCosmeticList,
+                                    ...kdriveCosmeticList, ...landingcraftCosmeticList, ...orbiterCosmeticList,
+                                    ...decorationsCosmeticList, ...emblemsCosmeticList, ...sigilsCosmeticList,
+                                    ...glyphsCosmeticList ];
+
+export const inventoryList: BaseItem[] = [ ...equipmentList, ...otherList, ...modList,
+                                           ...cosmeticsList ];
