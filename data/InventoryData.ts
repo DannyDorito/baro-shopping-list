@@ -956,7 +956,24 @@ const armourCosmeticList: Cosmetic[] = [];
 
 const syandanaCosmeticList: Cosmetic[] = [];
 
-const ephemeraCosmeticList: Cosmetic[] = [];
+const ephemeraCosmeticList: Cosmetic[] = [{
+  name: `Ki'teer Reverence Ephemera`,
+  ducats: 250,
+  credits: 350000,
+  cosmeticType: CosmeticType.Ephemera
+},
+{
+  name: 'Fae Path Ephemera',
+  ducats: 15,
+  credits: 1000,
+  cosmeticType: CosmeticType.Ephemera
+},
+{
+  name: 'Lotus Ephemera',
+  ducats: 250,
+  credits: 450000,
+  cosmeticType: CosmeticType.Ephemera
+}];
 
 const weaponCosmeticList: Cosmetic[] = [];
 
