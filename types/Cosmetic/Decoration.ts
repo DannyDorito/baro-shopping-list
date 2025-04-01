@@ -1,13 +1,12 @@
-
 import { Cosmetic, CosmeticType } from "./_Cosmetic";
 
 export class Decoration extends Cosmetic
 {
   decorationType: DecorationType;
 
-  constructor( id: string, name: string, ducats: number, credits: number, cosmeticType: CosmeticType, decorationType: DecorationType )
+  constructor( name: string, ducats: number, credits: number, cosmeticType: CosmeticType, decorationType: DecorationType )
   {
-    super( id, name, ducats, credits, cosmeticType );
+    super( name, ducats, credits, cosmeticType );
     this.decorationType = decorationType;
   }
 }

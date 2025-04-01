@@ -1,13 +1,12 @@
-
 import { BaseItem } from "../_BaseItem";
 
 export class Cosmetic extends BaseItem
 {
   cosmeticType: CosmeticType;
 
-  constructor( id: string, name: string, ducats: number, credits: number, cosmeticType: CosmeticType )
+  constructor( name: string, ducats: number, credits: number, cosmeticType: CosmeticType )
   {
-    super( id, name, ducats, credits );
+    super( name, ducats, credits );
     this.cosmeticType = cosmeticType;
   }
 }

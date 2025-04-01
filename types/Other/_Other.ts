@@ -1,13 +1,12 @@
-
 import { BaseItem } from "../_BaseItem";
 
 export class Other extends BaseItem
 {
   otherType: OtherType;
 
-  constructor( id: string, name: string, ducats: number, credits: number, otherType: OtherType )
+  constructor( name: string, ducats: number, credits: number, otherType: OtherType )
   {
-    super( id, name, ducats, credits );
+    super( name, ducats, credits );
     this.otherType = otherType;
   }
 }
@@ -15,7 +14,7 @@ export class Other extends BaseItem
 export enum OtherType
 {
   Booster,
-  CapturaScene,
+  CapturerScene,
   ColourPalette,
   Consumable,
   MissionLocator,
