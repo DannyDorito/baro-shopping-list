@@ -12,7 +12,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpDown, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -26,22 +26,40 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { JSX, useEffect, useState } from "react";
-import { BaseItem } from "@/types/_BaseItem";
+import {
+  BaseItem,
+  CosmeticType,
+  DecorationType,
+  EquipmentType,
+  ModSubType,
+  ModType,
+  OtherType,
+  SentinelType,
+  WeaponType,
+} from "@/types/BaseItem";
 import { inventoryList as data } from "@/data/InventoryData";
 import Image from "next/image";
 import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
 import Link from "next/link";
 import useLocalStorage from "@/lib/uselocalstorage";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 const getSortingArrow = (sorting: false | SortDirection): JSX.Element => {
-  if (sorting === "asc")
-    return <ArrowUp />
-  else if (sorting === "desc")
-    return <ArrowDown />
-  else
-    return <ArrowUpDown />
-}
+  if (sorting === "asc") return <ArrowUp />;
+  else if (sorting === "desc") return <ArrowDown />;
+  else return <ArrowUpDown />;
+};
 
 const columns: ColumnDef<BaseItem>[] = [
   {
@@ -67,7 +85,7 @@ const columns: ColumnDef<BaseItem>[] = [
     ),
     enableSorting: false,
     enableHiding: false,
-    enableResizing: false
+    enableResizing: false,
   },
   {
     accessorKey: "name",
@@ -144,13 +162,39 @@ const columns: ColumnDef<BaseItem>[] = [
       </div>
     ),
   },
+  {
+    accessorKey: "decorationType",
+  },
+  {
+    accessorKey: "cosmeticType",
+  },
+  {
+    accessorKey: "equipmentType",
+  },
+  {
+    accessorKey: "sentinelType",
+  },
+  {
+    accessorKey: "weaponType",
+  },
+  {
+    accessorKey: "modType",
+  },
+  {
+    accessorKey: "modSubType",
+  },
+  {
+    accessorKey: "otherType",
+  },
 ];
 
 export const InventoryTable = () => {
-  const [sorting, setSorting] = useState<SortingState>([{
-    id: 'name',
-    desc: false,
-  }]);
+  const [sorting, setSorting] = useState<SortingState>([
+    {
+      id: "name",
+      desc: false,
+    },
+  ]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   const [rowSelection, setRowSelection] = useLocalStorage("rowSelection", {});
@@ -172,7 +216,22 @@ export const InventoryTable = () => {
       sorting,
       columnFilters,
       rowSelection,
-    }
+    },
+    initialState: {
+      columnVisibility: {
+        name: true,
+        ducats: true,
+        credits: true,
+        decorationType: false,
+        cosmeticType: false,
+        equipmentType: false,
+        sentinelType: false,
+        weaponType: false,
+        modType: false,
+        modSubType: false,
+        otherType: false,
+      },
+    },
   });
 
   useEffect(() => {
@@ -186,7 +245,6 @@ export const InventoryTable = () => {
       ducats += sr.ducats;
       credits += sr.credits;
     });
-
 
     setDucats(ducats);
     setCredits(credits);
@@ -202,19 +260,210 @@ export const InventoryTable = () => {
   //   }
   // }, [acceptedToast])
 
+  const setFilter = (
+    type:
+      | "otherType"
+      | "equipmentType"
+      | "cosmeticType"
+      | "sentinelType"
+      | "weaponType"
+      | "modType"
+      | "modSubType"
+      | "decorationType",
+    value: string
+  ) => {
+    let filterValue = "";
+    switch (type) {
+      case "otherType":
+        filterValue = OtherType[value as keyof typeof OtherType].toString();
+        break;
+      case "equipmentType":
+        filterValue =
+          EquipmentType[value as keyof typeof EquipmentType].toString();
+        break;
+      case "cosmeticType":
+        filterValue =
+          CosmeticType[value as keyof typeof CosmeticType].toString();
+        break;
+      case "sentinelType":
+        filterValue =
+          SentinelType[value as keyof typeof SentinelType].toString();
+        break;
+      case "weaponType":
+        filterValue = WeaponType[value as keyof typeof WeaponType].toString();
+        break;
+      case "modType":
+        filterValue = ModType[value as keyof typeof ModType].toString();
+        break;
+      case "modSubType":
+        filterValue = ModSubType[value as keyof typeof ModSubType].toString();
+        break;
+      case "decorationType":
+        filterValue =
+          DecorationType[value as keyof typeof DecorationType].toString();
+        break;
+      default:
+        break;
+    }
+    setColumnFilters([]);
+    table.getColumn(type)?.setFilterValue(filterValue);
+  };
+
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="ml-auto mr-3">
+              Filter <ChevronDown />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Equipment</DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  {Object.keys(EquipmentType)
+                    .filter(
+                      (key) =>
+                        !isNaN(
+                          EquipmentType[key as keyof typeof EquipmentType]
+                        ) && key !== "None"
+                    )
+                    .map((e) => (
+                      <DropdownMenuCheckboxItem
+                        key={e}
+                        onCheckedChange={() => setFilter("equipmentType", e)}
+                      >
+                        {e.replace("_", " ")}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Cosmetics</DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  {Object.keys(CosmeticType)
+                    .filter(
+                      (key) =>
+                        !isNaN(
+                          CosmeticType[key as keyof typeof CosmeticType]
+                        ) && key !== "None"
+                    )
+                    .map((e) => (
+                      <DropdownMenuCheckboxItem
+                        key={e}
+                        onCheckedChange={() => setFilter("cosmeticType", e)}
+                      >
+                        {e.replace("_", " ")}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Weapon</DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  {Object.keys(WeaponType)
+                    .filter(
+                      (key) =>
+                        !isNaN(WeaponType[key as keyof typeof WeaponType]) &&
+                        key !== "None"
+                    )
+                    .map((e) => (
+                      <DropdownMenuCheckboxItem
+                        key={e}
+                        onCheckedChange={() => setFilter("weaponType", e)}
+                      >
+                        {e.replace("_", " ")}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Mod</DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  {Object.keys(ModType)
+                    .filter(
+                      (key) =>
+                        !isNaN(ModType[key as keyof typeof ModType]) &&
+                        key !== "None"
+                    )
+                    .map((e) => (
+                      <DropdownMenuCheckboxItem
+                        key={e}
+                        onCheckedChange={() => setFilter("modType", e)}
+                      >
+                        {e.replace("_", " ")}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Decoration</DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  {Object.keys(DecorationType)
+                    .filter(
+                      (key) =>
+                        !isNaN(
+                          DecorationType[key as keyof typeof DecorationType]
+                        ) && key !== "None"
+                    )
+                    .map((e) => (
+                      <DropdownMenuCheckboxItem
+                        key={e}
+                        onCheckedChange={() => setFilter("decorationType", e)}
+                      >
+                        {e.replace("_", " ")}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Other</DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  {Object.keys(OtherType)
+                    .filter(
+                      (key) =>
+                        !isNaN(OtherType[key as keyof typeof OtherType]) &&
+                        key !== "None"
+                    )
+                    .map((e) => (
+                      <DropdownMenuCheckboxItem
+                        key={e}
+                        onCheckedChange={() => setFilter("otherType", e)}
+                      >
+                        {e.replace("_", " ")}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+          </DropdownMenuContent>
+        </DropdownMenu>
         <Input
-          placeholder="Filter Name..."
+          placeholder="Search"
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-full"
         />
-        <Button className="ml-3" onClick={() => setColumnFilters([])}>Clear</Button>
-        <Button className="ml-3" onClick={() => setRowSelection({})} >Deselect All</Button>
+        <Button className="ml-3" onClick={() => setColumnFilters([])}>
+          Clear
+        </Button>
+        <Button className="ml-3" onClick={() => setRowSelection({})}>
+          Deselect All
+        </Button>
       </div>
       <div className="rounded-md border">
         <Table>
@@ -277,7 +526,7 @@ export const InventoryTable = () => {
                     height={20}
                     priority={true}
                   />
-                    {ducats === 0 ? ducats : ducats.toLocaleString(undefined)}
+                  {ducats === 0 ? ducats : ducats.toLocaleString(undefined)}
                 </div>
               </TableCell>
               <TableCell className="text-right">
@@ -289,9 +538,7 @@ export const InventoryTable = () => {
                     height={20}
                     priority={true}
                   />
-                    {credits === 0
-                      ? credits
-                      : credits.toLocaleString(undefined)}
+                  {credits === 0 ? credits : credits.toLocaleString(undefined)}
                 </div>
               </TableCell>
             </TableRow>
