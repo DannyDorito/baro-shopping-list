@@ -6,6 +6,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { BaseItem } from "@/types/BaseItem";
+import { Table } from "@tanstack/react-table";
 import {
   ChevronsLeft,
   ChevronLeft,
@@ -13,7 +15,7 @@ import {
   ChevronsRight,
 } from "lucide-react";
 
-export const InventoryPagination = ({ table }: { table: any }) => (
+export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
   <div className="space-x-3 flex items-center">
     <Button
       variant="outline"

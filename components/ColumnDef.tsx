@@ -23,7 +23,7 @@ export const getSortingArrow = (sorting: false | SortDirection): JSX.Element => 
 const defaultFilterFn = (
   row: Row<BaseItem>,
   columnId: string,
-  filterValue: any
+  filterValue: unknown[]
 ) => {
   const rowValue = row.getValue(columnId);
   return filterValue.includes(rowValue);
