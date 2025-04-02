@@ -12,6 +12,16 @@ export interface BaseItem {
   decorationType: DecorationType;
 }
 
+export type InventoryType =
+  | typeof OtherType
+  | typeof EquipmentType
+  | typeof CosmeticType
+  | typeof SentinelType
+  | typeof WeaponType
+  | typeof ModType
+  | typeof ModSubType
+  | typeof DecorationType;
+
 export enum OtherType {
   None,
   Booster,

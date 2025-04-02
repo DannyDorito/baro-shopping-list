@@ -31,10 +31,9 @@ import {
   CosmeticType,
   DecorationType,
   EquipmentType,
-  ModSubType,
+  InventoryType,
   ModType,
   OtherType,
-  SentinelType,
   WeaponType,
 } from "@/types/BaseItem";
 import { inventoryList as data } from "@/data/InventoryData";
@@ -45,15 +44,10 @@ import Link from "next/link";
 import useLocalStorage from "@/lib/uselocalstorage";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuPortal,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import { InventoryDropdown } from "./InventoryDropdown";
 
 const getSortingArrow = (sorting: false | SortDirection): JSX.Element => {
   if (sorting === "asc") return <ArrowUp />;
@@ -222,14 +216,14 @@ export const InventoryTable = () => {
         name: true,
         ducats: true,
         credits: true,
-        decorationType: false,
-        cosmeticType: false,
-        equipmentType: false,
-        sentinelType: false,
-        weaponType: false,
-        modType: false,
-        modSubType: false,
-        otherType: false,
+        decorationType: true,
+        cosmeticType: true,
+        equipmentType: true,
+        sentinelType: true,
+        weaponType: true,
+        modType: true,
+        modSubType: true,
+        otherType: true,
       },
     },
   });
@@ -261,52 +255,23 @@ export const InventoryTable = () => {
   // }, [acceptedToast])
 
   const setFilter = (
-    type:
-      | "otherType"
-      | "equipmentType"
-      | "cosmeticType"
-      | "sentinelType"
-      | "weaponType"
-      | "modType"
-      | "modSubType"
-      | "decorationType",
-    value: string
+    type: InventoryType,
+    column: string,
+    value: string,
+    checked: boolean
   ) => {
-    let filterValue = "";
-    switch (type) {
-      case "otherType":
-        filterValue = OtherType[value as keyof typeof OtherType].toString();
-        break;
-      case "equipmentType":
-        filterValue =
-          EquipmentType[value as keyof typeof EquipmentType].toString();
-        break;
-      case "cosmeticType":
-        filterValue =
-          CosmeticType[value as keyof typeof CosmeticType].toString();
-        break;
-      case "sentinelType":
-        filterValue =
-          SentinelType[value as keyof typeof SentinelType].toString();
-        break;
-      case "weaponType":
-        filterValue = WeaponType[value as keyof typeof WeaponType].toString();
-        break;
-      case "modType":
-        filterValue = ModType[value as keyof typeof ModType].toString();
-        break;
-      case "modSubType":
-        filterValue = ModSubType[value as keyof typeof ModSubType].toString();
-        break;
-      case "decorationType":
-        filterValue =
-          DecorationType[value as keyof typeof DecorationType].toString();
-        break;
-      default:
-        break;
+    table.resetColumnFilters(true);
+
+    if (checked) {
+      const filterValue = type[value as keyof typeof type].toString();
+      table.getColumn(column)?.setFilterValue(filterValue);
     }
-    setColumnFilters([]);
-    table.getColumn(type)?.setFilterValue(filterValue);
+  };
+
+  const getChecked = (type: InventoryType, column: string, value: string) => {
+    const filterType = type[value as keyof typeof type].toString();
+    const filterValue = table.getColumn(column)?.getFilterValue() as string;
+    return filterType === filterValue;
   };
 
   return (
@@ -315,139 +280,47 @@ export const InventoryTable = () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto mr-3">
-              Filter <ChevronDown />
+              Filter&nbsp;
+              <ChevronDown />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Equipment</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  {Object.keys(EquipmentType)
-                    .filter(
-                      (key) =>
-                        !isNaN(
-                          EquipmentType[key as keyof typeof EquipmentType]
-                        ) && key !== "None"
-                    )
-                    .map((e) => (
-                      <DropdownMenuCheckboxItem
-                        key={e}
-                        onCheckedChange={() => setFilter("equipmentType", e)}
-                      >
-                        {e.replace("_", " ")}
-                      </DropdownMenuCheckboxItem>
-                    ))}
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Cosmetics</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  {Object.keys(CosmeticType)
-                    .filter(
-                      (key) =>
-                        !isNaN(
-                          CosmeticType[key as keyof typeof CosmeticType]
-                        ) && key !== "None"
-                    )
-                    .map((e) => (
-                      <DropdownMenuCheckboxItem
-                        key={e}
-                        onCheckedChange={() => setFilter("cosmeticType", e)}
-                      >
-                        {e.replace("_", " ")}
-                      </DropdownMenuCheckboxItem>
-                    ))}
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Weapon</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  {Object.keys(WeaponType)
-                    .filter(
-                      (key) =>
-                        !isNaN(WeaponType[key as keyof typeof WeaponType]) &&
-                        key !== "None"
-                    )
-                    .map((e) => (
-                      <DropdownMenuCheckboxItem
-                        key={e}
-                        onCheckedChange={() => setFilter("weaponType", e)}
-                      >
-                        {e.replace("_", " ")}
-                      </DropdownMenuCheckboxItem>
-                    ))}
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Mod</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  {Object.keys(ModType)
-                    .filter(
-                      (key) =>
-                        !isNaN(ModType[key as keyof typeof ModType]) &&
-                        key !== "None"
-                    )
-                    .map((e) => (
-                      <DropdownMenuCheckboxItem
-                        key={e}
-                        onCheckedChange={() => setFilter("modType", e)}
-                      >
-                        {e.replace("_", " ")}
-                      </DropdownMenuCheckboxItem>
-                    ))}
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Decoration</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  {Object.keys(DecorationType)
-                    .filter(
-                      (key) =>
-                        !isNaN(
-                          DecorationType[key as keyof typeof DecorationType]
-                        ) && key !== "None"
-                    )
-                    .map((e) => (
-                      <DropdownMenuCheckboxItem
-                        key={e}
-                        onCheckedChange={() => setFilter("decorationType", e)}
-                      >
-                        {e.replace("_", " ")}
-                      </DropdownMenuCheckboxItem>
-                    ))}
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Other</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  {Object.keys(OtherType)
-                    .filter(
-                      (key) =>
-                        !isNaN(OtherType[key as keyof typeof OtherType]) &&
-                        key !== "None"
-                    )
-                    .map((e) => (
-                      <DropdownMenuCheckboxItem
-                        key={e}
-                        onCheckedChange={() => setFilter("otherType", e)}
-                      >
-                        {e.replace("_", " ")}
-                      </DropdownMenuCheckboxItem>
-                    ))}
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
+            <InventoryDropdown
+              setFilter={setFilter}
+              getChecked={getChecked}
+              type={EquipmentType}
+              name={"Equipment"}
+            />
+            <InventoryDropdown
+              setFilter={setFilter}
+              getChecked={getChecked}
+              type={CosmeticType}
+              name={"Cosmetic"}
+            />
+            <InventoryDropdown
+              setFilter={setFilter}
+              getChecked={getChecked}
+              type={WeaponType}
+              name={"Weapon"}
+            />
+            <InventoryDropdown
+              setFilter={setFilter}
+              getChecked={getChecked}
+              type={ModType}
+              name={"Mod"}
+            />
+            <InventoryDropdown
+              setFilter={setFilter}
+              getChecked={getChecked}
+              type={DecorationType}
+              name={"Decoration"}
+            />
+            <InventoryDropdown
+              setFilter={setFilter}
+              getChecked={getChecked}
+              type={OtherType}
+              name={"Other"}
+            />
           </DropdownMenuContent>
         </DropdownMenu>
         <Input
@@ -458,10 +331,10 @@ export const InventoryTable = () => {
           }
           className="max-w-full"
         />
-        <Button className="ml-3" onClick={() => setColumnFilters([])}>
+        <Button className="ml-3" onClick={() => table.resetColumnFilters(true)}>
           Clear
         </Button>
-        <Button className="ml-3" onClick={() => setRowSelection({})}>
+        <Button className="ml-3" onClick={() => table.resetRowSelection(true)}>
           Deselect All
         </Button>
       </div>
