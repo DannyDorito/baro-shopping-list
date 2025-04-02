@@ -141,12 +141,10 @@ export const InventoryTable = (props: InventoryTableProps) => {
     value: string,
     checked: boolean
   ) => {
-    table.resetColumnFilters();
-
-    if (checked) {
-      const filterValue = type[value as keyof typeof type].toString();
-      table.getColumn(column)?.setFilterValue(filterValue);
-    }
+    const filterValue = checked
+      ? type[value as keyof typeof type].toString()
+      : undefined;
+    table.getColumn(column)?.setFilterValue(filterValue);
   };
 
   const getChecked = (type: InventoryType, column: string, value: string) => {
