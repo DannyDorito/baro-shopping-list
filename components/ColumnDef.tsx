@@ -11,12 +11,13 @@ import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
 import Link from "next/link";
 
-export const getSortingArrow = (
-  sorting: false | SortDirection
-): JSX.Element => {
-  if (sorting === "asc") return <ArrowUp />;
-  else if (sorting === "desc") return <ArrowDown />;
-  else return <ArrowUpDown />;
+export const getSortingArrow = (sorting: false | SortDirection): JSX.Element => {
+  const icons = {
+    asc: <ArrowUp />,
+    desc: <ArrowDown />,
+    false: <ArrowUpDown />,
+  };
+  return icons[sorting || "false"];
 };
 
 const defaultFilterFn = (
@@ -27,6 +28,22 @@ const defaultFilterFn = (
   const rowValue = row.getValue(columnId);
   return filterValue.includes(rowValue);
 };
+
+const typeColumns = [
+  "decorationType",
+  "cosmeticType",
+  "equipmentType",
+  "sentinelType",
+  "weaponType",
+  "modType",
+  "modSubType",
+  "otherType",
+];
+
+const typeColumnDefs = typeColumns.map((type) => ({
+  accessorKey: type,
+  filterFn: defaultFilterFn,
+}));
 
 export const columns: ColumnDef<BaseItem>[] = [
   {
@@ -91,7 +108,7 @@ export const columns: ColumnDef<BaseItem>[] = [
             alt={"Ducats"}
             width={20}
             height={20}
-            priority={true}
+            loading="lazy"
           />
           Ducats
           {getSortingArrow(column.getIsSorted())}
@@ -117,7 +134,7 @@ export const columns: ColumnDef<BaseItem>[] = [
             alt={"Credits"}
             width={20}
             height={20}
-            priority={true}
+            loading="lazy"
           />
           Credits
           {getSortingArrow(column.getIsSorted())}
@@ -130,36 +147,5 @@ export const columns: ColumnDef<BaseItem>[] = [
       </div>
     ),
   },
-  {
-    accessorKey: "decorationType",
-    filterFn: defaultFilterFn,
-  },
-  {
-    accessorKey: "cosmeticType",
-    filterFn: defaultFilterFn,
-  },
-  {
-    accessorKey: "equipmentType",
-    filterFn: defaultFilterFn,
-  },
-  {
-    accessorKey: "sentinelType",
-    filterFn: defaultFilterFn,
-  },
-  {
-    accessorKey: "weaponType",
-    filterFn: defaultFilterFn,
-  },
-  {
-    accessorKey: "modType",
-    filterFn: defaultFilterFn,
-  },
-  {
-    accessorKey: "modSubType",
-    filterFn: defaultFilterFn,
-  },
-  {
-    accessorKey: "otherType",
-    filterFn: defaultFilterFn,
-  },
+  ...typeColumnDefs,
 ];
