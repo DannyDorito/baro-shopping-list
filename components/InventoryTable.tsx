@@ -179,7 +179,7 @@ const columns: ColumnDef<BaseItem>[] = [
   },
   {
     accessorKey: "otherType",
-  },
+  }
 ];
 
 export const InventoryTable = () => {
@@ -216,14 +216,14 @@ export const InventoryTable = () => {
         name: true,
         ducats: true,
         credits: true,
-        decorationType: true,
-        cosmeticType: true,
-        equipmentType: true,
-        sentinelType: true,
-        weaponType: true,
-        modType: true,
-        modSubType: true,
-        otherType: true,
+        decorationType: false,
+        cosmeticType: false,
+        equipmentType: false,
+        sentinelType: false,
+        weaponType: false,
+        modType: false,
+        modSubType: false,
+        otherType: false,
       },
     },
   });
