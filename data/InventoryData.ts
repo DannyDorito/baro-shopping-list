@@ -1,4 +1,5 @@
-import {
+import
+{
   BaseItem,
   CosmeticType,
   DecorationType,
@@ -406,7 +407,7 @@ const equipmentWeapons: BaseItem[] = [
   },
 ];
 
-const equipmentList: BaseItem[] = [...equipmentSentinels, ...equipmentWeapons];
+const equipmentList: BaseItem[] = [ ...equipmentSentinels, ...equipmentWeapons ];
 
 const boosterList: BaseItem[] = [
   {
@@ -1847,11 +1848,142 @@ const modList: BaseItem[] = [
   ...companionModList,
 ];
 
-const warframeCosmeticList: BaseItem[] = [];
+const warframeCosmeticList: BaseItem[] = [
+  {
+    name: 'Baruuk Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Gara Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Chroma Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Zephyr Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Wisp Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Mesa Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Hydroid Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Mirage Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Limbo Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  },
+  {
+    name: 'Nidus Immortal Skin',
+    ducats: 550,
+    credits: 100000,
+    cosmeticType: CosmeticType.Warframe,
+    otherType: OtherType.None,
+    equipmentType: EquipmentType.None,
+    sentinelType: SentinelType.None,
+    weaponType: WeaponType.None,
+    modType: ModType.None,
+    modSubType: ModSubType.None,
+    decorationType: DecorationType.None,
+  }
+];
 
-const armourCosmeticList: BaseItem[] = [];
+const armourCosmeticList: BaseItem[] = []; //TODO:
 
-const syandanaCosmeticList: BaseItem[] = [];
+const syandanaCosmeticList: BaseItem[] = []; //TODO:
 
 const ephemeraCosmeticList: BaseItem[] = [
   {
@@ -1895,29 +2027,168 @@ const ephemeraCosmeticList: BaseItem[] = [
   },
 ];
 
-const weaponCosmeticList: BaseItem[] = [];
+const weaponCosmeticList: BaseItem[] = []; //TODO:
 
-const sugatraCosmeticList: BaseItem[] = [];
+const sugatraCosmeticList: BaseItem[] = [ {
+  name: 'Anpu',
+  ducats: 250,
+  credits: 250000,
+  cosmeticType: CosmeticType.Sugatra,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+},
+{
+  name: 'Coccyst',
+  ducats: 250,
+  credits: 250000,
+  cosmeticType: CosmeticType.Sugatra,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+},
+{
+  name: 'Pyra',
+  ducats: 100,
+  credits: 200000,
+  cosmeticType: CosmeticType.Sugatra,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+},
+{
+  name: `Ki'Teer`,
+  ducats: 250,
+  credits: 250000,
+  cosmeticType: CosmeticType.Sugatra,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+} ];
 
-const operatorCosmeticList: BaseItem[] = [];
+const operatorCosmeticList: BaseItem[] = []; //TODO:
 
-const companionCosmeticList: BaseItem[] = [];
+const companionCosmeticList: BaseItem[] = []; //TODO:
 
-const archwingCosmeticList: BaseItem[] = [];
+const archwingCosmeticList: BaseItem[] = [ {
+  name: 'Exo-Sac Archwing Skin',
+  ducats: 400,
+  credits: 300000,
+  cosmeticType: CosmeticType.Archwing,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+},
+{
+  name: 'Odonata Elixis Skin',
+  ducats: 75,
+  credits: 75000,
+  cosmeticType: CosmeticType.Archwing,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+} ];
 
-const kdriveCosmeticList: BaseItem[] = [];
+const kdriveCosmeticList: BaseItem[] = [ {
+  name: `Green Ki'teer Safari K-Drive Scrawl`,
+  ducats: 75,
+  credits: 75000,
+  cosmeticType: CosmeticType.K_Drive,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+},
+{
+  name: `Blue Ki'teer Safari K-Drive Scrawl`,
+  ducats: 75,
+  credits: 75000,
+  cosmeticType: CosmeticType.K_Drive,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+} ];
 
-const landingcraftCosmeticList: BaseItem[] = [];
+const landingcraftCosmeticList: BaseItem[] = []; //TODO:
 
-const orbiterCosmeticList: BaseItem[] = [];
+const orbiterCosmeticList: BaseItem[] = [ {
+  name: 'Empyrean Vignette',
+  ducats: 155,
+  credits: 200000,
+  cosmeticType: CosmeticType.Orbiter,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+},
+{
+  name: `Ki'teer Stencil`,
+  ducats: 250,
+  credits: 175000,
+  cosmeticType: CosmeticType.Orbiter,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+},
+{
+  name: `Javi's Scrawling`,
+  ducats: 90,
+  credits: 100000,
+  cosmeticType: CosmeticType.Orbiter,
+  otherType: OtherType.None,
+  equipmentType: EquipmentType.None,
+  sentinelType: SentinelType.None,
+  weaponType: WeaponType.None,
+  modType: ModType.None,
+  modSubType: ModSubType.None,
+  decorationType: DecorationType.None,
+} ];
 
-const decorationsCosmeticList: BaseItem[] = [];
+const decorationsCosmeticList: BaseItem[] = []; //TODO:
 
-const emblemsCosmeticList: BaseItem[] = [];
+const emblemsCosmeticList: BaseItem[] = []; //TODO:
 
-const sigilsCosmeticList: BaseItem[] = [];
+const sigilsCosmeticList: BaseItem[] = []; //TODO:
 
-const glyphsCosmeticList: BaseItem[] = [];
+const glyphsCosmeticList: BaseItem[] = []; //TODO:
 
 const cosmeticsList: BaseItem[] = [
   ...warframeCosmeticList,
