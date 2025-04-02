@@ -179,10 +179,13 @@ const columns: ColumnDef<BaseItem>[] = [
   },
   {
     accessorKey: "otherType",
-  }
+  },
 ];
 
-export const InventoryTable = () => {
+interface InventoryTableProps {
+  acceptedToast: boolean;
+}
+export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
     {
       id: "name",
@@ -191,7 +194,7 @@ export const InventoryTable = () => {
   ]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
-  const [rowSelection, setRowSelection] = useLocalStorage("rowSelection", {});
+  const [rowSelection, setRowSelection] = useState({});
 
   const [ducats, setDucats] = useState<number>(0);
   const [credits, setCredits] = useState<number>(0);
@@ -244,15 +247,22 @@ export const InventoryTable = () => {
     setCredits(credits);
   }, [rowSelection, table]);
 
-  // useEffect(() => {
-  //   if (acceptedToast) {
-  //     const savedSelection = window.localStorage.getItem("rowSelection");
-  //     if (savedSelection) {
-  //       const deserialized = JSON.parse(savedSelection) as object;
-  //       setRowSelection(deserialized);
-  //     }
-  //   }
-  // }, [acceptedToast])
+  useEffect(() => {
+    if (props.acceptedToast) {
+      const savedSelection = window.localStorage.getItem("rowSelection");
+      if (savedSelection) {
+        const deserialized = JSON.parse(savedSelection) as object;
+        setRowSelection(deserialized);
+      }
+    }
+  }, [props.acceptedToast]);
+
+  useEffect(() => {
+    if (props.acceptedToast) {
+      const serialized = JSON.stringify(rowSelection);
+      window.localStorage.setItem("rowSelection", serialized);
+    }
+  }, [rowSelection]);
 
   const setFilter = (
     type: InventoryType,
