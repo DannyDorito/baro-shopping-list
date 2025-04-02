@@ -56,9 +56,9 @@ export enum CosmeticType {
   Landing_Craft,
   Orbiter,
   Decoration,
-  Emblems,
-  Sigils,
-  Glyphs,
+  Emblem,
+  Sigil,
+  Glyph,
 }
 
 export enum SentinelType {
