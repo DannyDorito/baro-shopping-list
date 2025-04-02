@@ -28,7 +28,7 @@ export default function Home() {
         },
       });
     }
-  }, []);
+  }, [acceptedToast, setAcceptedToast, toasts.length]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24 overflow-hidden">

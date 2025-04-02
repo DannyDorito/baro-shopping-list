@@ -41,7 +41,6 @@ import Image from "next/image";
 import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
 import Link from "next/link";
-import useLocalStorage from "@/lib/uselocalstorage";
 import {
   DropdownMenu,
   DropdownMenuContent,
