@@ -33,7 +33,8 @@ export enum OtherType {
   Quest,
   Relic,
   Somachord,
-  Emote
+  Emote,
+  Mod_Pack
 }
 
 export enum EquipmentType {
