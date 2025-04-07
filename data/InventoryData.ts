@@ -506,6 +506,23 @@ const somachordList: BaseItem[] = [
   },
 ];
 
+const emoteList: BaseItem[] = [
+  {
+    ...defaultBaseItem,
+    name: "Ki'teer Presence",
+    ducats: 0,
+    credits: 1000000,
+    otherType: OtherType.Emote,
+  },
+  {
+    ...defaultBaseItem,
+    name: "TennoCon Crt Emote",
+    ducats: 15,
+    credits: 1000,
+    otherType: OtherType.Emote,
+  },
+];
+
 const otherList: BaseItem[] = [
   ...boosterList,
   ...capturaSceneList,
@@ -515,6 +532,7 @@ const otherList: BaseItem[] = [
   ...questList,
   ...relicList,
   ...somachordList,
+  ...emoteList,
 ];
 
 const warframeModList: BaseItem[] = [
@@ -777,6 +795,14 @@ const pistolModList: BaseItem[] = [
     name: "Primed Target Cracker",
     ducats: 400,
     credits: 150000,
+    modType: ModType.Pistol,
+    modSubType: ModSubType.Prime,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Primed Steady Hands",
+    ducats: 300,
+    credits: 220000,
     modType: ModType.Pistol,
     modSubType: ModSubType.Prime,
   },
@@ -1257,7 +1283,190 @@ const ephemeraCosmeticList: BaseItem[] = [
   },
 ];
 
-const weaponCosmeticList: BaseItem[] = []; //TODO:
+const weaponCosmeticList: BaseItem[] = [
+  {
+    ...defaultBaseItem,
+    name: "Anpu Staff Skin",
+    ducats: 325,
+    credits: 200000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Dread Day of the Dead Skin",
+    ducats: 300,
+    credits: 275000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Dark Sword Day of the Dead Skin",
+    ducats: 320,
+    credits: 250000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "De Nas Pistol Skin",
+    ducats: 400,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Dual Sword Lemnas Skin",
+    ducats: 350,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Elixis Latron Pistol Skin",
+    ducats: 400,
+    credits: 215000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Nikana Elixis Skin",
+    ducats: 375,
+    credits: 275000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Opticor Elixis Skin",
+    ducats: 350,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Opticor Elixis Skin",
+    ducats: 325,
+    credits: 250000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Paracesis Elixis Skin",
+    ducats: 350,
+    credits: 350000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Redeemer Elixis Skin",
+    ducats: 325,
+    credits: 250000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Sonicor Elixis Skin",
+    ducats: 380,
+    credits: 175000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Tigris Elixis Skin",
+    ducats: 300,
+    credits: 275000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Tiberon Elixis Skin",
+    ducats: 315,
+    credits: 275000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Lemnas Staff Skin",
+    ducats: 350,
+    credits: 275000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Machete Syachid Skin",
+    ducats: 375,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Paracyst Zebra Skin",
+    ducats: 325,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Paris Abra Skin",
+    ducats: 315,
+    credits: 275000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Prisma Arrows",
+    ducats: 350,
+    credits: 75000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Quanta Aufeis Skin",
+    ducats: 300,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Rapier Tributaker Skin",
+    ducats: 375,
+    credits: 400000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Reshantur Cult Spear Skin",
+    ducats: 350,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Tannukai Longsword Skin",
+    ducats: 375,
+    credits: 280000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Twin Grakatas Towsun Skin",
+    ducats: 300,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Gorgon Towsun Skin",
+    ducats: 300,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+  {
+    ...defaultBaseItem,
+    name: "Ignis Towsun Skin",
+    ducats: 300,
+    credits: 300000,
+    cosmeticType: CosmeticType.Weapon,
+  },
+];
 
 const sugatraCosmeticList: BaseItem[] = [
   {
@@ -1381,7 +1590,7 @@ const cosmeticsList: BaseItem[] = [
   ...glyphsCosmeticList,
 ];
 
-export const inventoryList: BaseItem[] = [
+export const data: BaseItem[] = [
   ...equipmentList,
   ...otherList,
   ...modList,
