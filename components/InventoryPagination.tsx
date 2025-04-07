@@ -34,15 +34,15 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       <ChevronLeft />
     </Button>
     <Select onValueChange={(value) => table.setPageSize(Number(value))}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-30">
         <SelectValue
           placeholder={`Show ${table.getState().pagination.pageSize}`}
         />
       </SelectTrigger>
       <SelectContent>
-        {[10, 20, 30, 40, 50].map((pageSize) => (
+        {[10, 20, 30, 40, 50, table.getRowCount()].map((pageSize) => (
           <SelectItem key={pageSize} value={pageSize.toString()}>
-            Show {pageSize}
+            Show {pageSize === table.getRowCount() ? "All" : pageSize}
           </SelectItem>
         ))}
       </SelectContent>

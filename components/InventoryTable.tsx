@@ -49,6 +49,8 @@ interface InventoryTableProps {
   acceptedToast: boolean;
 }
 
+const debug = process.env.NEXT_PUBLIC_DEBUG === "true";
+
 export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
     {
@@ -84,14 +86,14 @@ export const InventoryTable = (props: InventoryTableProps) => {
         name: true,
         ducats: true,
         credits: true,
-        decorationType: false,
-        cosmeticType: false,
-        equipmentType: false,
-        sentinelType: false,
-        weaponType: false,
-        modType: false,
-        modSubType: false,
-        otherType: false,
+        decorationType: debug,
+        cosmeticType: debug,
+        equipmentType: debug,
+        sentinelType: debug,
+        weaponType: debug,
+        modType: debug,
+        modSubType: debug,
+        otherType: debug,
       },
     },
   });
@@ -235,7 +237,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
-                  key={row.id}
+                  key={`${row.id}-${row.index}`}
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
@@ -270,7 +272,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
                     alt={"Ducats"}
                     width={20}
                     height={20}
-                    priority={true}
+                    priority={false}
                   />
                   {ducats === 0 ? ducats : ducats.toLocaleString(undefined)}
                 </div>
@@ -282,7 +284,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
                     alt={"Credits"}
                     width={20}
                     height={20}
-                    priority={true}
+                    priority={false}
                   />
                   {credits === 0 ? credits : credits.toLocaleString(undefined)}
                 </div>

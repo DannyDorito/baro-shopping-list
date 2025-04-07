@@ -29,12 +29,11 @@ export enum OtherType {
   Colour_Palette,
   Consumable,
   Mission_Locator,
-  ModPack,
+  Mod_Pack,
   Quest,
   Relic,
   Somachord,
-  Emote,
-  Mod_Pack
+  Emote
 }
 
 export enum EquipmentType {
@@ -61,6 +60,7 @@ export enum CosmeticType {
   Emblem,
   Sigil,
   Glyph,
+  Sentinels
 }
 
 export enum SentinelType {
