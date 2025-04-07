@@ -7,18 +7,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
 } from "./ui/dropdown-menu";
-
-export interface InventoryDropdownProps {
-  setFilter: (
-    type: InventoryType,
-    column: string,
-    value: string,
-    checked: boolean
-  ) => void;
-  getChecked: (type: InventoryType, column: string, value: string) => boolean;
-  type: InventoryType;
-  name: string;
-}
+import { InventoryDropdownProps } from "@/interfaces/InventoryDropdownProps";
 
 export const InventoryDropdown = (props: InventoryDropdownProps) => {
   const getItems = (type: InventoryType): string[] => {
@@ -32,9 +21,9 @@ export const InventoryDropdown = (props: InventoryDropdownProps) => {
       <DropdownMenuSubTrigger>{props.name}</DropdownMenuSubTrigger>
       <DropdownMenuPortal>
         <DropdownMenuSubContent>
-          {getItems(props.type).map((item) => (
+          {getItems(props.type).map((item, index) => (
             <DropdownMenuCheckboxItem
-              key={item}
+              key={`dropdown-${item}-${index}`}
               checked={props.getChecked(
                 props.type,
                 `${props.name.toLowerCase()}Type`,

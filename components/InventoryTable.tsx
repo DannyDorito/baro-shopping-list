@@ -44,12 +44,8 @@ import {
 import { InventoryDropdown } from "./InventoryDropdown";
 import { columns } from "./ColumnDef";
 import { InventoryPagination } from "./InventoryPagination";
-
-interface InventoryTableProps {
-  acceptedToast: boolean;
-}
-
-const debug = process.env.NEXT_PUBLIC_DEBUG === "true";
+import { InventoryTableProps } from "@/interfaces/InventoryTableProps";
+import { debug } from "@/lib/utils";
 
 export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -216,11 +212,11 @@ export const InventoryTable = (props: InventoryTableProps) => {
       <div className="rounded-md border">
         <Table>
           <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+            {table.getHeaderGroups().map((headerGroup, index) => (
+              <TableRow key={`row-${headerGroup.id}-${index}`}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={`${header.id}-${index}`}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -235,13 +231,13 @@ export const InventoryTable = (props: InventoryTableProps) => {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows.map((row, index) => (
                 <TableRow
-                  key={`${row.id}-${row.index}`}
+                  key={`${row.id}-${index}`}
                   data-state={row.getIsSelected() && "selected"}
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                  {row.getVisibleCells().map((cell, index) => (
+                    <TableCell key={`${cell.id}-${index}`}>
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -274,7 +270,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
                     height={20}
                     priority={false}
                   />
-                  {ducats === 0 ? ducats : ducats.toLocaleString(undefined)}
+                  {ducats.toLocaleString(undefined)}
                 </div>
               </TableCell>
               <TableCell className="text-right">
@@ -286,7 +282,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
                     height={20}
                     priority={false}
                   />
-                  {credits === 0 ? credits : credits.toLocaleString(undefined)}
+                  {credits.toLocaleString(undefined)}
                 </div>
               </TableCell>
             </TableRow>
