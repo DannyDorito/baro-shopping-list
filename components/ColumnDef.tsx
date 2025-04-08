@@ -45,6 +45,7 @@ const typeColumns = [
 const typeColumnDefs = typeColumns.map((type) => ({
   accessorKey: type,
   filterFn: defaultFilterFn,
+  enableResizing: false, // Disable resizing for type columns
 }));
 
 export const columns: ColumnDef<BaseItem>[] = [
@@ -71,19 +72,21 @@ export const columns: ColumnDef<BaseItem>[] = [
     ),
     enableSorting: false,
     enableHiding: false,
-    enableResizing: false,
+    enableResizing: false, // Disable resizing for the select column
   },
   {
     accessorKey: "name",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-          {getSortingArrow(column.getIsSorted())}
-        </Button>
+        <div>
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Name
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
       );
     },
     cell: ({ row }) => (
@@ -96,29 +99,32 @@ export const columns: ColumnDef<BaseItem>[] = [
       </Link>
     ),
     filterFn: defaultFilterFn,
+    enableResizing: false, // Disable resizing for the name column
   },
   {
     accessorKey: "ducats",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          <Image
-            src={Ducats}
-            alt={"Ducats"}
-            width={20}
-            height={20}
-            loading="lazy"
-          />
-          Ducats
-          {getSortingArrow(column.getIsSorted())}
-        </Button>
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            <Image
+              src={Ducats}
+              alt={"Ducats"}
+              width={20}
+              height={20}
+              loading="lazy"
+            />
+            Ducats
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
       );
     },
     cell: ({ row }) => (
-      <div className="text-right">
+      <div className="text-center">
         {parseInt(row.getValue("ducats")).toLocaleString(undefined)}
       </div>
     ),
@@ -127,24 +133,26 @@ export const columns: ColumnDef<BaseItem>[] = [
     accessorKey: "credits",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          <Image
-            src={Credits}
-            alt={"Credits"}
-            width={20}
-            height={20}
-            loading="lazy"
-          />
-          Credits
-          {getSortingArrow(column.getIsSorted())}
-        </Button>
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            <Image
+              src={Credits}
+              alt={"Credits"}
+              width={20}
+              height={20}
+              loading="lazy"
+            />
+            Credits
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
       );
     },
     cell: ({ row }) => (
-      <div className="text-right">
+      <div className="text-center">
         {parseInt(row.getValue("credits")).toLocaleString(undefined)}
       </div>
     ),
