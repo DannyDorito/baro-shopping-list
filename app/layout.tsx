@@ -7,8 +7,19 @@ import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Void Trader",
-  description: "Baro Ki'Teer Shopping List",
+  title: "Baro Ki'Teer Item Checklist",
+  description: "Baro Ki'Teer Item Shopping List",
+  keywords: [
+    "Baro Ki'Teer",
+    "Baro Ki'Teer Items",
+    "Baro Ki'Teer Checklist",
+    "Baro Ki'Teer Shopping List",
+    "Baro Ki'Teer Inventory",
+    "Baro Ki'Teer Inventory Tracker",
+    "Baro Ki'Teer Inventory Management",
+    "Baro Ki'Teer Inventory Checklist"
+  ],
+  authors: [{ name: "John Allison", url: "https://jallison.co.uk"}]
 };
 
 export const dynamic = "force-static";
