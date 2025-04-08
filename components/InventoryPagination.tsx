@@ -22,6 +22,7 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       size="icon"
       onClick={() => table.setPageIndex(0)}
       disabled={!table.getCanPreviousPage()}
+      aria-label="First Page"
     >
       <ChevronsLeft />
     </Button>
@@ -30,6 +31,7 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       size="icon"
       onClick={() => table.previousPage()}
       disabled={!table.getCanPreviousPage()}
+      aria-label="Previous Page"
     >
       <ChevronLeft />
     </Button>
@@ -55,6 +57,7 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       size="icon"
       onClick={() => table.nextPage()}
       disabled={!table.getCanNextPage()}
+      aria-label="Next Page"
     >
       <ChevronRight />
     </Button>
@@ -63,6 +66,7 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       size="icon"
       onClick={() => table.setPageIndex(table.getPageCount() - 1)}
       disabled={!table.getCanNextPage()}
+      aria-label="Last Page"
     >
       <ChevronsRight />
     </Button>

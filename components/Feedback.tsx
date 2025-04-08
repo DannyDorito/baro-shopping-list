@@ -108,7 +108,11 @@ export const Feedback = (props: FeedbackProps) => {
   return (
     <Dialog open={props.open} onOpenChange={props.setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => props.setOpen(true)}>
+        <Button
+          variant="outline"
+          onClick={() => props.setOpen(true)}
+          aria-label="Send feedback"
+        >
           <MessageCircleMore /> Feedback
         </Button>
       </DialogTrigger>
@@ -185,6 +189,7 @@ export const Feedback = (props: FeedbackProps) => {
                     variant="secondary"
                     className="cursor-pointer m-2.5"
                     disabled={isLoading}
+                    aria-label="Close Send Feedback Dialog"
                   >
                     <CircleX /> Close
                   </Button>
@@ -194,6 +199,7 @@ export const Feedback = (props: FeedbackProps) => {
                   className="cursor-pointer m-2.5"
                   onClick={form.handleSubmit(onSubmit)}
                   disabled={isLoading}
+                  aria-label="Submit Feedback"
                 >
                   {isLoading ? (
                     <Loader2 className="animate-spin mr-3" />

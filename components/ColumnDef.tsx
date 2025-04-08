@@ -82,6 +82,7 @@ export const columns: ColumnDef<BaseItem>[] = [
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by name"
           >
             Name
             {getSortingArrow(column.getIsSorted())}
@@ -109,10 +110,11 @@ export const columns: ColumnDef<BaseItem>[] = [
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by ducats"
           >
             <Image
               src={Ducats}
-              alt={"Ducats"}
+              alt={"Ducats image"}
               width={20}
               height={20}
               loading="lazy"
@@ -137,10 +139,11 @@ export const columns: ColumnDef<BaseItem>[] = [
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by credits"
           >
             <Image
               src={Credits}
-              alt={"Credits"}
+              alt={"Credits image"}
               width={20}
               height={20}
               loading="lazy"

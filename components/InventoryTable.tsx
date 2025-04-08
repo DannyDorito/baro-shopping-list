@@ -151,7 +151,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
       <div className="flex items-center py-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon" className="ml-auto mr-3">
+            <Button variant="outline" size="icon" className="ml-auto mr-3" aria-label="Filter Inventory">
               <ListFilter />
             </Button>
           </DropdownMenuTrigger>
@@ -205,10 +205,11 @@ export const InventoryTable = (props: InventoryTableProps) => {
         <Button
           className="ml-3"
           onClick={() => table.resetColumnFilters()}
+          aria-label="Clear Filters"
         >
           <SearchX /> Clear
         </Button>
-        <Button className="ml-3" onClick={() => table.resetRowSelection()}>
+        <Button className="ml-3" onClick={() => table.resetRowSelection()} aria-label="Clear Row Selection">
           <FunnelX /> Deselect All
         </Button>
       </div>
@@ -268,7 +269,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
                 <div className="flex flex-row justify-end font-bold">
                   <Image
                     src={Ducats}
-                    alt={"Ducats"}
+                    alt={"Total Ducats image"}
                     width={20}
                     height={20}
                     priority={false}
@@ -280,7 +281,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
                 <div className="flex flex-row justify-end font-bold">
                   <Image
                     src={Credits}
-                    alt={"Credits"}
+                    alt={"Total Credits image"}
                     width={20}
                     height={20}
                     priority={false}
