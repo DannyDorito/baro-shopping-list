@@ -200,7 +200,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
-          className="max-w-full"
+          className="min-w-24"
         />
         <Button className="ml-3" onClick={() => table.resetColumnFilters()}>
           Clear
@@ -210,7 +210,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
         </Button>
       </div>
       <div className="rounded-md border">
-        <Table>
+        <Table className="w-full">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup, index) => (
               <TableRow key={`row-${headerGroup.id}-${index}`}>
@@ -289,12 +289,12 @@ export const InventoryTable = (props: InventoryTableProps) => {
           </TableFooter>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-3 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
+      <div className="flex items-center flex-col justify-end space-x-3 py-4">
+        <InventoryPagination table={table} />
+        <div className="text-sm text-muted-foreground pt-4">
           {table.getFilteredSelectedRowModel().rows.length} of&nbsp;
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
-        <InventoryPagination table={table} />
       </div>
     </div>
   );

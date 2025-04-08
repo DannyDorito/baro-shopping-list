@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/Footer";
 import { InventoryTable } from "@/components/InventoryTable";
 import useLocalStorage from "@/lib/uselocalstorage";
 import { useEffect } from "react";
@@ -31,7 +32,7 @@ export default function Home() {
   }, [acceptedToast, setAcceptedToast, toasts.length]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 overflow-hidden">
+    <main className="flex min-h-screen flex-col items-center justify-center md:p-24 p-0">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         Void Trader
       </h1>
@@ -39,6 +40,7 @@ export default function Home() {
       <div className="container mx-auto py-10">
         <InventoryTable acceptedToast={acceptedToast} />
       </div>
+      <Footer />
     </main>
   );
 }
