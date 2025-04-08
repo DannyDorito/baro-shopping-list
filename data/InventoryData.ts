@@ -1,2 +1,2 @@
-import data from "@/data/InventoryData.json";
+import data from "@/public/data/InventoryData.json";
 export { data };
