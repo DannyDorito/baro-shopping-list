@@ -11,7 +11,9 @@ import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
 import Link from "next/link";
 
-export const getSortingArrow = (sorting: false | SortDirection): JSX.Element => {
+export const getSortingArrow = (
+  sorting: false | SortDirection
+): JSX.Element => {
   const icons = {
     asc: <ArrowUp />,
     desc: <ArrowDown />,

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 
 const useLocalStorage = (key: string, initialValue: unknown) => {
   const [state, setState] = useState(() => {
@@ -6,7 +7,7 @@ const useLocalStorage = (key: string, initialValue: unknown) => {
       const value = window.localStorage.getItem(key);
       return value ? JSON.parse(value) : initialValue;
     } catch (error) {
-      console.log(error);
+      toast(error as string);
     }
   });
 
@@ -16,7 +17,7 @@ const useLocalStorage = (key: string, initialValue: unknown) => {
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
       setState(value);
     } catch (error) {
-      console.log(error);
+      toast(error as string);
     }
   };
 

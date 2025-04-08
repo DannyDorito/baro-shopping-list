@@ -41,7 +41,10 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       </SelectTrigger>
       <SelectContent>
         {[10, 20, 30, 40, 50, table.getRowCount()].map((pageSize, index) => (
-          <SelectItem key={`size-${pageSize}-${index}`} value={pageSize.toString()}>
+          <SelectItem
+            key={`size-${pageSize}-${index}`}
+            value={pageSize.toString()}
+          >
             Show {pageSize === table.getRowCount() ? "All" : pageSize}
           </SelectItem>
         ))}

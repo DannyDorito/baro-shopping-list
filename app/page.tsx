@@ -37,7 +37,7 @@ export default function Home() {
         Void Trader
       </h1>
       <h2 className="text-muted-foreground">My shopping list for Baro</h2>
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto pt-8">
         <InventoryTable acceptedToast={acceptedToast} />
       </div>
       <Footer />

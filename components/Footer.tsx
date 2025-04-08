@@ -1,9 +1,14 @@
 import { Heart } from "lucide-react";
 import Link from "next/link";
+import { Feedback } from "./Feedback";
+import { useState } from "react";
 
 export const Footer = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="flex min-h-fit flex-col items-center overflow-hidden">
+      <Feedback open={open} setOpen={setOpen} />
       <p className="leading-7 [&:not(:first-child)]:mt-6 text-center">
         Created in&nbsp;
         <Link
@@ -51,10 +56,10 @@ export const Footer = () => {
         </Link>
         .
       </p>
-      <p className="[&:not(:first-child)]:mt-6 flex items-center">
-          <Heart size={18}/>
-          &nbsp;John Allison.
-        </p>
+      <p className="flex items-center">
+        <Heart size={18} />
+        &nbsp;John Allison.
+      </p>
     </div>
   );
 };
