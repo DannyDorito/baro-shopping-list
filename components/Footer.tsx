@@ -58,7 +58,7 @@ export const Footer = () => {
       </p>
       <p className="flex items-center">
         <Heart size={18} />
-        &nbsp;John Allison.
+        &nbsp;Danny/John.
       </p>
     </div>
   );
