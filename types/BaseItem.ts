@@ -29,7 +29,6 @@ export enum OtherType {
   Colour_Palette,
   Consumable,
   Mission_Locator,
-  Mod_Pack,
   Quest,
   Relic,
   Somachord,
