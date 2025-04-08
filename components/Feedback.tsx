@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useState } from "react";
-import { Loader2, Send } from "lucide-react";
+import { CircleX, Loader2, MessageCircleMore, Send } from "lucide-react";
 import dynamic from "next/dynamic";
 import { Spinner } from "./ui/spinner";
 import {
@@ -109,7 +109,7 @@ export const Feedback = (props: FeedbackProps) => {
     <Dialog open={props.open} onOpenChange={props.setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline" onClick={() => props.setOpen(true)}>
-          Give Feedback
+          <MessageCircleMore /> Feedback
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -186,7 +186,7 @@ export const Feedback = (props: FeedbackProps) => {
                     className="cursor-pointer m-2.5"
                     disabled={isLoading}
                   >
-                    Close
+                    <CircleX /> Close
                   </Button>
                 </DialogClose>
                 <Button

@@ -10,7 +10,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronDown } from "lucide-react";
+import { FunnelX, ListFilter, SearchX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -133,6 +133,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
     value: string,
     checked: boolean
   ) => {
+    table.resetColumnFilters();
     const filterValue = checked
       ? type[value as keyof typeof type].toString()
       : undefined;
@@ -150,9 +151,8 @@ export const InventoryTable = (props: InventoryTableProps) => {
       <div className="flex items-center py-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto mr-3">
-              Filter&nbsp;
-              <ChevronDown />
+            <Button variant="outline" size="icon" className="ml-auto mr-3">
+              <ListFilter />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -202,11 +202,14 @@ export const InventoryTable = (props: InventoryTableProps) => {
           }
           className="min-w-24"
         />
-        <Button className="ml-3" onClick={() => table.resetColumnFilters()}>
-          Clear
+        <Button
+          className="ml-3"
+          onClick={() => table.resetColumnFilters()}
+        >
+          <SearchX /> Clear
         </Button>
         <Button className="ml-3" onClick={() => table.resetRowSelection()}>
-          Deselect All
+          <FunnelX /> Deselect All
         </Button>
       </div>
       <div className="rounded-md border">
