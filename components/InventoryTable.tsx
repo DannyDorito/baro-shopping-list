@@ -23,15 +23,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useEffect, useState } from "react";
-import {
-  CosmeticType,
-  DecorationType,
-  EquipmentType,
-  InventoryType,
-  ModType,
-  OtherType,
-  WeaponType,
-} from "@/types/BaseItem";
+import { InventoryType } from "@/types/BaseItem";
 import { data } from "@/data/InventoryData";
 import Image from "next/image";
 import Ducats from "../public/images/Ducats.png";
@@ -46,6 +38,12 @@ import { columns } from "./ColumnDef";
 import { InventoryPagination } from "./InventoryPagination";
 import { InventoryTableProps } from "@/interfaces/InventoryTableProps";
 import { debug } from "@/lib/utils";
+import { CosmeticType } from "@/enums/CosmeticType";
+import { DecorationType } from "@/enums/DecorationType";
+import { EquipmentType } from "@/enums/EquipmentType";
+import { ModType } from "@/enums/ModType";
+import { OtherType } from "@/enums/OtherType";
+import { WeaponType } from "@/enums/WeaponType";
 
 export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -151,7 +149,12 @@ export const InventoryTable = (props: InventoryTableProps) => {
       <div className="flex items-center py-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon" className="ml-auto mr-3" aria-label="Filter Inventory">
+            <Button
+              variant="outline"
+              size="icon"
+              className="ml-auto mr-3"
+              aria-label="Filter Inventory"
+            >
               <ListFilter />
             </Button>
           </DropdownMenuTrigger>
@@ -209,7 +212,11 @@ export const InventoryTable = (props: InventoryTableProps) => {
         >
           <SearchX /> Clear
         </Button>
-        <Button className="ml-3" onClick={() => table.resetRowSelection()} aria-label="Clear Row Selection">
+        <Button
+          className="ml-3"
+          onClick={() => table.resetRowSelection()}
+          aria-label="Clear Row Selection"
+        >
           <FunnelX /> Deselect All
         </Button>
       </div>

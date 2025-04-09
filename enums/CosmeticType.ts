@@ -1,0 +1,20 @@
+export enum CosmeticType {
+  None,
+  Warframe,
+  Armour,
+  Syandana,
+  Ephemera,
+  Weapon,
+  Sugatra,
+  Operator,
+  Companion,
+  Archwing,
+  K_Drive,
+  Landing_Craft,
+  Orbiter,
+  Decoration,
+  Emblem,
+  Sigil,
+  Glyph,
+  Sentinels
+}

@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/utilities/ThemeProvider";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { ReactNode } from "react";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -27,7 +28,7 @@ export const dynamic = "force-static";
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">

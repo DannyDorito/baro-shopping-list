@@ -1,3 +1,12 @@
+import { CosmeticType } from "@/enums/CosmeticType";
+import { DecorationType } from "@/enums/DecorationType";
+import { EquipmentType } from "@/enums/EquipmentType";
+import { ModSubType } from "@/enums/ModSubType";
+import { ModType } from "@/enums/ModType";
+import { OtherType } from "@/enums/OtherType";
+import { SentinelType } from "@/enums/SentinelType";
+import { WeaponType } from "@/enums/WeaponType";
+
 export interface BaseItem {
   name: string;
   ducats: number;
@@ -21,85 +30,3 @@ export type InventoryType =
   | typeof ModType
   | typeof ModSubType
   | typeof DecorationType;
-
-export enum OtherType {
-  None,
-  Booster,
-  Capturer_Scene,
-  Colour_Palette,
-  Consumable,
-  Mission_Locator,
-  Quest,
-  Relic,
-  Somachord,
-  Emote
-}
-
-export enum EquipmentType {
-  None,
-  Weapons,
-  Sentinels,
-}
-
-export enum CosmeticType {
-  None,
-  Warframe,
-  Armour,
-  Syandana,
-  Ephemera,
-  Weapon,
-  Sugatra,
-  Operator,
-  Companion,
-  Archwing,
-  K_Drive,
-  Landing_Craft,
-  Orbiter,
-  Decoration,
-  Emblem,
-  Sigil,
-  Glyph,
-  Sentinels
-}
-
-export enum SentinelType {
-  None,
-  Prisma,
-}
-
-export enum WeaponType {
-  None,
-  Prisma,
-  Vandal,
-  Wraith,
-  Mara,
-  Regular,
-  Prime,
-}
-
-export enum ModType {
-  None,
-  Warframe,
-  Rifle,
-  Pistol,
-  Shotgun,
-  Melee,
-  Stance,
-  Archwing,
-  Archgun,
-  Companion,
-}
-
-export enum ModSubType {
-  None,
-  Prime,
-  Regular,
-}
-
-export enum DecorationType {
-  None,
-  Display,
-  Poster,
-  Noggle_Statue,
-  Miscellaneous,
-}
