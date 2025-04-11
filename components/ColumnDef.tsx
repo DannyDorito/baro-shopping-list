@@ -179,9 +179,11 @@ export const columns: ColumnDef<BaseItem>[] = [
     cell: ({ row }) => {
       const date = new Date(row.getValue("lastSeen"));
       const lastSeen =
-        date.toISOString() === "0001-01-01T00:00:00.000Z"
-          ? "Unknown"
-          : date.toLocaleDateString();
+        date.toISOString() === "0001-01-01T00:00:00.000Z" ? (
+          <i>Unknown</i>
+        ) : (
+          date.toLocaleDateString()
+        );
       return <div className="text-center">{lastSeen}</div>;
     },
   },
