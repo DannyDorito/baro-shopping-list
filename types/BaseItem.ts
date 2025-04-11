@@ -11,6 +11,7 @@ export interface BaseItem {
   name: string;
   ducats: number;
   credits: number;
+  lastSeen: string;
   otherType: OtherType;
   equipmentType: EquipmentType;
   cosmeticType: CosmeticType;

@@ -160,6 +160,31 @@ export const columns: ColumnDef<BaseItem>[] = [
       </div>
     ),
   },
+  {
+    accessorKey: "lastSeen",
+    header: ({ column }) => {
+      return (
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by last seen"
+          >
+            Last Seen
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
+      );
+    },
+    cell: ({ row }) => {
+      const date = new Date(row.getValue("lastSeen"));
+      const lastSeen =
+        date.toISOString() === "0001-01-01T00:00:00.000Z"
+          ? "Unknown"
+          : date.toLocaleDateString();
+      return <div className="text-center">{lastSeen}</div>;
+    },
+  },
   ...typeColumnDefs,
 ];
 
@@ -167,6 +192,7 @@ export type tableDef = Table<{
   name: string;
   credits: number;
   ducats: number;
+  lastSeen: string;
   otherType: number;
   equipmentType: number;
   cosmeticType: number;
@@ -175,4 +201,4 @@ export type tableDef = Table<{
   modType: number;
   modSubType: number;
   decorationType: number;
-}>
+}>;

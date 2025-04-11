@@ -45,9 +45,10 @@ import { ModType } from "@/enums/ModType";
 import { OtherType } from "@/enums/OtherType";
 import { WeaponType } from "@/enums/WeaponType";
 
-const handleSearchChange = (table: tableDef) => (event: ChangeEvent<HTMLInputElement>) => {
-  table.getColumn("name")?.setFilterValue(event.target.value);
-};
+const handleSearchChange =
+  (table: tableDef) => (event: ChangeEvent<HTMLInputElement>) => {
+    table.getColumn("name")?.setFilterValue(event.target.value);
+  };
 
 const handleClearFilters = (table: tableDef) => () => {
   table.resetColumnFilters();
@@ -105,7 +106,9 @@ export const InventoryTable = (props: InventoryTableProps) => {
   });
 
   const { ducats: memoizedDucats, credits: memoizedCredits } = useMemo(() => {
-    const selectedRows = table.getSelectedRowModel().rows.map((r) => r.original);
+    const selectedRows = table
+      .getSelectedRowModel()
+      .rows.map((r) => r.original);
     let ducats = 0;
     let credits = 0;
 
@@ -115,7 +118,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
     });
 
     return { ducats, credits };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rowSelection, table]);
 
   useEffect(() => {
@@ -309,6 +312,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
                   {credits.toLocaleString(undefined)}
                 </div>
               </TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableFooter>
         </Table>
