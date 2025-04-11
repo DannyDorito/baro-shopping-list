@@ -1,6 +1,6 @@
 "use client";
 
-import { ColumnDef, Row, SortDirection } from "@tanstack/react-table";
+import { ColumnDef, Row, SortDirection, Table } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -162,3 +162,17 @@ export const columns: ColumnDef<BaseItem>[] = [
   },
   ...typeColumnDefs,
 ];
+
+export type tableDef = Table<{
+  name: string;
+  credits: number;
+  ducats: number;
+  otherType: number;
+  equipmentType: number;
+  cosmeticType: number;
+  sentinelType: number;
+  weaponType: number;
+  modType: number;
+  modSubType: number;
+  decorationType: number;
+}>

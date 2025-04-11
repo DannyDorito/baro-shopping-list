@@ -22,7 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { InventoryType } from "@/types/BaseItem";
 import { data } from "@/data/InventoryData";
 import Image from "next/image";
@@ -34,7 +34,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { InventoryDropdown } from "./InventoryDropdown";
-import { columns } from "./ColumnDef";
+import { columns, tableDef } from "./ColumnDef";
 import { InventoryPagination } from "./InventoryPagination";
 import { InventoryTableProps } from "@/interfaces/InventoryTableProps";
 import { debug } from "@/lib/utils";
@@ -44,6 +44,18 @@ import { EquipmentType } from "@/enums/EquipmentType";
 import { ModType } from "@/enums/ModType";
 import { OtherType } from "@/enums/OtherType";
 import { WeaponType } from "@/enums/WeaponType";
+
+const handleSearchChange = (table: tableDef) => (event: ChangeEvent<HTMLInputElement>) => {
+  table.getColumn("name")?.setFilterValue(event.target.value);
+};
+
+const handleClearFilters = (table: tableDef) => () => {
+  table.resetColumnFilters();
+};
+
+const handleDeselectAll = (table: tableDef) => () => {
+  table.resetRowSelection();
+};
 
 export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -59,7 +71,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
   const [ducats, setDucats] = useState<number>(0);
   const [credits, setCredits] = useState<number>(0);
 
-  const table = useReactTable({
+  const table: tableDef = useReactTable({
     data,
     columns,
     onSortingChange: setSorting,
@@ -92,10 +104,8 @@ export const InventoryTable = (props: InventoryTableProps) => {
     },
   });
 
-  useEffect(() => {
-    const selectedRows = table
-      .getSelectedRowModel()
-      .rows.map((r) => r.original);
+  const { ducats: memoizedDucats, credits: memoizedCredits } = useMemo(() => {
+    const selectedRows = table.getSelectedRowModel().rows.map((r) => r.original);
     let ducats = 0;
     let credits = 0;
 
@@ -104,9 +114,14 @@ export const InventoryTable = (props: InventoryTableProps) => {
       credits += sr.credits;
     });
 
-    setDucats(ducats);
-    setCredits(credits);
+    return { ducats, credits };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rowSelection, table]);
+
+  useEffect(() => {
+    setDucats(memoizedDucats);
+    setCredits(memoizedCredits);
+  }, [memoizedDucats, memoizedCredits]);
 
   useEffect(() => {
     if (props.acceptedToast) {
@@ -200,21 +215,19 @@ export const InventoryTable = (props: InventoryTableProps) => {
         <Input
           placeholder="Search"
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("name")?.setFilterValue(event.target.value)
-          }
+          onChange={handleSearchChange(table)}
           className="min-w-24"
         />
         <Button
           className="ml-3"
-          onClick={() => table.resetColumnFilters()}
+          onClick={handleClearFilters(table)}
           aria-label="Clear Filters"
         >
           <SearchX /> Clear
         </Button>
         <Button
           className="ml-3"
-          onClick={() => table.resetRowSelection()}
+          onClick={handleDeselectAll(table)}
           aria-label="Clear Row Selection"
         >
           <FunnelX /> Deselect All

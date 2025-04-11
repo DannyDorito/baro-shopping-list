@@ -741,6 +741,19 @@
     "decorationType": 0
   },
   {
+    "name": "Falcon Mod Pack",
+    "credits": 50000,
+    "ducats": 250,
+    "otherType": 6,
+    "equipmentType": 0,
+    "cosmeticType": 0,
+    "sentinelType": 0,
+    "weaponType": 0,
+    "modType": 0,
+    "modSubType": 0,
+    "decorationType": 0
+  },
+  {
     "name": "Primed Magazine Warp",
     "credits": 200000,
     "ducats": 280,
@@ -1178,8 +1191,8 @@
     "cosmeticType": 0,
     "sentinelType": 0,
     "weaponType": 0,
-    "modType": 0,
-    "modSubType": 2,
+    "modType": 6,
+    "modSubType": 0,
     "decorationType": 0
   },
   {
@@ -1976,6 +1989,19 @@
     "decorationType": 0
   },
   {
+    "name": "Dragon Mod Pack",
+    "credits": 100000,
+    "ducats": 500,
+    "otherType": 6,
+    "equipmentType": 0,
+    "cosmeticType": 0,
+    "sentinelType": 0,
+    "weaponType": 0,
+    "modType": 0,
+    "modSubType": 0,
+    "decorationType": 0
+  },
+  {
     "name": "3 Day Credit Booster",
     "credits": 75000,
     "ducats": 350,
@@ -2231,8 +2257,8 @@
     "cosmeticType": 0,
     "sentinelType": 0,
     "weaponType": 0,
-    "modType": 0,
-    "modSubType": 2,
+    "modType": 6,
+    "modSubType": 0,
     "decorationType": 0
   },
   {
@@ -2452,8 +2478,8 @@
     "cosmeticType": 0,
     "sentinelType": 0,
     "weaponType": 0,
-    "modType": 0,
-    "modSubType": 2,
+    "modType": 6,
+    "modSubType": 0,
     "decorationType": 0
   },
   {
