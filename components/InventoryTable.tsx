@@ -10,7 +10,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { FunnelX, ListFilter, SearchX } from "lucide-react";
+import { ListFilter, SearchX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -44,19 +44,7 @@ import { EquipmentType } from "@/enums/EquipmentType";
 import { ModType } from "@/enums/ModType";
 import { OtherType } from "@/enums/OtherType";
 import { WeaponType } from "@/enums/WeaponType";
-
-const handleSearchChange =
-  (table: tableDef) => (event: ChangeEvent<HTMLInputElement>) => {
-    table.getColumn("name")?.setFilterValue(event.target.value);
-  };
-
-const handleClearFilters = (table: tableDef) => () => {
-  table.resetColumnFilters();
-};
-
-const handleDeselectAll = (table: tableDef) => () => {
-  table.resetRowSelection();
-};
+import { DeselectAll } from "./DeselectAll";
 
 export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -71,6 +59,8 @@ export const InventoryTable = (props: InventoryTableProps) => {
 
   const [ducats, setDucats] = useState<number>(0);
   const [credits, setCredits] = useState<number>(0);
+
+  const [openDeselectAll, setOpenDeselectAll] = useState(false);
 
   const table: tableDef = useReactTable({
     data,
@@ -162,6 +152,21 @@ export const InventoryTable = (props: InventoryTableProps) => {
     return filterType === filterValue;
   };
 
+  const handleDeselectAll = (table: tableDef) => () => {
+    if (table.getFilteredSelectedRowModel().rows.length === 0) return;
+    setOpenDeselectAll(false);
+    table.resetRowSelection();
+  };
+
+  const handleSearchChange =
+    (table: tableDef) => (event: ChangeEvent<HTMLInputElement>) => {
+      table.getColumn("name")?.setFilterValue(event.target.value);
+    };
+
+  const handleClearFilters = (table: tableDef) => () => {
+    table.resetColumnFilters();
+  };
+
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
@@ -228,13 +233,12 @@ export const InventoryTable = (props: InventoryTableProps) => {
         >
           <SearchX /> Clear
         </Button>
-        <Button
-          className="ml-3"
-          onClick={handleDeselectAll(table)}
-          aria-label="Clear Row Selection"
-        >
-          <FunnelX /> Deselect All
-        </Button>
+        <DeselectAll
+          onDeselectAll={handleDeselectAll(table)}
+          count={table.getFilteredSelectedRowModel().rows.length}
+          open={openDeselectAll}
+          setOpen={setOpenDeselectAll}
+        />
       </div>
       <div className="rounded-md border">
         <Table className="w-full">
