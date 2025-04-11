@@ -123,7 +123,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
       const serialized = JSON.stringify(rowSelection);
       window.localStorage.setItem("rowSelection", serialized);
     }
-  }, [rowSelection]);
+  }, [props.acceptedToast, rowSelection]);
 
   const setFilter = (
     type: InventoryType,
