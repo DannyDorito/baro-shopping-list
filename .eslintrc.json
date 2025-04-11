@@ -1,8 +1,0 @@
-{
-  "extends": [
-    "next",
-    "next/typescript",
-    "next/core-web-vitals",
-    "plugin:@next/next/recommended"
-  ]
-}
