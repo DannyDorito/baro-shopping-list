@@ -45,7 +45,7 @@ const typeColumns = [
 const typeColumnDefs = typeColumns.map((type) => ({
   accessorKey: type,
   filterFn: defaultFilterFn,
-  enableResizing: false, // Disable resizing for type columns
+  enableResizing: false,
 }));
 
 export const columns: ColumnDef<BaseItem>[] = [
@@ -72,7 +72,7 @@ export const columns: ColumnDef<BaseItem>[] = [
     ),
     enableSorting: false,
     enableHiding: false,
-    enableResizing: false, // Disable resizing for the select column
+    enableResizing: false,
   },
   {
     accessorKey: "name",
@@ -100,7 +100,7 @@ export const columns: ColumnDef<BaseItem>[] = [
       </Link>
     ),
     filterFn: defaultFilterFn,
-    enableResizing: false, // Disable resizing for the name column
+    enableResizing: false,
   },
   {
     accessorKey: "ducats",
