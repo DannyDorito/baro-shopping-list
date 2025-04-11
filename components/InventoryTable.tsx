@@ -283,7 +283,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  No results found.
                 </TableCell>
               </TableRow>
             )}
