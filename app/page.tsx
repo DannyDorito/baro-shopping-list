@@ -2,7 +2,7 @@
 
 import { Footer } from "@/components/Footer";
 import { InventoryTable } from "@/components/InventoryTable";
-import useLocalStorage from "@/lib/uselocalstorage";
+import useLocalStorage from "@/lib/useLocalStorage";
 import { useEffect } from "react";
 import { toast, useSonner } from "sonner";
 
