@@ -99,7 +99,6 @@ export const columns: ColumnDef<BaseItem>[] = [
         <p className="underline decoration-(--muted)">{row.getValue("name")}</p>
       </Link>
     ),
-    filterFn: defaultFilterFn,
     enableResizing: false,
   },
   {
