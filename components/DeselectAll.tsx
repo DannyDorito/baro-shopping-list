@@ -11,17 +11,20 @@ import {
 } from "./ui/dialog";
 import { DeselectAllProps } from "@/interfaces/DeselectAllProps";
 import { Button } from "./ui/button";
+import { useMediaQuery } from "react-responsive";
 
 export const DeselectAll = (props: DeselectAllProps) => {
+  const isSm = useMediaQuery({ query: "(max-width: 1224px)" });
   return (
     <Dialog open={props.open} onOpenChange={props.setOpen}>
       <DialogTrigger disabled={props.count === 0} asChild>
         <Button
-          className="ml-3"
+          className="ml-3 cursor-pointer"
           aria-label="Clear Row Selection"
           disabled={props.count === 0}
         >
-          <FunnelX /> Deselect All
+          <FunnelX />
+          {!isSm && " Deselect All"}
         </Button>
       </DialogTrigger>
       <DialogContent>

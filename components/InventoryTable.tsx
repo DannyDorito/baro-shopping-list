@@ -46,6 +46,7 @@ import { OtherType } from "@/enums/OtherType";
 import { WeaponType } from "@/enums/WeaponType";
 import { DeselectAll } from "./DeselectAll";
 import { ModSubType } from "@/enums/ModSubType";
+import { useMediaQuery } from "react-responsive";
 
 export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -55,6 +56,8 @@ export const InventoryTable = (props: InventoryTableProps) => {
     },
   ]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+
+  const isSm = useMediaQuery({ query: "(max-width: 1224px)" });
 
   const [rowSelection, setRowSelection] = useState({});
 
@@ -205,9 +208,8 @@ export const InventoryTable = (props: InventoryTableProps) => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
-              variant="outline"
               size="icon"
-              className="ml-auto mr-3"
+              className="ml-auto mr-3 cursor-pointer"
               aria-label="Filter Inventory"
             >
               <ListFilter />
@@ -261,12 +263,13 @@ export const InventoryTable = (props: InventoryTableProps) => {
           className="min-w-24"
         />
         <Button
-          className="ml-3"
+          className="ml-3 cursor-pointer"
           onClick={handleClearFilters(table)}
           aria-label="Clear Filters"
           disabled={columnFilters.length === 0}
         >
-          <SearchX /> Clear
+          <SearchX />
+          {!isSm && " Clear"}
         </Button>
         <DeselectAll
           onDeselectAll={handleDeselectAll(table)}

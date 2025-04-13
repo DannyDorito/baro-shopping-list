@@ -23,6 +23,7 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       onClick={() => table.setPageIndex(0)}
       disabled={!table.getCanPreviousPage()}
       aria-label="First Page"
+      className="cursor-pointer"
     >
       <ChevronsLeft />
     </Button>
@@ -32,6 +33,7 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       onClick={() => table.previousPage()}
       disabled={!table.getCanPreviousPage()}
       aria-label="Previous Page"
+      className="cursor-pointer"
     >
       <ChevronLeft />
     </Button>
@@ -42,12 +44,12 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
         />
       </SelectTrigger>
       <SelectContent>
-        {[10, 20, 30, 40, 50, table.getRowCount()].map((pageSize, index) => (
+        {[10, 25, 50, 100].map((pageSize, index) => (
           <SelectItem
             key={`size-${pageSize}-${index}`}
             value={pageSize.toString()}
           >
-            Show {pageSize === table.getRowCount() ? "All" : pageSize}
+            Show {pageSize}
           </SelectItem>
         ))}
       </SelectContent>
@@ -58,6 +60,7 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       onClick={() => table.nextPage()}
       disabled={!table.getCanNextPage()}
       aria-label="Next Page"
+      className="cursor-pointer"
     >
       <ChevronRight />
     </Button>
@@ -67,6 +70,7 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       onClick={() => table.setPageIndex(table.getPageCount() - 1)}
       disabled={!table.getCanNextPage()}
       aria-label="Last Page"
+      className="cursor-pointer"
     >
       <ChevronsRight />
     </Button>

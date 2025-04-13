@@ -83,6 +83,7 @@ export const columns: ColumnDef<BaseItem>[] = [
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
             aria-label="Sort by name"
+            className="cursor-pointer"
           >
             Name
             {getSortingArrow(column.getIsSorted())}
@@ -110,6 +111,7 @@ export const columns: ColumnDef<BaseItem>[] = [
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
             aria-label="Sort by ducats"
+            className="cursor-pointer"
           >
             <Image
               src={Ducats}
@@ -139,6 +141,7 @@ export const columns: ColumnDef<BaseItem>[] = [
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
             aria-label="Sort by credits"
+            className="cursor-pointer"
           >
             <Image
               src={Credits}
@@ -168,6 +171,7 @@ export const columns: ColumnDef<BaseItem>[] = [
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
             aria-label="Sort by last seen"
+            className="cursor-pointer"
           >
             Last Seen
             {getSortingArrow(column.getIsSorted())}

@@ -112,6 +112,7 @@ export const Feedback = (props: FeedbackProps) => {
           variant="outline"
           onClick={() => props.setOpen(true)}
           aria-label="Send feedback"
+          className="cursor-pointer"
         >
           <MessageCircleMore /> Feedback
         </Button>
