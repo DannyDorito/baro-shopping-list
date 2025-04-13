@@ -10,9 +10,6 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ListFilter, SearchX } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -28,25 +25,11 @@ import { data } from "@/data/InventoryData";
 import Image from "next/image";
 import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { InventoryDropdown } from "./InventoryDropdown";
 import { columns, tableDef } from "./ColumnDef";
 import { InventoryPagination } from "./InventoryPagination";
 import { InventoryTableProps } from "@/interfaces/InventoryTableProps";
 import { debug } from "@/lib/utils";
-import { CosmeticType } from "@/enums/CosmeticType";
-import { DecorationType } from "@/enums/DecorationType";
-import { EquipmentType } from "@/enums/EquipmentType";
-import { ModType } from "@/enums/ModType";
-import { OtherType } from "@/enums/OtherType";
-import { WeaponType } from "@/enums/WeaponType";
-import { DeselectAll } from "./DeselectAll";
-import { ModSubType } from "@/enums/ModSubType";
-import { useMediaQuery } from "react-responsive";
+import { ActionBar } from "./ActionBar";
 
 export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -56,8 +39,6 @@ export const InventoryTable = (props: InventoryTableProps) => {
     },
   ]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-
-  const isSm = useMediaQuery({ query: "(max-width: 1224px)" });
 
   const [rowSelection, setRowSelection] = useState({});
 
@@ -204,80 +185,18 @@ export const InventoryTable = (props: InventoryTableProps) => {
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              size="icon"
-              className="ml-auto mr-3 cursor-pointer"
-              aria-label="Filter Inventory"
-            >
-              <ListFilter />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <InventoryDropdown
-              setFilter={setFilter}
-              getChecked={getChecked}
-              type={EquipmentType}
-              name="Equipment"
-            />
-            <InventoryDropdown
-              setFilter={setFilter}
-              getChecked={getChecked}
-              type={CosmeticType}
-              name="Cosmetic"
-            />
-            <InventoryDropdown
-              setFilter={setFilter}
-              getChecked={getChecked}
-              type={WeaponType}
-              name="Weapon"
-            />
-            <InventoryDropdown
-              setFilter={setFilter}
-              getChecked={getChecked}
-              type={ModType}
-              subType={ModSubType}
-              name="Mod"
-              subName="Mod Sub Type"
-            />
-            <InventoryDropdown
-              setFilter={setFilter}
-              getChecked={getChecked}
-              type={DecorationType}
-              name="Decoration"
-            />
-            <InventoryDropdown
-              setFilter={setFilter}
-              getChecked={getChecked}
-              type={OtherType}
-              name="Other"
-            />
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <Input
-          placeholder="Search"
-          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-          onChange={handleSearchChange(table)}
-          className="min-w-24"
-        />
-        <Button
-          className="ml-3 cursor-pointer"
-          onClick={handleClearFilters(table)}
-          aria-label="Clear Filters"
-          disabled={columnFilters.length === 0}
-        >
-          <SearchX />
-          {!isSm && " Clear"}
-        </Button>
-        <DeselectAll
-          onDeselectAll={handleDeselectAll(table)}
-          count={table.getFilteredSelectedRowModel().rows.length}
-          open={openDeselectAll}
-          setOpen={setOpenDeselectAll}
-        />
-      </div>
+      <ActionBar
+        setFilter={setFilter}
+        getChecked={getChecked}
+        handleDeselectAll={handleDeselectAll}
+        handleSearchChange={handleSearchChange}
+        handleClearFilters={handleClearFilters}
+        table={table}
+        setOpenDeselectAll={setOpenDeselectAll}
+        openDeselectAll={openDeselectAll}
+        setRowSelection={setRowSelection}
+        columnFilters={columnFilters}
+      />
       <div className="rounded-md border">
         <Table className="w-full">
           <TableHeader>
