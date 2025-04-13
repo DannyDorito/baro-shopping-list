@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Baro Ki'Teer Item Checklist
+
+This project is a [Next.js](https://nextjs.org) application designed to help Warframe players manage their shopping list for Baro Ki'Teer items. It provides an interactive inventory table with filtering, sorting, and pagination features.
+
+## Features
+
+- **Inventory Management**: Track items by type, ducats, credits, and more.
+- **Filtering and Sorting**: Easily filter and sort items based on various criteria.
+- **Pagination**: Navigate through large inventories efficiently.
+- **Feedback Form**: Submit feedback directly from the app.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Dark Mode Support**: Seamlessly switch between light and dark themes.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up the project locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ensure you have the following installed:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Node.js](https://nodejs.org) (v16 or higher)
+- [npm](https://www.npmjs.com) or [yarn](https://yarnpkg.com)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/your-username/baro-shopping-list.git
+   cd baro-shopping-list
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Deploy on Vercel
+3. Start the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+- `components/`: Reusable UI components like tables, dropdowns, and buttons.
+- `data/`: Static data files for inventory items.
+- `enums/`: Enumerations for item types.
+- `interfaces/`: TypeScript interfaces for props and data structures.
+- `lib/`: Utility functions and hooks.
+- `pages/`: Application pages.
+- `styles/`: Global and component-specific styles.
+- `types/`: TypeScript types for shared data models.
+
+## Deployment
+
+The easiest way to deploy this app is via [Vercel](https://vercel.com):
+
+1. Push your code to a GitHub repository.
+2. Import the repository into Vercel.
+3. Follow the deployment instructions provided by Vercel.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push the branch.
+4. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Acknowledgments
+
+- Built with [Next.js](https://nextjs.org).
+- UI components inspired by [shadcn/ui](https://ui.shadcn.com).
+- Deployed on [Vercel](https://vercel.com).
