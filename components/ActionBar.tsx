@@ -1,3 +1,5 @@
+"use client";
+
 import { ListFilter, SearchX } from "lucide-react";
 import { Button } from "./ui/button";
 import {

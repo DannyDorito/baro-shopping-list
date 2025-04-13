@@ -1,5 +1,6 @@
-import { InventoryType } from "@/types/BaseItem";
+"use client";
 
+import { InventoryType } from "@/types/BaseItem";
 import {
   DropdownMenuCheckboxItem,
   DropdownMenuPortal,
