@@ -45,6 +45,7 @@ import { ModType } from "@/enums/ModType";
 import { OtherType } from "@/enums/OtherType";
 import { WeaponType } from "@/enums/WeaponType";
 import { DeselectAll } from "./DeselectAll";
+import { ModSubType } from "@/enums/ModSubType";
 
 export const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -137,18 +138,49 @@ export const InventoryTable = (props: InventoryTableProps) => {
     type: InventoryType,
     column: string,
     value: string,
-    checked: boolean
+    checked: boolean,
+    subType?: InventoryType,
+    subColumn?: string,
+    subValue?: string
   ) => {
     table.resetColumnFilters();
     const filterValue = checked
       ? type[value as keyof typeof type].toString()
       : undefined;
     table.getColumn(column)?.setFilterValue(filterValue);
+
+    if (subColumn && subValue && subType) {
+      const filterSubValue = checked
+        ? subType[subValue as keyof typeof subType].toString()
+        : undefined;
+      table.getColumn(subColumn)?.setFilterValue(filterSubValue);
+    }
   };
 
-  const getChecked = (type: InventoryType, column: string, value: string) => {
+  const getChecked = (
+    type: InventoryType,
+    column: string,
+    value: string,
+    subType?: InventoryType,
+    subColumn?: string,
+    subValue?: string
+  ) => {
     const filterType = type[value as keyof typeof type].toString();
     const filterValue = table.getColumn(column)?.getFilterValue() as string;
+
+    if (subType && subColumn && subValue) {
+      const filterSubType =
+        subType[subValue as keyof typeof subType].toString();
+      const filterSubValue = table
+        .getColumn(subColumn)
+        ?.getFilterValue() as string;
+
+      if (filterType === filterValue && !filterSubValue) {
+        return true;
+      }
+      return filterType === filterValue && filterSubType === filterSubValue;
+    }
+
     return filterType === filterValue;
   };
 
@@ -186,37 +218,39 @@ export const InventoryTable = (props: InventoryTableProps) => {
               setFilter={setFilter}
               getChecked={getChecked}
               type={EquipmentType}
-              name={"Equipment"}
+              name="Equipment"
             />
             <InventoryDropdown
               setFilter={setFilter}
               getChecked={getChecked}
               type={CosmeticType}
-              name={"Cosmetic"}
+              name="Cosmetic"
             />
             <InventoryDropdown
               setFilter={setFilter}
               getChecked={getChecked}
               type={WeaponType}
-              name={"Weapon"}
+              name="Weapon"
             />
             <InventoryDropdown
               setFilter={setFilter}
               getChecked={getChecked}
               type={ModType}
-              name={"Mod"}
+              subType={ModSubType}
+              name="Mod"
+              subName="Mod Sub Type"
             />
             <InventoryDropdown
               setFilter={setFilter}
               getChecked={getChecked}
               type={DecorationType}
-              name={"Decoration"}
+              name="Decoration"
             />
             <InventoryDropdown
               setFilter={setFilter}
               getChecked={getChecked}
               type={OtherType}
-              name={"Other"}
+              name="Other"
             />
           </DropdownMenuContent>
         </DropdownMenu>

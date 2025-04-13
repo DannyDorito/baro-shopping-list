@@ -5,9 +5,21 @@ export interface InventoryDropdownProps {
     type: InventoryType,
     column: string,
     value: string,
-    checked: boolean
+    checked: boolean,
+    subType?: InventoryType,
+    subColumn?: string,
+    subValue?: string
   ) => void;
-  getChecked: (type: InventoryType, column: string, value: string) => boolean;
+  getChecked: (
+    type: InventoryType,
+    column: string,
+    value: string,
+    subType?: InventoryType,
+    subColumn?: string,
+    subValue?: string
+  ) => boolean;
   type: InventoryType;
+  subType?: InventoryType;
   name: string;
+  subName?: string;
 }
