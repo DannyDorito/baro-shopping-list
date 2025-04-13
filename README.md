@@ -47,7 +47,7 @@ Ensure you have the following installed:
    yarn dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open [https://localhost:3000](https://localhost:3000) in your browser.
 
 ## Project Structure
 
@@ -60,14 +60,6 @@ Ensure you have the following installed:
 - `styles/`: Global and component-specific styles.
 - `types/`: TypeScript types for shared data models.
 
-## Deployment
-
-The easiest way to deploy this app is via [Vercel](https://vercel.com):
-
-1. Push your code to a GitHub repository.
-2. Import the repository into Vercel.
-3. Follow the deployment instructions provided by Vercel.
-
 ## Contributing
 
 Contributions are welcome! To contribute:
@@ -79,7 +71,7 @@ Contributions are welcome! To contribute:
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the Apache 2.0 license. See the `LICENSE` file for details.
 
 ## Acknowledgments
 
