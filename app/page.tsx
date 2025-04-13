@@ -2,12 +2,12 @@
 
 import { Footer } from "@/components/Footer";
 import { InventoryTable } from "@/components/InventoryTable";
-import { useLocalStorage } from "@/lib/useLocalStorage";
+import { useLocal } from "@/lib/useLocal";
 import { useEffect } from "react";
 import { toast, useSonner } from "sonner";
 
 export default function Home() {
-  const [acceptedToast, setAcceptedToast] = useLocalStorage(
+  const [acceptedToast, setAcceptedToast] = useLocal(
     "acceptedToast",
     false
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 
-export const useLocalStorage = (key: string, initialValue: unknown) => {
+export const useLocal = (key: string, initialValue: unknown) => {
   const [state, setState] = useState(() => {
     try {
       const value = window.localStorage.getItem(key);
