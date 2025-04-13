@@ -264,6 +264,7 @@ export const InventoryTable = (props: InventoryTableProps) => {
           className="ml-3"
           onClick={handleClearFilters(table)}
           aria-label="Clear Filters"
+          disabled={columnFilters.length === 0}
         >
           <SearchX /> Clear
         </Button>
