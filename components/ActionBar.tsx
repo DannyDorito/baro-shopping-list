@@ -20,6 +20,14 @@ import { OtherType } from "@/enums/OtherType";
 import { useMediaQuery } from "react-responsive";
 import { ActionBarProps } from "@/interfaces/ActonBarProps";
 
+const dropdownConfigs = [
+  { type: EquipmentType, name: "Equipment" },
+  { type: CosmeticType, name: "Cosmetic" },
+  { type: WeaponType, name: "Weapon" },
+  { type: ModType, subType: ModSubType, name: "Mod", subName: "Mod Sub Type" },
+  { type: DecorationType, name: "Decoration" },
+  { type: OtherType, name: "Other" },
+];
 export const ActionBar = (props: ActionBarProps) => {
   const isSm = useMediaQuery({ query: "(max-width: 1224px)" });
 
@@ -36,44 +44,14 @@ export const ActionBar = (props: ActionBarProps) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
+        {dropdownConfigs.map((config, index) => (
           <InventoryDropdown
+            key={index}
             setFilter={props.setFilter}
             getChecked={props.getChecked}
-            type={EquipmentType}
-            name="Equipment"
+            {...config}
           />
-          <InventoryDropdown
-            setFilter={props.setFilter}
-            getChecked={props.getChecked}
-            type={CosmeticType}
-            name="Cosmetic"
-          />
-          <InventoryDropdown
-            setFilter={props.setFilter}
-            getChecked={props.getChecked}
-            type={WeaponType}
-            name="Weapon"
-          />
-          <InventoryDropdown
-            setFilter={props.setFilter}
-            getChecked={props.getChecked}
-            type={ModType}
-            subType={ModSubType}
-            name="Mod"
-            subName="Mod Sub Type"
-          />
-          <InventoryDropdown
-            setFilter={props.setFilter}
-            getChecked={props.getChecked}
-            type={DecorationType}
-            name="Decoration"
-          />
-          <InventoryDropdown
-            setFilter={props.setFilter}
-            getChecked={props.getChecked}
-            type={OtherType}
-            name="Other"
-          />
+        ))}
         </DropdownMenuContent>
       </DropdownMenu>
       <Input
