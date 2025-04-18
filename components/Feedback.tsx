@@ -29,7 +29,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { FeedbackProps } from "@/interfaces/FeedbackProps";
+import FeedbackProps from "@/interfaces/FeedbackProps";
 
 const FormSchema = z.object({
   name: z.string().min(1, {
@@ -58,7 +58,7 @@ const Turnstile = dynamic(
   }
 );
 
-export const Feedback = (props: FeedbackProps) => {
+const Feedback = (props: FeedbackProps) => {
   const [isFormDirty, setIsFormDirty] = useState<boolean>(false);
   const [turnstileVerified, setTurnstileVerified] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -217,3 +217,5 @@ export const Feedback = (props: FeedbackProps) => {
     </Dialog>
   );
 };
+
+export default Feedback;

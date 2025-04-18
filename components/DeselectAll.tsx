@@ -11,11 +11,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { DeselectAllProps } from "@/interfaces/DeselectAllProps";
+import DeselectAllProps from "@/interfaces/DeselectAllProps";
 import { Button } from "./ui/button";
 import { useMediaQuery } from "react-responsive";
 
-export const DeselectAll = (props: DeselectAllProps) => {
+const DeselectAll = (props: DeselectAllProps) => {
   const isSm = useMediaQuery({ query: "(max-width: 1224px)" });
   return (
     <Dialog open={props.open} onOpenChange={props.setOpen}>
@@ -61,3 +61,5 @@ export const DeselectAll = (props: DeselectAllProps) => {
     </Dialog>
   );
 };
+
+export default DeselectAll;

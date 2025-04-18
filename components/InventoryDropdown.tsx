@@ -8,10 +8,10 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
 } from "./ui/dropdown-menu";
-import { InventoryDropdownProps } from "@/interfaces/InventoryDropdownProps";
+import InventoryDropdownProps from "@/interfaces/InventoryDropdownProps";
 import { toCamelCase } from "@/lib/utils";
 
-export const InventoryDropdown = (props: InventoryDropdownProps) => {
+const InventoryDropdown = (props: InventoryDropdownProps) => {
   const getItems = (type: InventoryType): string[] => {
     return Object.keys(type).filter(
       (key) => !isNaN(type[key as keyof typeof type]) && key !== "None"
@@ -110,3 +110,5 @@ export const InventoryDropdown = (props: InventoryDropdownProps) => {
     </DropdownMenuSub>
   );
 };
+
+export default InventoryDropdown;

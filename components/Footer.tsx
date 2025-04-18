@@ -2,15 +2,15 @@
 
 import { Heart } from "lucide-react";
 import Link from "next/link";
-import { Feedback } from "./Feedback";
+import Feedback from "./Feedback";
 import { useState } from "react";
 
-export const Footer = () => {
+export const Footer = ({ hideFeedback }: { hideFeedback?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="flex min-h-fit flex-col items-center overflow-hidden">
-      <Feedback open={open} setOpen={setOpen} />
+      {!hideFeedback && <Feedback open={open} setOpen={setOpen} />}
       <p className="leading-7 [&:not(:first-child)]:mt-6 text-center">
         Created in&nbsp;
         <Link

@@ -1,3 +1,3 @@
-export interface InventoryTableProps {
+export default interface InventoryTableProps {
   acceptedToast: boolean;
 }

@@ -26,12 +26,12 @@ import Image from "next/image";
 import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
 import { columns, tableDef } from "./ColumnDef";
-import { InventoryPagination } from "./InventoryPagination";
-import { InventoryTableProps } from "@/interfaces/InventoryTableProps";
+import InventoryPagination from "./InventoryPagination";
+import InventoryTableProps from "@/interfaces/InventoryTableProps";
 import { debug } from "@/lib/utils";
-import { ActionBar } from "./ActionBar";
+import ActionBar from "./ActionBar";
 
-export const InventoryTable = (props: InventoryTableProps) => {
+const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
     {
       id: "name",
@@ -288,3 +288,5 @@ export const InventoryTable = (props: InventoryTableProps) => {
     </div>
   );
 };
+
+export default InventoryTable;

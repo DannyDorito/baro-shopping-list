@@ -18,18 +18,24 @@ export const metadata: Metadata = {
     "Baro Ki'Teer Inventory",
     "Baro Ki'Teer Inventory Tracker",
     "Baro Ki'Teer Inventory Management",
-    "Baro Ki'Teer Inventory Checklist"
+    "Baro Ki'Teer Inventory Checklist",
+    "Baro Ki'Teer Full Inventory",
+    "Baro Ki'Teer Inventory App",
+    "Baro Ki'Teer Inventory Tracker App",
+    "Baro Ki'Teer Inventory Management App",
+    "Baro Ki'Teer Inventory Checklist App",
+    "Baro Ki'Teer Inventory Management Tool",
   ],
   authors: [{ name: "John Allison", url: "https://jallison.co.uk"}]
 };
 
 export const dynamic = "force-static";
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="en">
       <head>
@@ -48,3 +54,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default RootLayout;

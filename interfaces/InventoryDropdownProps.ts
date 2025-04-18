@@ -1,6 +1,6 @@
 import { InventoryType } from "@/types/BaseItem";
 
-export interface InventoryDropdownProps {
+export default interface InventoryDropdownProps {
   setFilter: (
     type: InventoryType,
     column: string,

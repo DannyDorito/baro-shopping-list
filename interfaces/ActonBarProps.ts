@@ -3,7 +3,7 @@ import { InventoryType } from "@/types/BaseItem";
 import { ColumnFiltersState } from "@tanstack/react-table";
 import { ChangeEvent } from "react";
 
-export interface ActionBarProps {
+export default interface ActionBarProps {
   setFilter: (
     type: InventoryType,
     column: string,

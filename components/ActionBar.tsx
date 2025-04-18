@@ -7,9 +7,9 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { InventoryDropdown } from "./InventoryDropdown";
+import InventoryDropdown from "./InventoryDropdown";
 import { Input } from "./ui/input";
-import { DeselectAll } from "./DeselectAll";
+import DeselectAll from "./DeselectAll";
 import { EquipmentType } from "@/enums/EquipmentType";
 import { CosmeticType } from "@/enums/CosmeticType";
 import { WeaponType } from "@/enums/WeaponType";
@@ -18,7 +18,7 @@ import { ModType } from "@/enums/ModType";
 import { DecorationType } from "@/enums/DecorationType";
 import { OtherType } from "@/enums/OtherType";
 import { useMediaQuery } from "react-responsive";
-import { ActionBarProps } from "@/interfaces/ActonBarProps";
+import ActionBarProps from "@/interfaces/ActonBarProps";
 
 const dropdownConfigs = [
   { type: EquipmentType, name: "Equipment" },
@@ -28,7 +28,7 @@ const dropdownConfigs = [
   { type: DecorationType, name: "Decoration" },
   { type: OtherType, name: "Other" },
 ];
-export const ActionBar = (props: ActionBarProps) => {
+const ActionBar = (props: ActionBarProps) => {
   const isSm = useMediaQuery({ query: "(max-width: 1224px)" });
 
   return (
@@ -44,14 +44,14 @@ export const ActionBar = (props: ActionBarProps) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-        {dropdownConfigs.map((config, index) => (
-          <InventoryDropdown
-            key={index}
-            setFilter={props.setFilter}
-            getChecked={props.getChecked}
-            {...config}
-          />
-        ))}
+          {dropdownConfigs.map((config, index) => (
+            <InventoryDropdown
+              key={index}
+              setFilter={props.setFilter}
+              getChecked={props.getChecked}
+              {...config}
+            />
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
       <Input
@@ -80,3 +80,5 @@ export const ActionBar = (props: ActionBarProps) => {
     </div>
   );
 };
+
+export default ActionBar;

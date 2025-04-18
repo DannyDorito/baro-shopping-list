@@ -1,4 +1,4 @@
-export interface DeselectAllProps {
+export default interface DeselectAllProps {
   onDeselectAll: () => void;
   count: number;
   open: boolean;

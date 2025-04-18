@@ -17,7 +17,7 @@ import {
   ChevronsRight,
 } from "lucide-react";
 
-export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
+const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
   <div className="space-x-3 flex items-center">
     <Button
       variant="outline"
@@ -78,3 +78,5 @@ export const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
     </Button>
   </div>
 );
+
+export default InventoryPagination;
