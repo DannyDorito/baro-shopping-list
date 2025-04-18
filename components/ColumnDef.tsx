@@ -206,4 +206,5 @@ export type tableDef = Table<{
   modType: number;
   modSubType: number;
   decorationType: number;
+  hash: string;
 }>;

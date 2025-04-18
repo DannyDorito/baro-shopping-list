@@ -1,16 +1,31 @@
 "use client";
 
 import { Footer } from "@/components/Footer";
-import { InventoryTable } from "@/components/InventoryTable";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useLocal } from "@/lib/useLocal";
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { toast, useSonner } from "sonner";
 
+const InventoryTable = dynamic(
+  () => import("@/components/InventoryTable").then((d) => d.InventoryTable),
+  {
+    ssr: false,
+    loading: () => (
+      <>
+        <div className="py-4 flex items-center justify-between">
+          <Skeleton className="w-full h-[40px] rounded-xl" />
+        </div>
+        <Skeleton className="w-full h-[446px] rounded-xl" />
+        <div className="flex justify-center items-center space-x-3 py-4">
+          <Skeleton className="w-[30%] h-[36px] rounded-xl" />
+        </div>
+      </>
+    ),
+  }
+);
 export default function Home() {
-  const [acceptedToast, setAcceptedToast] = useLocal(
-    "acceptedToast",
-    false
-  );
+  const [acceptedToast, setAcceptedToast] = useLocal("acceptedToast", false);
   const { toasts } = useSonner();
 
   useEffect(() => {
