@@ -68,6 +68,7 @@ const InventoryTable = (props: InventoryTableProps) => {
         name: true,
         ducats: true,
         credits: true,
+        lastSeen: true,
         decorationType: debug,
         cosmeticType: debug,
         equipmentType: debug,

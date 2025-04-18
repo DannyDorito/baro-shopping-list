@@ -181,12 +181,24 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => {
       const date = new Date(row.getValue("lastSeen"));
-      const lastSeen =
-        date.toISOString() === "0001-01-01T00:00:00.000Z" ? (
-          <i>Unknown</i>
-        ) : (
-          date.toLocaleDateString()
-        );
+      let lastSeen: string | JSX.Element;
+
+      if (date.toISOString() === "0001-01-01T00:00:00.000Z") {
+        const name = row.getValue("name") as string;
+        if (name === "Sands of Inaros Blueprint") {
+          lastSeen = <span>Always Available</span>;
+        } else if (name === "Fae Path Ephemera") {
+          lastSeen = (
+            <span>
+              Always Available <em>(Console)</em>
+            </span>
+          );
+        } else {
+          lastSeen = <em>See Wiki</em>;
+        }
+      } else {
+        lastSeen = date.toLocaleDateString();
+      }
       return <div className="text-center">{lastSeen}</div>;
     },
   },
