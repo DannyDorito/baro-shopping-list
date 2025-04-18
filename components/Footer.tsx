@@ -1,6 +1,5 @@
 "use client";
 
-import { Heart } from "lucide-react";
 import Link from "next/link";
 import Feedback from "./Feedback";
 import { useState } from "react";
@@ -59,8 +58,7 @@ export const Footer = ({ hideFeedback }: { hideFeedback?: boolean }) => {
         .
       </p>
       <p className="flex items-center">
-        <Heart size={18} />
-        &nbsp;Danny/John.
+        This site is not affiliated with Digital Extremes.
       </p>
     </div>
   );

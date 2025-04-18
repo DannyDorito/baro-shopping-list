@@ -46,9 +46,9 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center md:p-24 p-0">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        Void Trader
+        Void Trader Observer
       </h1>
-      <h2 className="text-muted-foreground">My shopping list for Baro</h2>
+      <h2>Baro Item Checklist</h2>
       <div className="container mx-auto pt-8">
         <InventoryTable acceptedToast={acceptedToast} />
       </div>
