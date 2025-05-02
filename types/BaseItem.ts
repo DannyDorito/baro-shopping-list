@@ -20,7 +20,6 @@ export interface BaseItem {
   modType: ModType;
   modSubType: ModSubType;
   decorationType: DecorationType;
-  hash: string;
 }
 
 export type InventoryType =
