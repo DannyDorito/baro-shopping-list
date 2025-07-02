@@ -1,6 +1,6 @@
 "use client";
 
-import { InventoryType } from "@/types/BaseItem";
+import { InventoryType } from "@/enums/Type";
 import {
   DropdownMenuCheckboxItem,
   DropdownMenuPortal,
@@ -9,12 +9,12 @@ import {
   DropdownMenuSubTrigger,
 } from "./ui/dropdown-menu";
 import InventoryDropdownProps from "@/interfaces/InventoryDropdownProps";
-import { toCamelCase } from "@/lib/utils";
 
 const InventoryDropdown = (props: InventoryDropdownProps) => {
   const getItems = (type: InventoryType): string[] => {
     return Object.keys(type).filter(
-      (key) => !isNaN(type[key as keyof typeof type]) && key !== "None"
+      (key) =>
+        typeof type[key as keyof typeof type] === "number" && key !== "None"
     );
   };
 
@@ -30,13 +30,13 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                   key={`dropdown-${item}-${index}`}
                   checked={props.getChecked(
                     props.type,
-                    `${props.name.toLowerCase()}Type`,
+                    props.name,
                     item
                   )}
                   onCheckedChange={(checked) =>
                     props.setFilter(
                       props.type,
-                      `${props.name.toLowerCase()}Type`,
+                      props.name,
                       item,
                       checked
                     )
@@ -54,13 +54,13 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                       key={`dropdown-${item}-${index}`}
                       checked={props.getChecked(
                         props.type,
-                        `${toCamelCase(props.name)}Type`,
+                        props.name,
                         item
                       )}
                       onCheckedChange={(checked) =>
                         props.setFilter(
                           props.type,
-                          `${toCamelCase(props.name)}Type`,
+                          props.name,
                           item,
                           checked
                         )
@@ -77,20 +77,20 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                             key={`dropdown-${item}-${subItem}-${subIndex}`}
                             checked={props.getChecked(
                               props.type,
-                              `${toCamelCase(props.name)}Type`,
+                              props.name,
                               item,
-                              props.subType as InventoryType,
-                              toCamelCase(props.subName as string),
+                              props.subType,
+                              props.subName,
                               subItem
                             )}
                             onCheckedChange={(checked) =>
                               props.setFilter(
-                                props.type as InventoryType,
-                                `${toCamelCase(props.name)}Type`,
+                                props.type,
+                                props.name,
                                 item,
                                 checked,
-                                props.subType as InventoryType,
-                                toCamelCase(props.subName as string),
+                                props.subType,
+                                props.subName,
                                 subItem
                               )
                             }

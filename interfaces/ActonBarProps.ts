@@ -1,5 +1,5 @@
 import { tableDef } from "@/components/ColumnDef";
-import { InventoryType } from "@/types/BaseItem";
+import { InventoryType } from "@/enums/Type";
 import { ColumnFiltersState } from "@tanstack/react-table";
 import { ChangeEvent } from "react";
 

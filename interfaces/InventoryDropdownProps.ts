@@ -1,4 +1,4 @@
-import { InventoryType } from "@/types/BaseItem";
+import { InventoryType } from "@/enums/Type";
 
 export default interface InventoryDropdownProps {
   setFilter: (

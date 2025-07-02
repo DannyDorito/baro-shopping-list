@@ -20,7 +20,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
-import { InventoryType } from "@/types/BaseItem";
 import { data } from "@/data/InventoryData";
 import Image from "next/image";
 import Ducats from "../public/images/Ducats.png";
@@ -28,13 +27,13 @@ import Credits from "../public/images/Credits.png";
 import { columns, tableDef } from "./ColumnDef";
 import InventoryPagination from "./InventoryPagination";
 import InventoryTableProps from "@/interfaces/InventoryTableProps";
-import { debug } from "@/lib/utils";
 import ActionBar from "./ActionBar";
+import { InventoryType } from "@/enums/Type";
 
 const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
     {
-      id: "name",
+      id: "Name",
       desc: false,
     },
   ]);
@@ -68,15 +67,10 @@ const InventoryTable = (props: InventoryTableProps) => {
         name: true,
         ducats: true,
         credits: true,
-        lastSeen: true,
-        decorationType: debug,
-        cosmeticType: debug,
-        equipmentType: debug,
-        sentinelType: debug,
-        weaponType: debug,
-        modType: debug,
-        modSubType: debug,
-        otherType: debug,
+        link: true,
+        image: true,
+        itemType: true,
+        lastOfferingDate: true,
       },
     },
   });
@@ -89,8 +83,8 @@ const InventoryTable = (props: InventoryTableProps) => {
     let credits = 0;
 
     selectedRows.forEach((sr) => {
-      ducats += sr.ducats;
-      credits += sr.credits;
+      ducats += sr.Ducats;
+      credits += sr.Credits;
     });
 
     return { ducats, credits };
@@ -177,7 +171,7 @@ const InventoryTable = (props: InventoryTableProps) => {
 
   const handleSearchChange =
     (table: tableDef) => (event: ChangeEvent<HTMLInputElement>) => {
-      table.getColumn("name")?.setFilterValue(event.target.value);
+      table.getColumn("Name")?.setFilterValue(event.target.value);
     };
 
   const handleClearFilters = (table: tableDef) => () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { ColumnDef, Row, SortDirection, Table } from "@tanstack/react-table";
+import { ColumnDef, SortDirection, Table } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -10,6 +10,7 @@ import Image from "next/image";
 import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
 import Link from "next/link";
+import { InventoryType } from "@/enums/Type";
 
 export const getSortingArrow = (
   sorting: false | SortDirection
@@ -21,32 +22,6 @@ export const getSortingArrow = (
   };
   return icons[sorting || "false"];
 };
-
-const defaultFilterFn = (
-  row: Row<BaseItem>,
-  columnId: string,
-  filterValue: unknown[]
-) => {
-  const rowValue = row.getValue(columnId);
-  return filterValue.includes(rowValue);
-};
-
-const typeColumns = [
-  "decorationType",
-  "cosmeticType",
-  "equipmentType",
-  "sentinelType",
-  "weaponType",
-  "modType",
-  "modSubType",
-  "otherType",
-];
-
-const typeColumnDefs = typeColumns.map((type) => ({
-  accessorKey: type,
-  filterFn: defaultFilterFn,
-  enableResizing: false,
-}));
 
 export const columns: ColumnDef<BaseItem>[] = [
   {
@@ -75,7 +50,7 @@ export const columns: ColumnDef<BaseItem>[] = [
     enableResizing: false,
   },
   {
-    accessorKey: "name",
+    accessorKey: "Name",
     header: ({ column }) => {
       return (
         <div>
@@ -93,17 +68,17 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => (
       <Link
-        href={`https://wiki.warframe.com/?search=${row.getValue("name")}`}
+        href={`https://wiki.warframe.com/?search=${row.getValue("Name")}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <p className="underline decoration-(--muted)">{row.getValue("name")}</p>
+        <p className="underline decoration-(--muted)">{row.getValue("Name")}</p>
       </Link>
     ),
     enableResizing: false,
   },
   {
-    accessorKey: "ducats",
+    accessorKey: "Ducats",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -128,12 +103,12 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => (
       <div className="text-center">
-        {parseInt(row.getValue("ducats")).toLocaleString(undefined)}
+        {parseInt(row.getValue("Ducats")).toLocaleString(undefined)}
       </div>
     ),
   },
   {
-    accessorKey: "credits",
+    accessorKey: "Credits",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -158,12 +133,12 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => (
       <div className="text-center">
-        {parseInt(row.getValue("credits")).toLocaleString(undefined)}
+        {parseInt(row.getValue("Credits")).toLocaleString(undefined)}
       </div>
     ),
   },
   {
-    accessorKey: "lastSeen",
+    accessorKey: "LatestOfferingDate",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -180,42 +155,39 @@ export const columns: ColumnDef<BaseItem>[] = [
       );
     },
     cell: ({ row }) => {
-      const date = new Date(row.getValue("lastSeen"));
-      let lastSeen: string | JSX.Element;
+      const date = new Date(row.getValue("LatestOfferingDate"));
+      let latestOfferingDate: string | JSX.Element;
 
       if (date.toISOString() === "0001-01-01T00:00:00.000Z") {
-        const name = row.getValue("name") as string;
+        const name = row.getValue("Name") as string;
         if (name === "Sands of Inaros Blueprint") {
-          lastSeen = <span>Always Available</span>;
+          latestOfferingDate = <span>Always Available</span>;
         } else if (name === "Fae Path Ephemera") {
-          lastSeen = (
+          latestOfferingDate = (
             <span>
               Always Available <em>(Console)</em>
             </span>
           );
         } else {
-          lastSeen = <em>See Wiki</em>;
+          latestOfferingDate = <em>See Wiki</em>;
         }
       } else {
-        lastSeen = date.toLocaleDateString();
+        latestOfferingDate = date.toLocaleDateString();
       }
-      return <div className="text-center">{lastSeen}</div>;
+      return <div className="text-center">{latestOfferingDate}</div>;
     },
   },
-  ...typeColumnDefs,
 ];
 
 export type tableDef = Table<{
-  name: string;
-  credits: number;
-  ducats: number;
-  lastSeen: string;
-  otherType: number;
-  equipmentType: number;
-  cosmeticType: number;
-  sentinelType: number;
-  weaponType: number;
-  modType: number;
-  modSubType: number;
-  decorationType: number;
+  Name: string;
+  Ducats: number;
+  Credits: number;
+  Link: string;
+  Image: string;
+  ItemType: InventoryType;
+  LatestOfferingDate: string;
+  ConsoleOfferingDates: string[];
+  PCOfferingDates: string[];
+  OfferingsDates: string[];
 }>;

@@ -29,8 +29,6 @@ export const metadata: Metadata = {
   authors: [{ name: "John Allison", url: "https://jallison.co.uk"}]
 };
 
-export const dynamic = "force-static";
-
 const RootLayout = ({
   children,
 }: Readonly<{
