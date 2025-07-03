@@ -11,12 +11,13 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import InventoryDropdownProps from "@/interfaces/InventoryDropdownProps";
+//import InventoryDropdownProps from "@/interfaces/InventoryDropdownProps";
 import { ParentType, ParentTypeMap } from "@/enums/ParentType";
 import { Button } from "./ui/button";
 import { ListFilter } from "lucide-react";
 
-const InventoryDropdown = (props: InventoryDropdownProps) => {
+//const InventoryDropdown = (props: InventoryDropdownProps) => {
+const InventoryDropdown = () => {
   const getItems = () => {
     const items: { parentType: ParentType; types: InventoryType[] }[] = [];
     Object.entries(ParentTypeMap).forEach(([key, value]) => {

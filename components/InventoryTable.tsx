@@ -115,20 +115,25 @@ const InventoryTable = (props: InventoryTableProps) => {
   }, [props.acceptedToast, rowSelection]);
 
   const setFilter = (
-    type: InventoryType,
+    type: InventoryType | InventoryType[],
     column: string,
-    value: string,
+    value: string | string[],
     checked: boolean,
     subType?: InventoryType,
     subColumn?: string,
     subValue?: string
   ) => {
     table.resetColumnFilters();
-    const filterValue = checked
-      ? type[value as keyof typeof type].toString()
-      : undefined;
-    table.getColumn(column)?.setFilterValue(filterValue);
-
+    if (Array.isArray(type) && Array.isArray(value)) {
+      // Parent with multiple inventory types
+      const filterValues = checked ? value.map((v) => v.toString()) : undefined;
+      table.getColumn(column)?.setFilterValue(filterValues);
+    } else {
+      const filterValue = checked
+        ? (type as InventoryType)[value as keyof typeof type].toString()
+        : undefined;
+      table.getColumn(column)?.setFilterValue(filterValue);
+    }
     if (subColumn && subValue && subType) {
       const filterSubValue = checked
         ? subType[subValue as keyof typeof subType].toString()
@@ -138,14 +143,26 @@ const InventoryTable = (props: InventoryTableProps) => {
   };
 
   const getChecked = (
-    type: InventoryType,
+    type: InventoryType | InventoryType[],
     column: string,
-    value: string,
+    value: string | string[],
     subType?: InventoryType,
     subColumn?: string,
     subValue?: string
   ) => {
-    const filterType = type[value as keyof typeof type].toString();
+    if (Array.isArray(type) && Array.isArray(value)) {
+      // Parent with multiple inventory types
+      const filterValues = table
+        .getColumn(column)
+        ?.getFilterValue() as string[];
+      return (
+        Array.isArray(filterValues) &&
+        value.every((v) => filterValues.includes(v.toString()))
+      );
+    }
+    const filterType = (type as InventoryType)[
+      value as keyof typeof type
+    ].toString();
     const filterValue = table.getColumn(column)?.getFilterValue() as string;
 
     if (subType && subColumn && subValue) {
