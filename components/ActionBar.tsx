@@ -13,10 +13,7 @@ const ActionBar = (props: ActionBarProps) => {
 
   return (
     <div className="flex items-center py-4">
-      <InventoryDropdown
-        setFilterOld={props.setFilter}
-        getCheckedOld={props.getChecked}
-      />
+      <InventoryDropdown />
       <Input
         placeholder="Search"
         value={
