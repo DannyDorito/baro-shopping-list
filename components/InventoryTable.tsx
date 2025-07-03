@@ -29,6 +29,7 @@ import InventoryPagination from "./InventoryPagination";
 import InventoryTableProps from "@/interfaces/InventoryTableProps";
 import ActionBar from "./ActionBar";
 import { InventoryType } from "@/enums/Type";
+import { debug } from "@/lib/utils";
 
 const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -67,10 +68,10 @@ const InventoryTable = (props: InventoryTableProps) => {
         name: true,
         ducats: true,
         credits: true,
-        link: true,
-        image: true,
-        itemType: true,
-        lastOfferingDate: true,
+        link: debug,
+        image: debug,
+        itemType: debug,
+        lastOfferingDate: debug,
       },
     },
   });

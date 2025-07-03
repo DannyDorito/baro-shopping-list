@@ -177,6 +177,28 @@ export const columns: ColumnDef<BaseItem>[] = [
       return <div className="text-center">{latestOfferingDate}</div>;
     },
   },
+  {
+    accessorKey: "ItemType",
+    header: ({ column }) => {
+      return (
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by item type"
+            className="cursor-pointer"
+          >
+            Item Type
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
+      );
+    },
+    cell: ({ row }) => {
+      const itemType = row.getValue("ItemType") as InventoryType;
+      return <div className="text-center">{InventoryType[itemType]}</div>;
+    },
+  },
 ];
 
 export type tableDef = Table<{

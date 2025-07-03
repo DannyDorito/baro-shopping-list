@@ -1,113 +1,85 @@
 "use client";
 
-import { InventoryType } from "@/enums/Type";
+import { InventoryType, InventoryTypeNames } from "@/enums/Type";
 import {
+  DropdownMenu,
   DropdownMenuCheckboxItem,
+  DropdownMenuContent,
   DropdownMenuPortal,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import InventoryDropdownProps from "@/interfaces/InventoryDropdownProps";
+import { ParentType, ParentTypeMap } from "@/enums/ParentType";
+import { Button } from "./ui/button";
+import { ListFilter } from "lucide-react";
 
 const InventoryDropdown = (props: InventoryDropdownProps) => {
-  const getItems = (type: InventoryType): string[] => {
-    return Object.keys(type).filter(
-      (key) =>
-        typeof type[key as keyof typeof type] === "number" && key !== "None"
-    );
+  const getItems = () => {
+    const items: { parentType: ParentType; types: InventoryType[] }[] = [];
+    Object.entries(ParentTypeMap).forEach(([key, value]) => {
+      if (Number(key) !== ParentType.None) {
+        items.push({
+          parentType: Number(key) as ParentType,
+          types: value,
+        });
+      }
+    });
+    return items;
   };
 
   return (
-    <DropdownMenuSub>
-      <DropdownMenuSubTrigger>{props.name}</DropdownMenuSubTrigger>
-      <DropdownMenuPortal>
-        <DropdownMenuSubContent>
-          {getItems(props.type).map((item, index) => {
-            if (props.subType === undefined) {
-              return (
-                <DropdownMenuCheckboxItem
-                  key={`dropdown-${item}-${index}`}
-                  checked={props.getChecked(
-                    props.type,
-                    props.name,
-                    item
-                  )}
-                  onCheckedChange={(checked) =>
-                    props.setFilter(
-                      props.type,
-                      props.name,
-                      item,
-                      checked
-                    )
-                  }
-                >
-                  {item.replace("_", " ")}
-                </DropdownMenuCheckboxItem>
-              );
-            } else {
-              return (
-                <DropdownMenuSub key={`dropdown-${item}-${index}`}>
-                  <DropdownMenuSubTrigger id="tr">
-                    <DropdownMenuCheckboxItem
-                      className="pt-0 pb-0"
-                      key={`dropdown-${item}-${index}`}
-                      checked={props.getChecked(
-                        props.type,
-                        props.name,
-                        item
-                      )}
-                      onCheckedChange={(checked) =>
-                        props.setFilter(
-                          props.type,
-                          props.name,
-                          item,
-                          checked
-                        )
-                      }
-                    >
-                      {item.replace("_", " ")}
-                    </DropdownMenuCheckboxItem>
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuPortal>
-                    <DropdownMenuSubContent>
-                      {getItems(props.subType).map((subItem, subIndex) => {
-                        return (
-                          <DropdownMenuCheckboxItem
-                            key={`dropdown-${item}-${subItem}-${subIndex}`}
-                            checked={props.getChecked(
-                              props.type,
-                              props.name,
-                              item,
-                              props.subType,
-                              props.subName,
-                              subItem
-                            )}
-                            onCheckedChange={(checked) =>
-                              props.setFilter(
-                                props.type,
-                                props.name,
-                                item,
-                                checked,
-                                props.subType,
-                                props.subName,
-                                subItem
-                              )
-                            }
-                          >
-                            {subItem.replace("_", " ")}
-                          </DropdownMenuCheckboxItem>
-                        );
-                      })}
-                    </DropdownMenuSubContent>
-                  </DropdownMenuPortal>
-                </DropdownMenuSub>
-              );
-            }
-          })}
-        </DropdownMenuSubContent>
-      </DropdownMenuPortal>
-    </DropdownMenuSub>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          size="icon"
+          className="ml-auto mr-3 cursor-pointer"
+          aria-label="Filter Inventory"
+        >
+          <ListFilter />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        {getItems().map((parentItem, parentIndex) => (
+          <div
+            key={`ParentTypeFragment-${
+              ParentType[parentItem.parentType]
+            }-${parentIndex}`}
+          >
+            {parentItem.types.length > 1 ? (
+              <DropdownMenuSub
+                key={`ParentType-${
+                  ParentType[parentItem.parentType]
+                }-${parentIndex}`}
+              >
+                <DropdownMenuSubTrigger>
+                  <DropdownMenuCheckboxItem className="w-full">
+                    {ParentType[parentItem.parentType].replace(/_/g, " ")}
+                  </DropdownMenuCheckboxItem>
+                </DropdownMenuSubTrigger>
+                <DropdownMenuPortal>
+                  <DropdownMenuSubContent>
+                    {parentItem.types.map((inventoryType, inventoryIndex) => (
+                      <DropdownMenuCheckboxItem
+                        key={`InventoryType-${inventoryType}-${inventoryIndex}`}
+                      >
+                        {InventoryTypeNames[inventoryType]}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                  </DropdownMenuSubContent>
+                </DropdownMenuPortal>
+              </DropdownMenuSub>
+            ) : (
+              <DropdownMenuCheckboxItem className="w-full">
+                {InventoryTypeNames[parentItem.types[0]]}
+              </DropdownMenuCheckboxItem>
+            )}
+          </div>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 

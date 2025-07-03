@@ -1,7 +1,7 @@
 import { InventoryType } from "@/enums/Type";
 
 export default interface InventoryDropdownProps {
-  setFilter: (
+  setFilterOld: (
     type: InventoryType,
     column: string,
     value: string,
@@ -10,7 +10,7 @@ export default interface InventoryDropdownProps {
     subColumn?: string,
     subValue?: string
   ) => void;
-  getChecked: (
+  getCheckedOld: (
     type: InventoryType,
     column: string,
     value: string,
@@ -18,8 +18,4 @@ export default interface InventoryDropdownProps {
     subColumn?: string,
     subValue?: string
   ) => boolean;
-  type: InventoryType;
-  subType?: InventoryType;
-  name: string;
-  subName?: string;
 }
