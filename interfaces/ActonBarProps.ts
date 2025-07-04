@@ -5,21 +5,13 @@ import { ChangeEvent } from "react";
 
 export default interface ActionBarProps {
   setFilter: (
-    type: InventoryType,
+    type: InventoryType | InventoryType[],
     column: string,
-    value: string,
-    checked: boolean,
-    subType?: InventoryType,
-    subColumn?: string,
-    subValue?: string
+    checked: boolean
   ) => void;
   getChecked: (
-    type: InventoryType,
-    column: string,
-    value: string,
-    subType?: InventoryType,
-    subColumn?: string,
-    subValue?: string
+    type: InventoryType | InventoryType[],
+    column: string
   ) => boolean;
   handleDeselectAll: (table: tableDef) => () => void;
   handleSearchChange: (

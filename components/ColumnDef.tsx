@@ -179,6 +179,13 @@ export const columns: ColumnDef<BaseItem>[] = [
   },
   {
     accessorKey: "ItemType",
+    filterFn: (row, columnId, filterValue) => {
+      const value = row.getValue(columnId);
+      if (Array.isArray(filterValue)) {
+        return filterValue.includes(value?.toString());
+      }
+      return value?.toString() === filterValue;
+    },
     header: ({ column }) => {
       return (
         <div className="flex justify-center">

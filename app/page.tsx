@@ -58,7 +58,6 @@ export default function Home() {
           <AlertDescription>
             <p>Currently under development:</p>
             <ul className="list-inside list-disc text-sm">
-              <li>Filters</li>
               <li>Search by type</li>
             </ul>
           </AlertDescription>

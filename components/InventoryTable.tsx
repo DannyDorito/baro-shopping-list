@@ -117,68 +117,42 @@ const InventoryTable = (props: InventoryTableProps) => {
   const setFilter = (
     type: InventoryType | InventoryType[],
     column: string,
-    value: string | string[],
-    checked: boolean,
-    subType?: InventoryType,
-    subColumn?: string,
-    subValue?: string
+    checked: boolean
   ) => {
     table.resetColumnFilters();
-    if (Array.isArray(type) && Array.isArray(value)) {
-      // Parent with multiple inventory types
-      const filterValues = checked ? value.map((v) => v.toString()) : undefined;
-      table.getColumn(column)?.setFilterValue(filterValues);
+    if (Array.isArray(type)) {
+      table
+        .getColumn(column)
+        ?.setFilterValue(checked ? type.map((t) => t.toString()) : undefined);
     } else {
-      const filterValue = checked
-        ? (type as InventoryType)[value as keyof typeof type].toString()
-        : undefined;
-      table.getColumn(column)?.setFilterValue(filterValue);
-    }
-    if (subColumn && subValue && subType) {
-      const filterSubValue = checked
-        ? subType[subValue as keyof typeof subType].toString()
-        : undefined;
-      table.getColumn(subColumn)?.setFilterValue(filterSubValue);
+      table
+        .getColumn(column)
+        ?.setFilterValue(checked ? type.toString() : undefined);
     }
   };
 
   const getChecked = (
     type: InventoryType | InventoryType[],
-    column: string,
-    value: string | string[],
-    subType?: InventoryType,
-    subColumn?: string,
-    subValue?: string
+    column: string
   ) => {
-    if (Array.isArray(type) && Array.isArray(value)) {
-      // Parent with multiple inventory types
-      const filterValues = table
-        .getColumn(column)
-        ?.getFilterValue() as string[];
-      return (
-        Array.isArray(filterValues) &&
-        value.every((v) => filterValues.includes(v.toString()))
-      );
-    }
-    const filterType = (type as InventoryType)[
-      value as keyof typeof type
-    ].toString();
-    const filterValue = table.getColumn(column)?.getFilterValue() as string;
-
-    if (subType && subColumn && subValue) {
-      const filterSubType =
-        subType[subValue as keyof typeof subType].toString();
-      const filterSubValue = table
-        .getColumn(subColumn)
-        ?.getFilterValue() as string;
-
-      if (filterType === filterValue && !filterSubValue) {
-        return true;
+    const filterValue = table.getColumn(column)?.getFilterValue();
+    if (Array.isArray(type)) {
+      // Parent: check if all child types are included in filterValue
+      if (Array.isArray(filterValue)) {
+        return type.every((t) => filterValue.includes(t.toString()));
+      } else if (typeof filterValue === "string") {
+        return type.every((t) => filterValue === t.toString());
       }
-      return filterType === filterValue && filterSubType === filterSubValue;
+      return false;
+    } else {
+      // Single
+      if (Array.isArray(filterValue)) {
+        return filterValue.includes(type.toString());
+      } else if (typeof filterValue === "string") {
+        return filterValue === type.toString();
+      }
+      return false;
     }
-
-    return filterType === filterValue;
   };
 
   const handleDeselectAll = (table: tableDef) => () => {

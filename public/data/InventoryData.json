@@ -665,7 +665,7 @@
     "Credits": 175000,
     "Link": "Astral Twilight",
     "Image": "AstralTwilightMod.png",
-    "ItemType": 0,
+    "ItemType": 26,
     "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-12-11",
@@ -1130,7 +1130,7 @@
     "Credits": 150000,
     "Link": "Buzz Kill",
     "Image": "BuzzKillMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-05-16T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-05-06",
@@ -1295,7 +1295,7 @@
     "Credits": 250000,
     "Link": "Collision Force",
     "Image": "CollisionForceMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-01-24T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2016-04-22",
@@ -1342,7 +1342,7 @@
     "Credits": 115000,
     "Link": "Combo Fury",
     "Image": "ComboFuryMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-02-21T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-11-20",
@@ -1370,7 +1370,7 @@
     "Credits": 115000,
     "Link": "Combo Killer",
     "Image": "ComboKillerMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-01-24T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-12-18",
@@ -1555,7 +1555,7 @@
     "Credits": 200000,
     "Link": "Crash Course",
     "Image": "CrashCourseMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-02-23T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2016-04-22",
@@ -2680,7 +2680,7 @@
     "Credits": 150000,
     "Link": "Fanged Fusillade",
     "Image": "FangedFusilladeMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-12-13T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-11-27",
@@ -2788,7 +2788,7 @@
     "Credits": 220000,
     "Link": "Full Contact",
     "Image": "FullContactMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-07-12T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-04-22",
@@ -3423,7 +3423,7 @@
     "Credits": 150000,
     "Link": "High Voltage",
     "Image": "HighVoltageMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-02-07T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-07-24",
@@ -3814,7 +3814,7 @@
     "Credits": 150000,
     "Link": "Jolt",
     "Image": "JoltMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-06-26",
@@ -6789,7 +6789,7 @@
     "Credits": 150000,
     "Link": "Maim",
     "Image": "MaimMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-08-23T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-05-06",
@@ -6998,7 +6998,7 @@
     "Credits": 115000,
     "Link": "Mark of the Beast",
     "Image": "MarkoftheBeastMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-12-27T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2021-03-12",
@@ -8062,7 +8062,7 @@
     "Credits": 200000,
     "Link": "Peculiar Audience",
     "Image": "PeculiarAudienceMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-06-27T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -8155,7 +8155,7 @@
     "Credits": 200000,
     "Link": "Primed Ammo Stock",
     "Image": "PrimedAmmoStockMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-04-18T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-11-05",
@@ -8180,7 +8180,7 @@
     "Credits": 200000,
     "Link": "Primed Animal Instinct",
     "Image": "PrimedAnimalInstinctMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-04-04T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2019-05-17",
@@ -8216,7 +8216,7 @@
     "Credits": 140000,
     "Link": "Primed Bane of Corpus",
     "Image": "PrimedBaneofCorpusMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-06-27T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-03-11",
@@ -8275,7 +8275,7 @@
     "Credits": 140000,
     "Link": "Primed Bane of Grineer",
     "Image": "PrimedBaneofGrineerMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-01-10T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2016-04-07",
@@ -8321,7 +8321,7 @@
     "Credits": 140000,
     "Link": "Primed Bane of Infested",
     "Image": "PrimedBaneofInfestedMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-11-29T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2016-03-11",
@@ -8368,7 +8368,7 @@
     "Credits": 140000,
     "Link": "Primed Bane of Orokin",
     "Image": "PrimedBaneofOrokinMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-11-01T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2017-09-22",
@@ -8407,7 +8407,7 @@
     "Credits": 1000000,
     "Link": "Primed Chamber",
     "Image": "PrimedChamberMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2022-06-17T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -8422,7 +8422,7 @@
     "Credits": 200000,
     "Link": "Primed Charged Shell",
     "Image": "PrimedChargedShellMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-30T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2018-11-02",
@@ -8461,7 +8461,7 @@
     "Credits": 125000,
     "Link": "Primed Chilling Grasp",
     "Image": "PrimedChillingGraspMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-06-13T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-04-23",
@@ -8489,7 +8489,7 @@
     "Credits": 140000,
     "Link": "Primed Cleanse Corpus",
     "Image": "PrimedCleanseCorpusMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-12-13T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-06-19",
@@ -8518,7 +8518,7 @@
     "Credits": 140000,
     "Link": "Primed Cleanse Grineer",
     "Image": "PrimedCleanseGrineerMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-01-10T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-06-19",
@@ -8547,7 +8547,7 @@
     "Credits": 140000,
     "Link": "Primed Cleanse Infested",
     "Image": "PrimedCleanseInfestedMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-12-13T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-06-19",
@@ -8574,7 +8574,7 @@
     "Credits": 140000,
     "Link": "Primed Cleanse Orokin",
     "Image": "PrimedCleanseOrokinMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-03-21T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-06-19",
@@ -8602,7 +8602,7 @@
     "Credits": 100000,
     "Link": "Primed Continuity",
     "Image": "PrimedContinuityMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-03-21T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-05-01",
@@ -8663,7 +8663,7 @@
     "Credits": 175000,
     "Link": "Primed Convulsion",
     "Image": "PrimedConvulsionMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-04-04T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -8680,7 +8680,7 @@
     "Credits": 220000,
     "Link": "Primed Counterbalance",
     "Image": "PrimedCounterbalanceMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-02T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -8694,7 +8694,7 @@
     "Credits": 110000,
     "Link": "Primed Cryo Rounds",
     "Image": "PrimedCryoRoundsMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-16T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-12-16",
@@ -8743,7 +8743,7 @@
     "Credits": 300000,
     "Link": "Primed Deadly Efficiency",
     "Image": "PrimedDeadlyEfficiencyMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-02T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -8760,7 +8760,7 @@
     "Credits": 250000,
     "Link": "Primed Dual Rounds",
     "Image": "PrimedDualRoundsMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-04-04T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -8776,7 +8776,7 @@
     "Credits": 140000,
     "Link": "Primed Expel Corpus",
     "Image": "PrimedExpelCorpusMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-06-14T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2018-11-16",
@@ -8811,7 +8811,7 @@
     "Credits": 140000,
     "Link": "Primed Expel Grineer",
     "Image": "PrimedExpelGrineerMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-02-21T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2018-11-16",
@@ -8844,7 +8844,7 @@
     "Credits": 140000,
     "Link": "Primed Expel Infested",
     "Image": "PrimedExpelInfestedMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-02-07T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2018-11-16",
@@ -8877,7 +8877,7 @@
     "Credits": 140000,
     "Link": "Primed Expel Orokin",
     "Image": "PrimedExpelOrokinMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-02T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2018-11-16",
@@ -8910,7 +8910,7 @@
     "Credits": 120000,
     "Link": "Primed Fast Hands",
     "Image": "PrimedFastHandsMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-11-01T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-05-29",
@@ -8962,7 +8962,7 @@
     "Credits": 200000,
     "Link": "Primed Fever Strike",
     "Image": "PrimedFeverStrikeMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-06-27T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2017-12-29",
@@ -9009,7 +9009,7 @@
     "Credits": 175000,
     "Link": "Primed Firestorm",
     "Image": "PrimedFirestormMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-02T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-01-15",
@@ -9037,7 +9037,7 @@
     "Credits": 110000,
     "Link": "Primed Flow",
     "Image": "PrimedFlowMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-30T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-05-15",
@@ -9096,7 +9096,7 @@
     "Credits": 175000,
     "Link": "Primed Fulmination",
     "Image": "PrimedFulminationMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-16T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-01-15",
@@ -9125,7 +9125,7 @@
     "Credits": 175000,
     "Link": "Primed Heated Charge",
     "Image": "PrimedHeatedChargeMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-16T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-06-12",
@@ -9181,7 +9181,7 @@
     "Credits": 100000,
     "Link": "Primed Heavy Trauma",
     "Image": "PrimedHeavyTraumaMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-11-15T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-03-20",
@@ -9231,7 +9231,7 @@
     "Credits": 200000,
     "Link": "Primed Magazine Warp",
     "Image": "PrimedMagazineWarpMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-09-06T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-10-08",
@@ -9258,7 +9258,7 @@
     "Credits": 150000,
     "Link": "Primed Morphic Transformer",
     "Image": "PrimedMorphicTransformerMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-02T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-12-25",
@@ -9309,7 +9309,7 @@
     "Credits": 200000,
     "Link": "Primed Pack Leader",
     "Image": "PrimedPackLeaderMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-01-10T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2019-09-13",
@@ -9343,7 +9343,7 @@
     "Credits": 140000,
     "Link": "Primed Pistol Ammo Mutation",
     "Image": "PrimedPistolAmmoMutationMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-10-04T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-06-26",
@@ -9397,7 +9397,7 @@
     "Credits": 220000,
     "Link": "Primed Pistol Gambit",
     "Image": "PrimedPistolGambitMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-06-13T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-09-04",
@@ -9459,7 +9459,7 @@
     "Credits": 110000,
     "Link": "Primed Point Blank",
     "Image": "PrimedPointBlankMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-16T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-03-06",
@@ -9518,7 +9518,7 @@
     "Credits": 300000,
     "Link": "Primed Pressure Point",
     "Image": "PrimedPressurePointMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-06-13T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-08-12",
@@ -9571,7 +9571,7 @@
     "Credits": 120000,
     "Link": "Primed Quickdraw",
     "Image": "PrimedQuickdrawMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-04-04T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2018-09-07",
@@ -9612,7 +9612,7 @@
     "Credits": 100000,
     "Link": "Primed Ravage",
     "Image": "PrimedRavageMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-02-20",
@@ -9669,7 +9669,7 @@
     "Credits": 220000,
     "Link": "Primed Reach",
     "Image": "PrimedReachMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-02T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-04-17",
@@ -9729,7 +9729,7 @@
     "Credits": 225000,
     "Link": "Primed Redirection",
     "Image": "PrimedRedirectionMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-03-21T00:00:00+00:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -9747,7 +9747,7 @@
     "Credits": 220000,
     "Link": "Primed Regen",
     "Image": "PrimedRegenMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-06-13T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2017-02-24",
@@ -9795,7 +9795,7 @@
     "Credits": 140000,
     "Link": "Primed Rifle Ammo Mutation",
     "Image": "PrimedRifleAmmoMutationMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-06-27T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-01-22",
@@ -9843,7 +9843,7 @@
     "Credits": 175000,
     "Link": "Primed Rubedo-Lined Barrel",
     "Image": "PrimedRubedo-LinedBarrelMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-30T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2020-07-31",
@@ -9873,7 +9873,7 @@
     "Credits": 140000,
     "Link": "Primed Shotgun Ammo Mutation",
     "Image": "PrimedShotgunAmmoMutationMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-05-31T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-01-22",
@@ -9919,7 +9919,7 @@
     "Credits": 200000,
     "Link": "Primed Slip Magazine",
     "Image": "PrimedSlipMagazineMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-12-27T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2015-07-10",
@@ -9974,7 +9974,7 @@
     "Credits": 140000,
     "Link": "Primed Smite Corpus",
     "Image": "PrimedSmiteCorpusMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-01-31",
@@ -10004,7 +10004,7 @@
     "Credits": 140000,
     "Link": "Primed Smite Grineer",
     "Image": "PrimedSmiteGrineerMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-11-29T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-01-31",
@@ -10033,7 +10033,7 @@
     "Credits": 140000,
     "Link": "Primed Smite Infested",
     "Image": "PrimedSmiteInfestedMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2024-11-29T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-01-31",
@@ -10061,7 +10061,7 @@
     "Credits": 140000,
     "Link": "Primed Smite Orokin",
     "Image": "PrimedSmiteOrokinMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-16T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2020-01-31",
@@ -10089,7 +10089,7 @@
     "Credits": 130000,
     "Link": "Primed Smite The Murmur",
     "Image": "PrimedSmiteTheMurmurMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-06-27T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -10103,7 +10103,7 @@
     "Credits": 140000,
     "Link": "Primed Sniper Ammo Mutation",
     "Image": "PrimedSniperAmmoMutationMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-05-30T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2022-04-08"
@@ -10125,7 +10125,7 @@
     "Credits": 220000,
     "Link": "Primed Stabilizer",
     "Image": "PrimedStabilizerMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-04-18T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -10139,7 +10139,7 @@
     "Credits": 220000,
     "Link": "Primed Steady Hands",
     "Image": "PrimedSteadyHandsMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-04-18T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
@@ -10154,7 +10154,7 @@
     "Credits": 140000,
     "Link": "Primed Tactical Pump",
     "Image": "PrimedTacticalPumpMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2021-07-30",
@@ -10181,7 +10181,7 @@
     "Credits": 150000,
     "Link": "Primed Target Cracker",
     "Image": "PrimedTargetCrackerMod.png",
-    "ItemType": 0,
+    "ItemType": 25,
     "LatestOfferingDate": "2025-03-21T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2016-01-08",
@@ -12240,7 +12240,7 @@
     "Credits": 150000,
     "Link": "Pummel",
     "Image": "PummelMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-11-01T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2016-04-22",
@@ -13157,7 +13157,7 @@
     "Credits": 150000,
     "Link": "Scattering Inferno",
     "Image": "ScatteringInfernoMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-01-26T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2017-11-03",
@@ -13296,7 +13296,7 @@
     "Credits": 150000,
     "Link": "Scorch (Mod)",
     "Image": "ScorchMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-08-09T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2017-11-17",
@@ -13374,7 +13374,7 @@
     "Credits": 150000,
     "Link": "Shell Shock",
     "Image": "ShellShockMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-05-02T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-08-07",
@@ -13511,7 +13511,7 @@
     "Credits": 200000,
     "Link": "Split Flights",
     "Image": "SplitFlightsMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2020-05-08",
@@ -13664,7 +13664,7 @@
     "Credits": 150000,
     "Link": "Sweeping Serration",
     "Image": "SweepingSerrationMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-05-31T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-05-06",
@@ -13896,7 +13896,7 @@
     "Credits": 175000,
     "Link": "Tempo Royale",
     "Image": "TempoRoyaleMod.png",
-    "ItemType": 0,
+    "ItemType": 26,
     "LatestOfferingDate": "2025-04-04T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-12-25",
@@ -14066,7 +14066,7 @@
     "Credits": 150000,
     "Link": "Thermite Rounds",
     "Image": "ThermiteRoundsMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-04-05T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2017-11-03",
@@ -14317,7 +14317,7 @@
     "Credits": 175000,
     "Link": "Vermillion Storm",
     "Image": "VermillionStormMod.png",
-    "ItemType": 0,
+    "ItemType": 26,
     "LatestOfferingDate": "2025-06-13T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-12-11",
@@ -14513,7 +14513,7 @@
     "Credits": 150000,
     "Link": "Volcanic Edge",
     "Image": "VolcanicEdgeMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2024-12-27T00:00:00+00:00",
     "ConsoleOfferingDates": [
       "2017-11-17",
@@ -14552,7 +14552,7 @@
     "Credits": 150000,
     "Link": "Voltaic Strike",
     "Image": "VoltaicStrikeMod.png",
-    "ItemType": 0,
+    "ItemType": 24,
     "LatestOfferingDate": "2025-06-27T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-07-10",
