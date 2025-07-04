@@ -1,10 +1,8 @@
 "use client";
 
 import { Footer } from "@/components/Footer";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useLocal } from "@/lib/useLocal";
-import { AlertCircleIcon } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { toast, useSonner } from "sonner";
@@ -51,18 +49,6 @@ export default function Home() {
         Void Trader Observer
       </h1>
       <h2>Baro Item Checklist</h2>
-      <div className="container mx-auto pt-8">
-        <Alert variant="destructive">
-          <AlertCircleIcon />
-          <AlertTitle>This website is currently under development and subject to change</AlertTitle>
-          <AlertDescription>
-            <p>Currently under development:</p>
-            <ul className="list-inside list-disc text-sm">
-              <li>Search by type</li>
-            </ul>
-          </AlertDescription>
-        </Alert>
-      </div>
       <div className="container mx-auto pt-8">
         <InventoryTable acceptedToast={acceptedToast} />
       </div>
