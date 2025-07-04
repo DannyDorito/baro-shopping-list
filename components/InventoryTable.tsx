@@ -69,9 +69,9 @@ const InventoryTable = (props: InventoryTableProps) => {
         Ducats: true,
         Credits: true,
         Link: debug,
+        LastOfferingDate: true,
         Image: debug,
         ItemType: debug,
-        LastOfferingDate: debug,
       },
     },
   });
