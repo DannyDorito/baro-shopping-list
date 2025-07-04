@@ -65,13 +65,13 @@ const InventoryTable = (props: InventoryTableProps) => {
     },
     initialState: {
       columnVisibility: {
-        name: true,
-        ducats: true,
-        credits: true,
-        link: debug,
-        image: debug,
-        itemType: debug,
-        lastOfferingDate: debug,
+        Name: true,
+        Ducats: true,
+        Credits: true,
+        Link: debug,
+        Image: debug,
+        ItemType: debug,
+        LastOfferingDate: debug,
       },
     },
   });

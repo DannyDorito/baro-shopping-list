@@ -68,7 +68,7 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => (
       <Link
-        href={`https://wiki.warframe.com/?search=${row.getValue("Name")}`}
+        href={`https://wiki.warframe.com/w/${(row.getValue("Link") as string).replace(' ', '_')}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -206,6 +206,27 @@ export const columns: ColumnDef<BaseItem>[] = [
       return <div className="text-center">{InventoryType[itemType]}</div>;
     },
   },
+  {
+    accessorKey: "Link",
+    header: ({ column }) => {
+      return (
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by link"
+            className="cursor-pointer"
+          >
+            Link
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
+      );
+    },
+    cell: ({ row }) => {
+      return <div className="text-center">{row.getValue("Link")}</div>;
+    },
+  }
 ];
 
 export type tableDef = Table<{
