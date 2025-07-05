@@ -73,7 +73,7 @@ const InventoryTable = (props: InventoryTableProps) => {
         LastOfferingDate: true,
         Image: debug,
         ItemType: debug,
-        ConsoleOfferingDate: debug,
+        ConsoleOfferingDates: debug,
         PCOfferingDates: debug,
         OfferingsDates: debug,
       },
