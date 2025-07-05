@@ -7,13 +7,17 @@ import { Input } from "./ui/input";
 import DeselectAll from "./DeselectAll";
 import { useMediaQuery } from "react-responsive";
 import ActionBarProps from "@/interfaces/ActonBarProps";
+import { Export } from "./Export";
 
 const ActionBar = (props: ActionBarProps) => {
   const isSm = useMediaQuery({ query: "(max-width: 1224px)" });
 
   return (
     <div className="flex items-center py-4">
-      <InventoryDropdown setFilter={props.setFilter} getChecked={props.getChecked}/>
+      <InventoryDropdown
+        setFilter={props.setFilter}
+        getChecked={props.getChecked}
+      />
       <Input
         placeholder="Search"
         value={
@@ -36,6 +40,12 @@ const ActionBar = (props: ActionBarProps) => {
         count={props.table.getFilteredSelectedRowModel().rows.length}
         open={props.openDeselectAll}
         setOpen={props.setOpenDeselectAll}
+      />
+      <Export
+        count={props.table.getFilteredSelectedRowModel().rows.length}
+        open={props.openExport}
+        setOpen={props.setOpenExport}
+        rowSelection={props.table.getSelectedRowModel().flatRows}
       />
     </div>
   );

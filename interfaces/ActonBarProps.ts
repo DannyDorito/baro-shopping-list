@@ -21,6 +21,8 @@ export default interface ActionBarProps {
   table: tableDef;
   setOpenDeselectAll: (open: boolean) => void;
   openDeselectAll: boolean;
+  setOpenExport: (open: boolean) => void;
+  openExport: boolean;
   setRowSelection: (rowSelection: object) => void;
   columnFilters: ColumnFiltersState;
 }

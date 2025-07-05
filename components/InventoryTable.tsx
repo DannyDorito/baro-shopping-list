@@ -46,6 +46,7 @@ const InventoryTable = (props: InventoryTableProps) => {
   const [credits, setCredits] = useState<number>(0);
 
   const [openDeselectAll, setOpenDeselectAll] = useState(false);
+  const [openExport, setOpenExport] = useState(false);
 
   const table: tableDef = useReactTable({
     data,
@@ -181,6 +182,8 @@ const InventoryTable = (props: InventoryTableProps) => {
         table={table}
         setOpenDeselectAll={setOpenDeselectAll}
         openDeselectAll={openDeselectAll}
+        openExport={openExport}
+        setOpenExport={setOpenExport}
         setRowSelection={setRowSelection}
         columnFilters={columnFilters}
       />
