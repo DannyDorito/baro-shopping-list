@@ -89,7 +89,7 @@ export const columns: ColumnDef<BaseItem>[] = [
         target="_blank"
         rel="noopener noreferrer"
       >
-        <p className="underline decoration-(--muted)">{row.getValue("Name")}</p>
+        <p className="underline decoration-(--muted-foreground)">{row.getValue("Name")}</p>
       </Link>
     ),
     enableResizing: false,
@@ -196,10 +196,10 @@ export const columns: ColumnDef<BaseItem>[] = [
       ) : (
         <HoverCard>
           <HoverCardTrigger>
-            <div className="text-center">{latestOfferingDate}</div>
+            <div className="text-center underline decoration-(--muted-foreground)">{latestOfferingDate}</div>
           </HoverCardTrigger>
           <HoverCardContent>
-            <span className="text-center underline decoration-(--muted)">All Dates</span>
+            <span className="text-center underline decoration-(--muted-foreground)">All Dates</span>
             <ScrollArea className="">
               <ul className="list-inside list-disc text-sm">
                 {getSortedDatesDecending(
