@@ -271,6 +271,27 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
   },
   {
+    accessorKey: "Image",
+    header: ({ column }) => {
+      return (
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by image"
+            className="cursor-pointer"
+          >
+            Image
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
+      );
+    },
+    cell: ({ row }) => {
+      return <div className="text-center">{row.getValue("Image")}</div>;
+    },
+  },
+  {
     accessorKey: "ConsoleOfferingDates",
     header: ({ column }) => {
       return (
