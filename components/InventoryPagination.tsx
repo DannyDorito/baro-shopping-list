@@ -43,6 +43,7 @@ const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
       <SelectTrigger className="w-30">
         <SelectValue
           placeholder={`Show ${table.getState().pagination.pageSize}`}
+          aria-label="Select Page Size"
         />
       </SelectTrigger>
       <SelectContent>
@@ -50,6 +51,7 @@ const InventoryPagination = ({ table }: { table: Table<BaseItem> }) => (
           <SelectItem
             key={`size-${pageSize}-${index}`}
             value={pageSize.toString()}
+            aria-label="Select Page Size Option"
           >
             Show {pageSize}
           </SelectItem>
