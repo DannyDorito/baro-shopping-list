@@ -177,7 +177,7 @@ export const columns: ColumnDef<BaseItem>[] = [
       const isStaticDate = date.toISOString() === "0001-01-01T00:00:00.000Z";
       if (isStaticDate) {
         const name = row.getValue("Name") as string;
-        if (name === "Sands of Inaros Blueprint") {
+        if (["Sands of Inaros Blueprint", 'Void Surplus'].includes(name)) {
           latestOfferingDate = <span>Always Available</span>;
         } else if (name === "Fae Path Ephemera") {
           latestOfferingDate = (
