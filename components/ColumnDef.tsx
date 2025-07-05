@@ -199,8 +199,8 @@ export const columns: ColumnDef<BaseItem>[] = [
             <div className="text-center">{latestOfferingDate}</div>
           </HoverCardTrigger>
           <HoverCardContent>
-            <span className="text-center">All Dates</span>
-            <ScrollArea className="h-[200px] rounded-md border p-4">
+            <span className="text-center underline decoration-(--muted)">All Dates</span>
+            <ScrollArea className="">
               <ul className="list-inside list-disc text-sm">
                 {getSortedDatesDecending(
                   row.getValue("ConsoleOfferingDates") as string[],
