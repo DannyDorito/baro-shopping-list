@@ -11,6 +11,8 @@ import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
 import Link from "next/link";
 import { InventoryType } from "@/enums/Type";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
 export const getSortingArrow = (
   sorting: false | SortDirection
@@ -21,6 +23,19 @@ export const getSortingArrow = (
     false: <ArrowUpDown />,
   };
   return icons[sorting || "false"];
+};
+
+export const getSortedDatesDecending = (
+  ConsoleOfferingDates: string[],
+  PCOfferingDates: string[],
+  OfferingsDates: string[]
+): string[] => {
+  const allDates = [
+    ...ConsoleOfferingDates,
+    ...PCOfferingDates,
+    ...OfferingsDates,
+  ];
+  return allDates.sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
 };
 
 export const columns: ColumnDef<BaseItem>[] = [
@@ -68,7 +83,9 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => (
       <Link
-        href={`https://wiki.warframe.com/w/${(row.getValue("Link") as string).replace(' ', '_')}`}
+        href={`https://wiki.warframe.com/w/${(
+          row.getValue("Link") as string
+        ).replace(" ", "_")}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -157,8 +174,8 @@ export const columns: ColumnDef<BaseItem>[] = [
     cell: ({ row }) => {
       const date = new Date(row.getValue("LatestOfferingDate"));
       let latestOfferingDate: string | JSX.Element;
-
-      if (date.toISOString() === "0001-01-01T00:00:00.000Z") {
+      const isStaticDate = date.toISOString() === "0001-01-01T00:00:00.000Z";
+      if (isStaticDate) {
         const name = row.getValue("Name") as string;
         if (name === "Sands of Inaros Blueprint") {
           latestOfferingDate = <span>Always Available</span>;
@@ -174,7 +191,33 @@ export const columns: ColumnDef<BaseItem>[] = [
       } else {
         latestOfferingDate = date.toLocaleDateString();
       }
-      return <div className="text-center">{latestOfferingDate}</div>;
+      return isStaticDate ? (
+        <div className="text-center">{latestOfferingDate}</div>
+      ) : (
+        <HoverCard>
+          <HoverCardTrigger>
+            <div className="text-center">{latestOfferingDate}</div>
+          </HoverCardTrigger>
+          <HoverCardContent>
+            <span className="text-center">All Dates</span>
+            <ScrollArea className="h-[200px] rounded-md border p-4">
+              <ul className="list-inside list-disc text-sm">
+                {getSortedDatesDecending(
+                  row.getValue("ConsoleOfferingDates") as string[],
+                  row.getValue("PCOfferingDates") as string[],
+                  row.getValue("OfferingsDates") as string[]
+                ).map((date, index) => (
+                  <li key={index}>
+                    {new Date(date).toLocaleDateString()}
+                    {index === 0 ? <em>&nbsp;(Latest)</em> : ""}
+                  </li>
+                ))}
+              </ul>
+              <ScrollBar orientation="vertical" />
+            </ScrollArea>
+          </HoverCardContent>
+        </HoverCard>
+      );
     },
   },
   {
@@ -226,7 +269,78 @@ export const columns: ColumnDef<BaseItem>[] = [
     cell: ({ row }) => {
       return <div className="text-center">{row.getValue("Link")}</div>;
     },
-  }
+  },
+  {
+    accessorKey: "ConsoleOfferingDates",
+    header: ({ column }) => {
+      return (
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by ConsoleOfferingDates"
+            className="cursor-pointer"
+          >
+            ConsoleOfferingDates
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
+      );
+    },
+    cell: ({ row }) => {
+      return (
+        <div className="text-center">
+          {row.getValue("ConsoleOfferingDates")}
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "PCOfferingDates",
+    header: ({ column }) => {
+      return (
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by PCOfferingDates"
+            className="cursor-pointer"
+          >
+            PCOfferingDates
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
+      );
+    },
+    cell: ({ row }) => {
+      return (
+        <div className="text-center">{row.getValue("PCOfferingDates")}</div>
+      );
+    },
+  },
+  {
+    accessorKey: "OfferingsDates",
+    header: ({ column }) => {
+      return (
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            aria-label="Sort by OfferingsDates"
+            className="cursor-pointer"
+          >
+            OfferingsDates
+            {getSortingArrow(column.getIsSorted())}
+          </Button>
+        </div>
+      );
+    },
+    cell: ({ row }) => {
+      return (
+        <div className="text-center">{row.getValue("OfferingsDates")}</div>
+      );
+    },
+  },
 ];
 
 export type tableDef = Table<{
