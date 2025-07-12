@@ -768,7 +768,7 @@
     "Link": "Axi A5",
     "Image": "AxiRelicIntact.png",
     "ItemType": 31,
-    "LatestOfferingDate": "2025-06-13T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2019-02-22",
       "2019-03-08",
@@ -796,7 +796,8 @@
       "2023-10-20",
       "2024-06-28",
       "2025-05-02",
-      "2025-06-13"
+      "2025-06-13",
+      "2025-07-11"
     ]
   },
   {
@@ -1031,7 +1032,7 @@
     "Link": "K-Drive#Others",
     "Image": "BlueKiteerSafariKDriveScrawl.png",
     "ItemType": 9,
-    "LatestOfferingDate": "2025-04-25T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2020-05-22",
       "2020-11-06",
@@ -1051,7 +1052,8 @@
       "2023-06-30",
       "2024-02-23",
       "2024-11-15",
-      "2025-04-25"
+      "2025-04-25",
+      "2025-07-11"
     ]
   },
   {
@@ -1626,11 +1628,12 @@
     "Link": "Somachord",
     "Image": "DanteUnboundLoginMusic.png",
     "ItemType": 30,
-    "LatestOfferingDate": "2025-02-07T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
     "OfferingsDates": [
-      "2025-02-07"
+      "2025-02-07",
+      "2025-07-11"
     ]
   },
   {
@@ -1703,7 +1706,7 @@
     "Link": "Orbiter Decorations#Prex",
     "Image": "DeimosCarnisPrex.png",
     "ItemType": 21,
-    "LatestOfferingDate": "2024-08-09T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-04-09",
       "2021-12-31",
@@ -1720,7 +1723,8 @@
       "2022-08-26",
       "2023-02-24",
       "2023-11-03",
-      "2024-08-09"
+      "2024-08-09",
+      "2025-07-11"
     ]
   },
   {
@@ -2378,7 +2382,7 @@
     "Link": "Color Picker Extension#Eminence",
     "Image": "Eminence.png",
     "ItemType": 3,
-    "LatestOfferingDate": "2024-11-29T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2018-09-21",
       "2019-01-25",
@@ -2414,7 +2418,8 @@
       "2024-01-12",
       "2024-05-31",
       "2024-10-18",
-      "2024-11-29"
+      "2024-11-29",
+      "2025-07-11"
     ]
   },
   {
@@ -2856,7 +2861,7 @@
     ]
   },
   {
-    "Name": "Garv \u0026 Latrox Poster",
+    "Name": "Garv \u0026amp; Latrox Poster",
     "Ducats": 80,
     "Credits": 100000,
     "Link": "Orbiter Decorations#Posters",
@@ -3736,12 +3741,13 @@
     "Link": "Orbiter Decorations#Miscellaneous",
     "Image": "JaviEvolutionScrawling.png",
     "ItemType": 21,
-    "LatestOfferingDate": "2024-07-26T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
     "OfferingsDates": [
       "2023-12-01",
-      "2024-07-26"
+      "2024-07-26",
+      "2025-07-11"
     ]
   },
   {
@@ -3815,7 +3821,7 @@
     "Link": "Jolt",
     "Image": "JoltMod.png",
     "ItemType": 24,
-    "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-06-26",
       "2015-11-13",
@@ -3860,7 +3866,8 @@
       "2024-04-19",
       "2024-05-17",
       "2024-11-15",
-      "2025-03-07"
+      "2025-03-07",
+      "2025-07-11"
     ]
   },
   {
@@ -4474,7 +4481,7 @@
     "Link": "Syandana",
     "Image": "Ki'teerDiaxSyandana.png",
     "ItemType": 18,
-    "LatestOfferingDate": "2025-04-25T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-08-26",
       "2016-12-16",
@@ -4528,7 +4535,8 @@
       "2024-06-28",
       "2024-11-15",
       "2025-03-21",
-      "2025-04-25"
+      "2025-04-25",
+      "2025-07-11"
     ]
   },
   {
@@ -4827,7 +4835,7 @@
     "Link": "Armor (Cosmetic)",
     "Image": "Ki'teerGrethChestPlate.png",
     "ItemType": 6,
-    "LatestOfferingDate": "2025-04-25T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
     "OfferingsDates": [
@@ -4840,7 +4848,8 @@
       "2024-02-23",
       "2024-09-20",
       "2025-03-07",
-      "2025-04-25"
+      "2025-04-25",
+      "2025-07-11"
     ]
   },
   {
@@ -4850,7 +4859,7 @@
     "Link": "Armor (Cosmetic)",
     "Image": "Ki'teerGrethLegPlates.png",
     "ItemType": 6,
-    "LatestOfferingDate": "2025-04-25T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
     "OfferingsDates": [
@@ -4863,7 +4872,8 @@
       "2024-02-23",
       "2024-09-20",
       "2025-03-07",
-      "2025-04-25"
+      "2025-04-25",
+      "2025-07-11"
     ]
   },
   {
@@ -4873,7 +4883,7 @@
     "Link": "Armor (Cosmetic)",
     "Image": "Ki'teerGrethShoulderPlates.png",
     "ItemType": 6,
-    "LatestOfferingDate": "2025-04-25T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
     "OfferingsDates": [
@@ -4886,7 +4896,8 @@
       "2024-02-23",
       "2024-09-20",
       "2025-03-07",
-      "2025-04-25"
+      "2025-04-25",
+      "2025-07-11"
     ]
   },
   {
@@ -5529,7 +5540,7 @@
     "Link": "Operator/Customization#Facial Accessories",
     "Image": "Ki'teerSoloEarpiece.png",
     "ItemType": 14,
-    "LatestOfferingDate": "2025-04-25T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-11-18",
       "2017-01-27",
@@ -5577,7 +5588,8 @@
       "2024-01-12",
       "2024-07-26",
       "2025-01-24",
-      "2025-04-25"
+      "2025-04-25",
+      "2025-07-11"
     ]
   },
   {
@@ -5701,7 +5713,7 @@
     "Link": "Weapon Cosmetics#Sugatra",
     "Image": "KiTeerSugatra.png",
     "ItemType": 20,
-    "LatestOfferingDate": "2025-04-25T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2017-02-24",
       "2017-07-28",
@@ -5747,7 +5759,8 @@
       "2023-11-17",
       "2024-07-26",
       "2025-01-24",
-      "2025-04-25"
+      "2025-04-25",
+      "2025-07-11"
     ]
   },
   {
@@ -6653,7 +6666,7 @@
     "Link": "Machete Syachid Skin",
     "Image": "MacheteSyachidSkin.png",
     "ItemType": 20,
-    "LatestOfferingDate": "2025-02-07T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2019-09-27",
       "2020-01-03",
@@ -6686,7 +6699,8 @@
       "2023-09-22",
       "2024-02-09",
       "2024-08-09",
-      "2025-02-07"
+      "2025-02-07",
+      "2025-07-11"
     ]
   },
   {
@@ -7375,7 +7389,7 @@
     "Link": "Kavat Cosmetics#Gene-Masking Kits",
     "Image": "KavatNexusBundle.png",
     "ItemType": 10,
-    "LatestOfferingDate": "2024-10-04T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2017-04-21",
       "2017-09-22",
@@ -7417,7 +7431,8 @@
       "2023-01-13",
       "2023-08-25",
       "2024-02-09",
-      "2024-10-04"
+      "2024-10-04",
+      "2025-07-11"
     ]
   },
   {
@@ -7773,7 +7788,7 @@
     "Link": "Opticor Vandal",
     "Image": "OpticorVandal.png",
     "ItemType": 32,
-    "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-08-13",
       "2021-12-17",
@@ -7790,7 +7805,8 @@
       "2023-09-08",
       "2024-05-03",
       "2024-11-01",
-      "2025-03-07"
+      "2025-03-07",
+      "2025-07-11"
     ]
   },
   {
@@ -8126,7 +8142,7 @@
     "Link": "Orbiter Decorations#Miscellaneous",
     "Image": "PedestalUmbra.png",
     "ItemType": 21,
-    "LatestOfferingDate": "2024-09-20T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2020-09-25",
       "2021-03-12",
@@ -8146,7 +8162,8 @@
       "2022-08-26",
       "2023-04-07",
       "2023-12-29",
-      "2024-09-20"
+      "2024-09-20",
+      "2025-07-11"
     ]
   },
   {
@@ -8695,7 +8712,7 @@
     "Link": "Primed Cryo Rounds",
     "Image": "PrimedCryoRoundsMod.png",
     "ItemType": 25,
-    "LatestOfferingDate": "2025-05-16T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-12-16",
       "2017-04-07",
@@ -8734,7 +8751,8 @@
       "2023-11-03",
       "2024-09-06",
       "2025-02-07",
-      "2025-05-16"
+      "2025-05-16",
+      "2025-07-11"
     ]
   },
   {
@@ -9232,7 +9250,7 @@
     "Link": "Primed Magazine Warp",
     "Image": "PrimedMagazineWarpMod.png",
     "ItemType": 25,
-    "LatestOfferingDate": "2024-09-06T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-10-08",
       "2022-03-25"
@@ -9249,7 +9267,8 @@
       "2023-05-05",
       "2023-11-03",
       "2024-04-05",
-      "2024-09-06"
+      "2024-09-06",
+      "2025-07-11"
     ]
   },
   {
@@ -9613,7 +9632,7 @@
     "Link": "Primed Ravage",
     "Image": "PrimedRavageMod.png",
     "ItemType": 25,
-    "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-02-20",
       "2015-08-21",
@@ -9660,7 +9679,8 @@
       "2023-09-22",
       "2024-02-23",
       "2024-08-09",
-      "2025-03-07"
+      "2025-03-07",
+      "2025-07-11"
     ]
   },
   {
@@ -10155,7 +10175,7 @@
     "Link": "Primed Tactical Pump",
     "Image": "PrimedTacticalPumpMod.png",
     "ItemType": 25,
-    "LatestOfferingDate": "2025-03-07T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-07-30",
       "2021-12-31",
@@ -10172,7 +10192,8 @@
       "2024-03-08",
       "2024-11-01",
       "2024-12-27",
-      "2025-03-07"
+      "2025-03-07",
+      "2025-07-11"
     ]
   },
   {
@@ -10864,7 +10885,7 @@
     "Link": "Prisma Grinlok",
     "Image": "PrismaGrinlok.png",
     "ItemType": 32,
-    "LatestOfferingDate": "2025-04-11T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2019-04-19",
       "2019-09-27",
@@ -10895,7 +10916,8 @@
       "2024-11-29",
       "2024-12-27",
       "2025-04-04",
-      "2025-04-11"
+      "2025-04-11",
+      "2025-07-11"
     ]
   },
   {
@@ -11266,7 +11288,7 @@
     "Link": "Prisma Lenz",
     "Image": "PrismaLenz.png",
     "ItemType": 32,
-    "LatestOfferingDate": "2025-04-11T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
     "OfferingsDates": [
@@ -11276,7 +11298,8 @@
       "2024-12-13",
       "2024-12-27",
       "2025-04-04",
-      "2025-04-11"
+      "2025-04-11",
+      "2025-07-11"
     ]
   },
   {
@@ -12318,7 +12341,7 @@
     "Link": "Weapon Cosmetics#Sugatra",
     "Image": "PyraSugatra.png",
     "ItemType": 20,
-    "LatestOfferingDate": "2025-01-24T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2015-04-03",
       "2015-06-26",
@@ -12370,7 +12393,8 @@
       "2023-03-24",
       "2023-12-01",
       "2024-07-26",
-      "2025-01-24"
+      "2025-01-24",
+      "2025-07-11"
     ]
   },
   {
@@ -12380,7 +12404,7 @@
     "Link": "Quanta Aufeis Skin",
     "Image": "QuantaAufeisSkin.png",
     "ItemType": 20,
-    "LatestOfferingDate": "2025-01-24T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-03-11",
       "2016-07-29",
@@ -12433,7 +12457,8 @@
       "2023-10-20",
       "2024-02-23",
       "2024-07-26",
-      "2025-01-24"
+      "2025-01-24",
+      "2025-07-11"
     ]
   },
   {
@@ -12549,11 +12574,12 @@
     "Link": "Orbiter Decorations#Displays",
     "Image": "RathuumDisplay.png",
     "ItemType": 21,
-    "LatestOfferingDate": "2024-09-20T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [],
     "PCOfferingDates": [],
     "OfferingsDates": [
-      "2024-09-20"
+      "2024-09-20",
+      "2025-07-11"
     ]
   },
   {
@@ -12563,7 +12589,7 @@
     "Link": "Redeemer Elixis Skin",
     "Image": "ElixisRedeemerSkin.png",
     "ItemType": 20,
-    "LatestOfferingDate": "2025-04-25T00:00:00+01:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2016-02-05",
       "2016-07-01",
@@ -12613,7 +12639,8 @@
       "2023-12-15",
       "2024-05-31",
       "2024-12-13",
-      "2025-04-25"
+      "2025-04-25",
+      "2025-07-11"
     ]
   },
   {
@@ -13197,7 +13224,7 @@
     "Link": "Scimitar#Skins",
     "Image": "ScimitarCydoniaSkin.png",
     "ItemType": 12,
-    "LatestOfferingDate": "2025-02-07T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2019-05-03",
       "2019-08-16",
@@ -13229,7 +13256,8 @@
       "2023-12-15",
       "2024-04-05",
       "2024-08-09",
-      "2025-02-07"
+      "2025-02-07",
+      "2025-07-11"
     ]
   },
   {
@@ -13786,7 +13814,7 @@
     "Link": "Tannukai Longsword Skin",
     "Image": "TannukaiLongswordSkin.png",
     "ItemType": 20,
-    "LatestOfferingDate": "2025-01-24T00:00:00+00:00",
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
     "ConsoleOfferingDates": [
       "2021-12-03",
       "2022-06-03"
@@ -13801,7 +13829,8 @@
       "2023-10-06",
       "2024-02-09",
       "2024-07-26",
-      "2025-01-24"
+      "2025-01-24",
+      "2025-07-11"
     ]
   },
   {
@@ -13871,6 +13900,20 @@
       "2024-01-26",
       "2024-10-18",
       "2024-12-13"
+    ]
+  },
+  {
+    "Name": "Techrot Glyph",
+    "Ducats": 98,
+    "Credits": 1901,
+    "Link": "Glyph#Other Glyphs",
+    "Image": "TechrotGlyph.png",
+    "ItemType": 23,
+    "LatestOfferingDate": "2025-07-11T00:00:00+01:00",
+    "ConsoleOfferingDates": [],
+    "PCOfferingDates": [],
+    "OfferingsDates": [
+      "2025-07-11"
     ]
   },
   {
