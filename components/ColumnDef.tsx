@@ -196,7 +196,7 @@ export const columns: ColumnDef<BaseItem>[] = [
       ) : (
         <HoverCard>
           <HoverCardTrigger>
-            <div className="text-center underline decoration-(--muted-foreground)">{latestOfferingDate}</div>
+            <div className="text-center underline decoration-(--muted-foreground) cursor-pointer">{latestOfferingDate}</div>
           </HoverCardTrigger>
           <HoverCardContent>
             <span className="text-center underline decoration-(--muted-foreground)">All Dates</span>
