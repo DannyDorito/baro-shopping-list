@@ -58,8 +58,12 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                 }-${parentIndex}`}
               >
                 <DropdownMenuSubTrigger>
-                  <span
-                    className="focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4 w-full"
+                  <button
+                    type="button"
+                    role="menuitemcheckbox"
+                    aria-checked={props.getChecked(parentItem.types, "ItemType")}
+                    tabIndex={0}
+                    className="focus:bg-accent focus:text-accent-foreground relative flex cursor-pointer items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4 w-full"
                     onClick={() => {
                       props.setFilter(
                         parentItem.types,
@@ -68,6 +72,17 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                       );
                       setOpen(false);
                     }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        props.setFilter(
+                          parentItem.types,
+                          "ItemType",
+                          !props.getChecked(parentItem.types, "ItemType")
+                        );
+                        setOpen(false);
+                      }
+                    }}
                   >
                     <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
                       {props.getChecked(parentItem.types, "ItemType") && (
@@ -75,7 +90,7 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                       )}
                     </span>
                     {ParentType[parentItem.parentType].replace(/_/g, " ")}
-                  </span>
+                  </button>
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent>

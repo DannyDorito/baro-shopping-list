@@ -207,7 +207,7 @@ export const columns: ColumnDef<BaseItem>[] = [
                   row.getValue("PCOfferingDates") as string[],
                   row.getValue("OfferingsDates") as string[]
                 ).map((date, index) => (
-                  <li key={index}>
+                  <li key={date}>
                     {new Date(date).toLocaleDateString()}
                     {index === 0 ? <em>&nbsp;(Latest)</em> : ""}
                   </li>
