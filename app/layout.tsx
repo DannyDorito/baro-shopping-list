@@ -25,8 +25,43 @@ export const metadata: Metadata = {
     "Baro Ki'Teer Inventory Management App",
     "Baro Ki'Teer Inventory Checklist App",
     "Baro Ki'Teer Inventory Management Tool",
+    // Added for SEO
+    "Warframe Baro Ki'Teer",
+    "Warframe Baro Checklist",
+    "Warframe Baro Shopping List",
+    "Warframe Void Trader",
+    "Baro Ki'Teer Tracker",
+    "Baro Ki'Teer Guide",
+    "Baro Ki'Teer Offerings",
+    "Warframe Event Tracker",
+    "Warframe Prime Items",
+    "Warframe Ducats"
   ],
-  authors: [{ name: "John Allison", url: "https://jallison.co.uk"}]
+  authors: [{ name: "John Allison", url: "https://jallison.co.uk"}],
+  openGraph: {
+    title: "Baro Ki'Teer Item Checklist",
+    description: "A comprehensive checklist and shopping list for all Baro Ki'Teer items in Warframe. Track, plan, and never miss a rare offering.",
+    url: "https://voidtrader.observer",
+    siteName: "Baro Ki'Teer Item Checklist",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Baro Ki'Teer Item Checklist",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Baro Ki'Teer Item Checklist",
+    description: "A comprehensive checklist and shopping list for all Baro Ki'Teer items in Warframe. Track, plan, and never miss a rare offering.",
+    site: "@voidtraderapp",
+    creator: "@voidtraderapp",
+    images: ["/images/Ducats.png"],
+  },
 };
 
 const RootLayout = ({
