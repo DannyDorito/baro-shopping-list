@@ -143,5 +143,9 @@
     "Zariman",
     "Zealoid",
     "Zylok"
-  ]
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "dannydorito",
+    "projectKey": "DannyDorito_baro-shopping-list"
+  }
 }
