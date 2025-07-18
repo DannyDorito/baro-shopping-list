@@ -11,7 +11,18 @@ export const Footer = ({ hideFeedback }: { hideFeedback?: boolean }) => {
     <div className="flex min-h-fit flex-col items-center overflow-hidden">
       {!hideFeedback && <Feedback open={open} setOpen={setOpen} />}
       <p className="leading-7 [&:not(:first-child)]:mt-6 text-center">
-        Created in&nbsp;
+        Created By&nbsp;
+        <Link
+          href="https://github.com/DannyDorito"
+          target="_blank"
+          hrefLang="en-gb"
+          rel="noopener noreferrer"
+          className="underline"
+          aria-label="Danny Dorito's GitHub"
+        >
+          Danny_Dorito
+        </Link>
+        .&nbsp;Using&nbsp;
         <Link
           href="https://code.visualstudio.com"
           target="_blank"
@@ -57,7 +68,7 @@ export const Footer = ({ hideFeedback }: { hideFeedback?: boolean }) => {
         </Link>
         .
       </p>
-      <p className="flex items-center">
+      <p className="text-center">
         This site is not affiliated with Digital Extremes.
       </p>
     </div>
