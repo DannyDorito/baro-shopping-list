@@ -710,6 +710,18 @@
     ]
   },
   {
+    "Name": "Ava-Clem Community Glyph",
+    "Ducats": 20,
+    "Credits": 33333,
+    "Link": "Glyph#Other Glyphs",
+    "Image": "Ava-ClemCommunityGlyph.png",
+    "ItemType": 23,
+    "LatestOfferingDate": "0001-01-01T00:00:00+00:00",
+    "ConsoleOfferingDates": [],
+    "PCOfferingDates": [],
+    "OfferingsDates": []
+  },
+  {
     "Name": "Axi A2 Relic",
     "Ducats": 50,
     "Credits": 45000,
@@ -2788,6 +2800,18 @@
     ]
   },
   {
+    "Name": "Flare Varleon & Lizzie Poster Display",
+    "Ducats": 90,
+    "Credits": 125000,
+    "Link": "Orbiter Decorations#Displays",
+    "Image": "FlareVarleon&LizziePosterDisplay.png",
+    "ItemType": 21,
+    "LatestOfferingDate": "0001-01-01T00:00:00+00:00",
+    "ConsoleOfferingDates": [],
+    "PCOfferingDates": [],
+    "OfferingsDates": []
+  },
+  {
     "Name": "Full Contact",
     "Ducats": 365,
     "Credits": 220000,
@@ -2861,7 +2885,7 @@
     ]
   },
   {
-    "Name": "Garv \u0026amp; Latrox Poster",
+    "Name": "Garv & Latrox Poster",
     "Ducats": 80,
     "Credits": 100000,
     "Link": "Orbiter Decorations#Posters",
