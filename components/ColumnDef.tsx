@@ -89,7 +89,9 @@ export const columns: ColumnDef<BaseItem>[] = [
         target="_blank"
         rel="noopener noreferrer"
       >
-        <p className="underline decoration-(--muted-foreground)">{row.getValue("Name")}</p>
+        <p className="underline decoration-(--muted-foreground)">
+          {row.getValue("Name")}
+        </p>
       </Link>
     ),
     enableResizing: false,
@@ -177,15 +179,22 @@ export const columns: ColumnDef<BaseItem>[] = [
       const isStaticDate = date.toISOString() === "0001-01-01T00:00:00.000Z";
       if (isStaticDate) {
         const name = row.getValue("Name") as string;
-        if (["Sands of Inaros Blueprint", 'Void Surplus'].includes(name)) {
+        if (["Sands of Inaros Blueprint", "Void Surplus"].includes(name)) {
           latestOfferingDate = <span>Always Available</span>;
         } else if (name === "Fae Path Ephemera") {
           latestOfferingDate = (
             <span>
-              Always Available <em>(Console)</em>
+              {date.toLocaleDateString()}&nbsp;Always Available <em>(Console)</em>
             </span>
           );
-        } else {
+        } else if (["Dragon Mod Pack", "Falcon Mod Pack"].includes(name)) {
+          latestOfferingDate = (
+            <span>
+              {date.toLocaleDateString()}&nbsp;Removed from Baro
+            </span>
+          );
+        }
+        else {
           latestOfferingDate = <em>See Wiki</em>;
         }
       } else {
@@ -196,10 +205,14 @@ export const columns: ColumnDef<BaseItem>[] = [
       ) : (
         <HoverCard>
           <HoverCardTrigger>
-            <div className="text-center underline decoration-(--muted-foreground) cursor-pointer">{latestOfferingDate}</div>
+            <div className="text-center underline decoration-(--muted-foreground) cursor-pointer">
+              {latestOfferingDate}
+            </div>
           </HoverCardTrigger>
           <HoverCardContent>
-            <span className="text-center underline decoration-(--muted-foreground)">All Dates</span>
+            <span className="text-center underline decoration-(--muted-foreground)">
+              All Dates
+            </span>
             <ScrollArea className="">
               <ul className="list-inside list-disc text-sm">
                 {getSortedDatesDecending(
