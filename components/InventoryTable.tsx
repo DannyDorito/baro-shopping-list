@@ -20,7 +20,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
-import { data } from "@/data/InventoryData";
 import Image from "next/image";
 import Ducats from "../public/images/Ducats.png";
 import Credits from "../public/images/Credits.png";
@@ -30,11 +29,12 @@ import InventoryTableProps from "@/interfaces/InventoryTableProps";
 import ActionBar from "./ActionBar";
 import { InventoryType } from "@/enums/Type";
 import { debug } from "@/lib/utils";
+import { useInventoryData } from "@/data/InventoryData";
 
 const InventoryTable = (props: InventoryTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([
     {
-      id: "Name",
+      id: "name",
       desc: false,
     },
   ]);
@@ -48,8 +48,10 @@ const InventoryTable = (props: InventoryTableProps) => {
   const [openDeselectAll, setOpenDeselectAll] = useState(false);
   const [openExport, setOpenExport] = useState(false);
 
+  const { inventoryData, error } = useInventoryData();
+
   const table: tableDef = useReactTable({
-    data,
+    data: inventoryData,
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
@@ -66,16 +68,16 @@ const InventoryTable = (props: InventoryTableProps) => {
     },
     initialState: {
       columnVisibility: {
-        Name: true,
-        Ducats: true,
-        Credits: true,
-        LastOfferingDate: true,
-        Link: debug,
-        Image: debug,
-        ItemType: debug,
-        ConsoleOfferingDates: debug,
-        PCOfferingDates: debug,
-        OfferingsDates: debug,
+        name: true,
+        ducats: true,
+        credits: true,
+        lastOfferingDate: true,
+        link: debug,
+        image: debug,
+        itemType: debug,
+        consoleOfferingDates: debug,
+        pCOfferingDates: debug,
+        offeringsDates: debug,
       },
     },
   });
@@ -88,8 +90,8 @@ const InventoryTable = (props: InventoryTableProps) => {
     let credits = 0;
 
     selectedRows.forEach((sr) => {
-      ducats += sr.Ducats;
-      credits += sr.Credits;
+      ducats += sr.ducats;
+      credits += sr.credits;
     });
 
     return { ducats, credits };
@@ -167,7 +169,7 @@ const InventoryTable = (props: InventoryTableProps) => {
 
   const handleSearchChange =
     (table: tableDef) => (event: ChangeEvent<HTMLInputElement>) => {
-      table.getColumn("Name")?.setFilterValue(event.target.value);
+      table.getColumn("name")?.setFilterValue(event.target.value);
     };
 
   const handleClearFilters = (table: tableDef) => () => {
@@ -233,7 +235,7 @@ const InventoryTable = (props: InventoryTableProps) => {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results found.
+                  {error ? ` ${error}` : "No results found."}
                 </TableCell>
               </TableRow>
             )}

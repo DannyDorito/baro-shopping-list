@@ -21,7 +21,7 @@ const ActionBar = (props: ActionBarProps) => {
       <Input
         placeholder="Search"
         value={
-          (props.table.getColumn("Name")?.getFilterValue() as string) ?? ""
+          (props.table.getColumn("name")?.getFilterValue() as string) ?? ""
         }
         onChange={props.handleSearchChange(props.table)}
         className="min-w-24"

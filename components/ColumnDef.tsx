@@ -26,14 +26,14 @@ export const getSortingArrow = (
 };
 
 export const getSortedDatesDecending = (
-  ConsoleOfferingDates: string[],
-  PCOfferingDates: string[],
-  OfferingsDates: string[]
+  consoleOfferingDates: string[],
+  pCOfferingDates: string[],
+  offeringsDates: string[]
 ): string[] => {
   const allDates = [
-    ...ConsoleOfferingDates,
-    ...PCOfferingDates,
-    ...OfferingsDates,
+    ...consoleOfferingDates,
+    ...pCOfferingDates,
+    ...offeringsDates,
   ];
   return allDates.sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
 };
@@ -65,7 +65,7 @@ export const columns: ColumnDef<BaseItem>[] = [
     enableResizing: false,
   },
   {
-    accessorKey: "Name",
+    accessorKey: "name",
     header: ({ column }) => {
       return (
         <div>
@@ -84,20 +84,20 @@ export const columns: ColumnDef<BaseItem>[] = [
     cell: ({ row }) => (
       <Link
         href={`https://wiki.warframe.com/w/${(
-          row.getValue("Link") as string
+          row.getValue("link") as string
         ).replace(" ", "_")}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         <p className="underline decoration-(--muted-foreground)">
-          {row.getValue("Name")}
+          {row.getValue("name")}
         </p>
       </Link>
     ),
     enableResizing: false,
   },
   {
-    accessorKey: "Ducats",
+    accessorKey: "ducats",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -122,12 +122,12 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => (
       <div className="text-center">
-        {parseInt(row.getValue("Ducats")).toLocaleString(undefined)}
+        {parseInt(row.getValue("ducats")).toLocaleString(undefined)}
       </div>
     ),
   },
   {
-    accessorKey: "Credits",
+    accessorKey: "credits",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -152,12 +152,12 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => (
       <div className="text-center">
-        {parseInt(row.getValue("Credits")).toLocaleString(undefined)}
+        {parseInt(row.getValue("credits")).toLocaleString(undefined)}
       </div>
     ),
   },
   {
-    accessorKey: "LatestOfferingDate",
+    accessorKey: "latestOfferingDate",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -174,27 +174,25 @@ export const columns: ColumnDef<BaseItem>[] = [
       );
     },
     cell: ({ row }) => {
-      const date = new Date(row.getValue("LatestOfferingDate"));
+      const date = new Date(row.getValue("latestOfferingDate"));
       let latestOfferingDate: string | JSX.Element;
       const isStaticDate = date.toISOString() === "0001-01-01T00:00:00.000Z";
       if (isStaticDate) {
-        const name = row.getValue("Name") as string;
+        const name = row.getValue("name") as string;
         if (["Sands of Inaros Blueprint", "Void Surplus"].includes(name)) {
           latestOfferingDate = <span>Always Available</span>;
         } else if (name === "Fae Path Ephemera") {
           latestOfferingDate = (
             <span>
-              {date.toLocaleDateString()}&nbsp;Always Available <em>(Console)</em>
+              {date.toLocaleDateString()}&nbsp;Always Available{" "}
+              <em>(Console)</em>
             </span>
           );
         } else if (["Dragon Mod Pack", "Falcon Mod Pack"].includes(name)) {
           latestOfferingDate = (
-            <span>
-              {date.toLocaleDateString()}&nbsp;Removed from Baro
-            </span>
+            <span>{date.toLocaleDateString()}&nbsp;Removed from Baro</span>
           );
-        }
-        else {
+        } else {
           latestOfferingDate = <em>See Wiki</em>;
         }
       } else {
@@ -216,9 +214,9 @@ export const columns: ColumnDef<BaseItem>[] = [
             <ScrollArea className="">
               <ul className="list-inside list-disc text-sm">
                 {getSortedDatesDecending(
-                  row.getValue("ConsoleOfferingDates") as string[],
-                  row.getValue("PCOfferingDates") as string[],
-                  row.getValue("OfferingsDates") as string[]
+                  (row.getValue("consoleOfferingDates") as string[]) || [],
+                  (row.getValue("pCOfferingDates") as string[]) || [],
+                  (row.getValue("offeringsDates") as string[]) || []
                 ).map((date, index) => (
                   <li key={date}>
                     {new Date(date).toLocaleDateString()}
@@ -234,7 +232,7 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
   },
   {
-    accessorKey: "ItemType",
+    accessorKey: "itemType",
     filterFn: (row, columnId, filterValue) => {
       const value = row.getValue(columnId);
       if (Array.isArray(filterValue)) {
@@ -258,12 +256,12 @@ export const columns: ColumnDef<BaseItem>[] = [
       );
     },
     cell: ({ row }) => {
-      const itemType = row.getValue("ItemType") as InventoryType;
+      const itemType = row.getValue("itemType") as InventoryType;
       return <div className="text-center">{InventoryType[itemType]}</div>;
     },
   },
   {
-    accessorKey: "Link",
+    accessorKey: "link",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -280,11 +278,11 @@ export const columns: ColumnDef<BaseItem>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-center">{row.getValue("Link")}</div>;
+      return <div className="text-center">{row.getValue("link")}</div>;
     },
   },
   {
-    accessorKey: "Image",
+    accessorKey: "image",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -301,11 +299,11 @@ export const columns: ColumnDef<BaseItem>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-center">{row.getValue("Image")}</div>;
+      return <div className="text-center">{row.getValue("image")}</div>;
     },
   },
   {
-    accessorKey: "ConsoleOfferingDates",
+    accessorKey: "consoleOfferingDates",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -324,23 +322,23 @@ export const columns: ColumnDef<BaseItem>[] = [
     cell: ({ row }) => {
       return (
         <div className="text-center">
-          {row.getValue("ConsoleOfferingDates")}
+          {row.getValue("consoleOfferingDates")}
         </div>
       );
     },
   },
   {
-    accessorKey: "PCOfferingDates",
+    accessorKey: "pCOfferingDates",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            aria-label="Sort by PCOfferingDates"
+            aria-label="Sort by pCOfferingDates "
             className="cursor-pointer"
           >
-            PCOfferingDates
+            pCOfferingDates
             {getSortingArrow(column.getIsSorted())}
           </Button>
         </div>
@@ -348,12 +346,12 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => {
       return (
-        <div className="text-center">{row.getValue("PCOfferingDates")}</div>
+        <div className="text-center">{row.getValue("pCOfferingDates")}</div>
       );
     },
   },
   {
-    accessorKey: "OfferingsDates",
+    accessorKey: "offeringsDates",
     header: ({ column }) => {
       return (
         <div className="flex justify-center">
@@ -371,21 +369,21 @@ export const columns: ColumnDef<BaseItem>[] = [
     },
     cell: ({ row }) => {
       return (
-        <div className="text-center">{row.getValue("OfferingsDates")}</div>
+        <div className="text-center">{row.getValue("offeringsDates")}</div>
       );
     },
   },
 ];
 
 export type tableDef = Table<{
-  Name: string;
-  Ducats: number;
-  Credits: number;
-  Link: string;
-  Image: string;
-  ItemType: InventoryType;
-  LatestOfferingDate: string;
-  ConsoleOfferingDates: string[];
-  PCOfferingDates: string[];
-  OfferingsDates: string[];
+  name: string;
+  ducats: number;
+  credits: number;
+  link: string;
+  image: string;
+  itemType: InventoryType;
+  latestOfferingDate: string;
+  consoleOfferingDates: string[];
+  pCOfferingDates: string[];
+  offeringsDates: string[];
 }>;

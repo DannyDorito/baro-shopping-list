@@ -1,14 +1,14 @@
 import { InventoryType } from "@/enums/Type";
 
 export interface BaseItem {
-  Name: string;
-  Ducats: number;
-  Credits: number;
-  Link: string;
-  Image: string;
-  ItemType: InventoryType;
-  LatestOfferingDate: string;
-  ConsoleOfferingDates: string[];
-  PCOfferingDates: string[];
-  OfferingsDates: string[];
+  name: string;
+  ducats: number;
+  credits: number;
+  link: string;
+  image: string;
+  itemType: InventoryType;
+  latestOfferingDate: string;
+  consoleOfferingDates: string[];
+  pCOfferingDates: string[];
+  offeringsDates: string[];
 }

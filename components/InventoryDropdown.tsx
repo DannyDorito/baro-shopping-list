@@ -61,14 +61,17 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                   <button
                     type="button"
                     role="menuitemcheckbox"
-                    aria-checked={props.getChecked(parentItem.types, "ItemType")}
+                    aria-checked={props.getChecked(
+                      parentItem.types,
+                      "itemType"
+                    )}
                     tabIndex={0}
                     className="focus:bg-accent focus:text-accent-foreground relative flex cursor-pointer items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4 w-full"
                     onClick={() => {
                       props.setFilter(
                         parentItem.types,
-                        "ItemType",
-                        !props.getChecked(parentItem.types, "ItemType")
+                        "itemType",
+                        !props.getChecked(parentItem.types, "itemType")
                       );
                       setOpen(false);
                     }}
@@ -77,15 +80,15 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                         e.preventDefault();
                         props.setFilter(
                           parentItem.types,
-                          "ItemType",
-                          !props.getChecked(parentItem.types, "ItemType")
+                          "itemType",
+                          !props.getChecked(parentItem.types, "itemType")
                         );
                         setOpen(false);
                       }
                     }}
                   >
                     <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
-                      {props.getChecked(parentItem.types, "ItemType") && (
+                      {props.getChecked(parentItem.types, "itemType") && (
                         <Check className="size-4 text-primary" />
                       )}
                     </span>
@@ -97,9 +100,9 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
                     {parentItem.types.map((inventoryType, inventoryIndex) => (
                       <DropdownMenuCheckboxItem
                         key={`InventoryType-${inventoryType}-${inventoryIndex}`}
-                        checked={props.getChecked(inventoryType, "ItemType")}
+                        checked={props.getChecked(inventoryType, "itemType")}
                         onCheckedChange={(checked) =>
-                          props.setFilter(inventoryType, "ItemType", checked)
+                          props.setFilter(inventoryType, "itemType", checked)
                         }
                       >
                         {InventoryTypeNames[inventoryType]}
@@ -111,9 +114,9 @@ const InventoryDropdown = (props: InventoryDropdownProps) => {
             ) : (
               <DropdownMenuCheckboxItem
                 className="w-full"
-                checked={props.getChecked(parentItem.types[0], "ItemType")}
+                checked={props.getChecked(parentItem.types[0], "itemType")}
                 onCheckedChange={(checked) =>
-                  props.setFilter(parentItem.types[0], "ItemType", checked)
+                  props.setFilter(parentItem.types[0], "itemType", checked)
                 }
               >
                 {InventoryTypeNames[parentItem.types[0]]}
