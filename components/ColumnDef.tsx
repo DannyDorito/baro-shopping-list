@@ -184,7 +184,7 @@ export const columns: ColumnDef<BaseItem>[] = [
         } else if (name === "Fae Path Ephemera") {
           latestOfferingDate = (
             <span>
-              {date.toLocaleDateString()}&nbsp;Always Available{" "}
+              {date.toISOString() !== "0001-01-01T00:00:00.000Z" && date.toLocaleDateString()}&nbsp;Always Available{" "}
               <em>(Console)</em>
             </span>
           );

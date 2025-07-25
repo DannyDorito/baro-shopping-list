@@ -109,9 +109,22 @@ const InventoryTable = (props: InventoryTableProps) => {
       if (savedSelection) {
         const deserialized = JSON.parse(savedSelection) as object;
         setRowSelection(deserialized);
+        setTimeout(() => {
+          const selectedRows = table
+            .getSelectedRowModel()
+            .rows.map((r) => r.original);
+          let ducats = 0;
+          let credits = 0;
+          selectedRows.forEach((sr) => {
+            ducats += sr.ducats;
+            credits += sr.credits;
+          });
+          setDucats(ducats);
+          setCredits(credits);
+        }, 0);
       }
     }
-  }, [props.acceptedToast]);
+  }, [props.acceptedToast, table]);
 
   useEffect(() => {
     if (props.acceptedToast) {
